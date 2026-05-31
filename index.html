@@ -18,14 +18,14 @@
             position: relative;
         }
 
-        /* 📸 A IMAGEM INTEIRA SE MEXENDO IGUAL FUMAÇA NA TELA TODA */
+        /* 📸 AGORA SIM: A SEGUNDA IMAGEM (IMG_4570.jpeg) NO FUNDO DE TUDO */
         .fundo-gengar-completo {
             position: fixed;
             top: -5%;
             left: -5%;
             width: 110%; /* Só um pouco maior para mover sem deixar borda branca */
             height: 110%;
-            background-image: url('IMG_4521.jpeg'); /* A imagem principal que você mandou */
+            background-image: url('IMG_4570.jpeg'); /* 🌟 Imagem correta aqui! */
             background-size: cover;
             background-position: center center;
             z-index: 0;
@@ -41,7 +41,7 @@
             }
             50% {
                 transform: translate(1%, 2%) scale(1.05);
-                filter: brightness(1.1) contrast(1.15); /* Dá o efeito de fogo clareando */
+                filter: brightness(1.1) contrast(1.15); 
             }
             100% {
                 transform: translate(-1.5%, 0.5%) scale(1.01);
@@ -74,7 +74,7 @@
             width: 100%;
         }
 
-        /* Estilo idêntico aos botões da primeira foto (Laranja Neon e vazados) */
+        /* Estilo idêntico aos botões da foto (Laranja Neon e vazados) */
         .btn-plataforma {
             width: 130px;
             padding: 12px 0;
@@ -99,7 +99,7 @@
 </head>
 <body>
 
-    <!-- A SUA IMAGEM PURA SE MOVIMENTANDO NO FUNDO -->
+    <!-- A IMAGEM CERTA SE MOVIMENTANDO NO FUNDO -->
     <div class="fundo-gengar-completo"></div>
 
     <!-- CONTEÚDO DO SITE -->
