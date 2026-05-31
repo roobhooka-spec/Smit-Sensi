@@ -52,7 +52,7 @@
             padding: 20px 12px;
         }
 
-        /* SELETOR DE CATEGORIAS: BOTÕES PRETOS COM TEXTO BRANCO */
+        /* SELETOR DE CATEGORIAS: TEXTO BRANCO COM BORDA VERMELHA NEON */
         .abas-categorias {
             display: flex;
             justify-content: center;
@@ -67,18 +67,19 @@
             text-transform: uppercase;
             border-radius: 8px; 
             cursor: pointer;
-            background-color: #000000; /* Fundo totalmente preto */
+            background-color: #0d0202; /* Fundo escuro */
             color: #ffffff; /* Texto branco puro */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Borda discreta */
+            border: 2px solid #ff1a1a; /* Borda vermelha marcante */
+            box-shadow: 0 0 12px rgba(255, 26, 26, 0.2); /* Brilho sutil */
             transition: all 0.3s ease;
             letter-spacing: 1.5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Efeito de clique sutil */
+        /* Efeito ao clicar no botão */
         .aba-btn:active {
             transform: scale(0.95);
-            background-color: #111111;
+            background-color: #ff1a1a;
+            box-shadow: 0 0 20px rgba(255, 26, 26, 0.6);
         }
 
         /* GRADE DE PRODUTOS QUADRADINHOS */
@@ -120,7 +121,7 @@
 
     <div class="container-loja">
         
-        <!-- Botões atualizados para Preto e Branco -->
+        <!-- Botões atualizados com borda vermelha e texto branco -->
         <div class="abas-categorias">
             <button class="aba-btn">iOS</button>
             <button class="aba-btn">Android</button>
