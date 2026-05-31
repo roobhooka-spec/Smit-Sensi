@@ -45,21 +45,34 @@
             padding: 25px 14px;
         }
 
-        /* BANNER DO TOPO COM BORDAS ROXAS */
-        .topo-banner {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 25px;
+        /* 👑 ESTILO DO LETREIRO DE BOAS-VINDAS ROXO NEON */
+        .secao-boas-vindas {
+            background: rgba(5, 2, 10, 0.85);
+            border: 2px solid rgba(160, 32, 240, 0.3);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(160, 32, 240, 0.2), inset 0 0 15px rgba(160, 32, 240, 0.1);
+            border-bottom: 4px solid #a020f0;
         }
 
-        .topo-banner img {
-            width: 100%;
-            max-width: 480px;
-            height: auto;
-            border-radius: 14px;
-            border: 2px solid #a020f0;
-            box-shadow: 0 0 25px rgba(160, 32, 240, 0.5);
+        .secao-boas-vindas h1 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(160, 32, 240, 0.8), 0 0 30px rgba(160, 32, 240, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .secao-boas-vindas p {
+            font-size: 13px;
+            color: #b3b3b3;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: bold;
         }
 
         .titulo-secao {
@@ -332,7 +345,12 @@
     <div class="site-fundo-completo"></div>
 
     <div class="container-loja">
-        <div class="topo-banner"><img src="IMG_4577.jpeg" alt="Smit Sensi"></div>
+        
+        <!-- 👑 NOVO PAINEL DE BOAS-VINDAS NO TOPO -->
+        <div class="secao-boas-vindas">
+            <h1>Seja Bem-Vindo</h1>
+            <p>Aproveite os melhores painéis do mercado</p>
+        </div>
 
         <!-- SEÇÃO VANTAGENS EXCLUSIVAS -->
         <h2 class="titulo-secao">Vantagens Exclusivas</h2>
@@ -345,75 +363,3 @@
             <div class="card-vantagem">
                 <div class="icone-vantagem">🎧</div>
                 <h3>Suporte 24h</h3>
-                <p>Atendimento 24 Horas, diretamente pelo nosso site, via WhatsApp ou Telegram.</p>
-            </div>
-            <div class="card-vantagem">
-                <div class="icone-vantagem">🛡️</div>
-                <h3>Garantia</h3>
-                <p>7 dias de garantia incondicional. Você testa o produto, se não gostar pede reembolso.</p>
-            </div>
-            <div class="card-vantagem">
-                <div class="icone-vantagem">🔄</div>
-                <h3>Atualizações Grátis</h3>
-                <p>Todas futuras atualizações sem custo, você não pagará nada pelas atualizações.</p>
-            </div>
-        </div>
-
-        <!-- COMO FUNCIONA A COMPRA -->
-        <!-- COMO FUNCIONA A COMPRA -->
-        <div class="secao-passos">
-            <h2 class="titulo-secao">Como funciona a compra?</h2>
-            <div class="card-passo"><div class="num-passo">1</div><div class="texto-passo"><h3>Escolha</h3><p>Selecione seu painel favorito e acesse o pagamento <strong>seguro</strong>.</p></div></div>
-            <div class="card-passo"><div class="num-passo">2</div><div class="texto-passo"><h3>Receba</h3><p>Link chega <strong>instantaneamente</strong> no e-mail e em "Meus Produtos".</p></div></div>
-            <div class="card-passo"><div class="num-passo">3</div><div class="texto-passo"><h3>Ative</h3><p>Suporte <strong>24h</strong> para te ajudar durante a ativação.</p></div></div>
-        </div>
-
-        <div class="divisor"></div>
-
-        <!-- FILTRAR PRODUTOS -->
-        <div class="secao-filtro">
-            <h2 class="titulo-filtro">Filtrar Produtos</h2>
-            <span class="label-grupo">Plataforma</span>
-            <div class="alinhamento-botoes">
-                <button class="btn-filtro ativo" id="btn-todos" onclick="filtro('todos')">Todos</button>
-                <button class="btn-filtro" id="btn-android" onclick="filtro('android')">Android</button>
-                <button class="btn-filtro" id="btn-ios" onclick="filtro('ios')">iOS</button>
-            </div>
-            <span class="label-grupo" style="margin-top:15px">Jogo</span>
-            <div class="alinhamento-botoes"><button class="btn-filtro ativo btn-bloqueado">Free Fire</button></div>
-        </div>
-
-        <!-- VITRINE COM TODOS OS 10 BLOCOS -->
-        <div class="grade-produtos">
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">FLUORITE</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('FLUORITE')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">MONITE</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('MONITE')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">PROXY iOS</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">BYPASS iOS</div><div class="status">Ajustes 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS iOS')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">CERTIFICADO iOS</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('CERTIFICADO iOS')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">MOD MENU ANDROID</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('MOD MENU ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">EXTERNAL ANDROID</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('EXTERNAL ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">PROXY ANDROID</div><div class="status">`🚛 Entrega imediata`</div><button class="btn-buy" onclick="buy('PROXY ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">BYPASS ANDROID</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">TROCAR CONTA</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('TROCAR CONTA')">Comprar</button></div></div>
-        </div>
-    </div>
-
-    <script>
-        function buy(item) {
-            window.open(`https://wa.me{encodeURIComponent('Olá, vim pelo site e quero fazer a: *' + item + '*')}`, '_blank');
-        }
-
-        function filtro(plat) {
-            document.querySelectorAll('.secao-filtro .btn-filtro:not(.btn-bloqueado)').forEach(b => b.classList.remove('ativo'));
-            if(document.getElementById('btn-' + plat)) document.getElementById('btn-' + plat).classList.add('ativo');
-            document.querySelectorAll('.item').forEach(p => {
-                if (plat === 'todos' || p.classList.contains(plat)) {
-                    p.classList.remove('escondido');
-                } else {
-                    p.classList.add('escondido');
-                }
-            });
-        }
-    </script>
-</body>
-</html>
