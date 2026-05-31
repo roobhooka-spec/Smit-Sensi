@@ -2,151 +2,162 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smit Sensi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SMIT SENSI - Official Store</title>
     
     <style>
-        /* Fundo escuro do site fixo */
-        body {
-            background-color: #0c0c0e;
-            color: #ffffff;
-            font-family: sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
         }
 
-        /* 💨 FUMAÇA QUE MEXE NA TELA COMPLETA (FUNDO) */
-        .fumaça-tela-cheia {
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #050000;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* 1. FUNDO COMPLETAMENTE CORRIGIDO ATÉ O TOPO ABSOLUTO DO CELULAR */
+        .site-fundo-completo {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 200%; 
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 55, 0, 0.15) 0%, rgba(0, 0, 0, 0) 60%),
-                        radial-gradient(circle at 70% 80%, rgba(255, 30, 0, 0.12) 0%, rgba(0, 0, 0, 0) 50%);
-            filter: blur(50px);
-            z-index: 0; 
-            animation: moverFumacaFundo 12s infinite ease-in-out alternate;
+            top: -60px; /* Sobe ainda mais para garantir que cobre o topo do celular */
+            left: -40px;
+            width: calc(100% + 80px);
+            height: calc(100% + 120px);
+            background-image: url('IMG_4570.jpeg');
+            background-size: cover;
+            background-position: center top; /* Alinha por cima para preencher o topo */
+            z-index: 1;
+            filter: brightness(0.45) contrast(1.4) saturate(1.5); 
+            animation: movimentoFumaca 18s ease-in-out infinite alternate;
             pointer-events: none;
         }
 
-        @keyframes moverFumacaFundo {
-            0% { transform: translate(-10%, -10%) scale(1) rotate(0deg); }
-            50% { transform: translate(5%, 10%) scale(1.2) rotate(5deg); }
-            100% { transform: translate(-5%, 0%) scale(0.95) rotate(-5deg); }
+        @keyframes movimentoFumaca {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, 15px) scale(1.02); }
         }
 
-        /* Garante que o conteúdo fique por cima da fumaça do fundo */
-        .conteudo-site {
+        /* CONTAINER PRINCIPAL */
+        .container-loja {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             width: 100%;
+            max-width: 600px; 
+            margin: 0 auto;
+            /* Adiciona espaço no topo considerando a área do relógio do celular */
+            padding: calc(15px + env(safe-area-inset-top)) 12px 30px 12px;
+        }
+
+        /* 2. BANNER DO TOPO MÉDIO (IMG_4577.jpeg) */
+        .topo-banner-master {
+            width: 100%;
+            padding-bottom: 5px;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
         }
 
-        /* Container do Banner Deitado */
-        .banner-container {
-            position: relative;
-            width: 90%;
-            max-width: 450px;
-            height: 180px; 
-            margin: 20px auto;
-            border-radius: 15px;
-            border: 2px solid #ff3700; 
-            box-shadow: 0 0 15px rgba(255, 55, 0, 0.4);
-            overflow: hidden;
-        }
-
-        /* Sua imagem de fundo do banner */
-        .banner-fundo {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: url('IMG_4570.jpeg'); 
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Botões iOS e Android */
-        .botoes-plataforma {
-            display: flex;
-            justify-content: center;
-            gap: 15px; 
-            margin: 20px 0;
-            width: 100%;
-        }
-
-        .btn-plataforma {
-            width: 120px;
-            padding: 10px 0;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: #ffffff;
-            background-color: transparent;
-            border: 2px solid #ff3700; 
-            border-radius: 8px;
-            text-align: center;
-            text-decoration: none;
-            box-shadow: 0 0 10px rgba(255, 55, 0, 0.3);
-        }
-
-        /* --- CONTAINER DOS QUADRADOS DE PRODUTOS --- */
-        .produtos-container {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            width: 90%;
-            max-width: 450px;
-            margin-top: 10px;
-        }
-
-        /* Estilo dos Cards (Preto transparente com borda da cor do tema) */
-        .card-produto {
-            flex: 1;
-            height: 200px;
-            background: rgba(18, 18, 22, 0.65); 
-            border: 2px solid #ff3700; 
+        .topo-banner-master img {
+            width: 65%; 
+            max-width: 280px; 
+            height: auto;
             border-radius: 12px;
+            border: 2px solid #ff1a1a;
+            box-shadow: 0 0 25px rgba(255, 26, 26, 0.45);
+            animation: balancoBanner 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes balancoBanner {
+            0% { transform: translateY(-4px); filter: brightness(1.05); }
+            100% { transform: translateY(4px); filter: brightness(0.95); }
+        }
+
+        /* SELETOR DE CATEGORIAS */
+        .abas-categorias {
             display: flex;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 10px;
+            gap: 15px;
+            margin: 20px 0 20px 0;
+        }
+
+        .aba-btn {
+            padding: 10px 28px;
             font-size: 13px;
             font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 8px; 
+            cursor: pointer;
+            background-color: #0d0202; 
+            color: #ffffff; 
+            border: 2px solid #ff1a1a; 
+            box-shadow: 0 0 12px rgba(255, 26, 26, 0.2); 
+            transition: all 0.3s ease;
+            letter-spacing: 1.5px;
+        }
+
+        .aba-btn:active {
+            transform: scale(0.95);
+            background-color: #ff1a1a;
+        }
+
+        /* GRADE DE PRODUTOS QUADRADINHOS */
+        .grade-produtos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .card-placeholder {
+            background: rgba(10, 2, 2, 0.85);
+            border: 1px solid rgba(255, 26, 26, 0.15);
+            border-radius: 14px;
+            aspect-ratio: 1 / 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 11px;
+            text-align: center;
+            padding: 10px;
+            text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 0 10px rgba(255, 55, 0, 0.2);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            border-bottom: 3px solid rgba(255, 26, 26, 0.3);
         }
     </style>
 </head>
 <body>
 
-    <!-- FUMAÇA SE MEXENDO POR TRÁS DE TUDO -->
-    <div class="fumaça-tela-cheia"></div>
+    <!-- Fundo estendido que resolve a faixa preta -->
+    <div class="site-fundo-completo"></div>
 
-    <!-- CONTEÚDO DO SITE -->
-    <div class="conteudo-site">
+    <div class="container-loja">
         
-        <!-- BANNER COM A SUA IMAGEM VERMELHA -->
-        <div class="banner-container">
-            <div class="banner-fundo"></div>
+        <!-- Banner centralizado com recuo correto do topo -->
+        <div class="topo-banner-master">
+            <img src="IMG_4577.jpeg" alt="SMIT SENSI LOGO">
         </div>
 
-        <!-- BOTÕES -->
-        <div class="botoes-plataforma">
-            <a href="#" class="btn-plataforma">iOS</a>
-            <a href="#" class="btn-plataforma">Android</a>
+        <!-- Botões de categoria -->
+        <div class="abas-categorias">
+            <button class="aba-btn">iOS</button>
+            <button class="aba-btn">Android</button>
         </div>
 
-        <!-- QUADRADINHOS DE PRODUTOS IGUAIS A FOTO -->
-        <div class="produtos-container">
-            <div class="card-produto">PRODUTO 1<br>(AGUARDANDO FOTO)</div>
-            <div class="card-produto">PRODUTO 2<br>(AGUARDANDO FOTO)</div>
+        <!-- Vitrine de produtos -->
+        <div class="grade-produtos">
+            <div class="card-placeholder">Produto 1<br>(Aguardando Foto)</div>
+            <div class="card-placeholder">Produto 2<br>(Aguardando Foto)</div>
+            <div class="card-placeholder">Produto 3<br>(Aguardando Foto)</div>
+            <div class="card-placeholder">Produto 4<br>(Aguardando Foto)</div>
         </div>
 
     </div>
