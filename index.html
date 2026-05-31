@@ -12,13 +12,14 @@
         }
 
         body {
-            background: #050000;
+            background: #040005;
             font-family: sans-serif;
             color: #fff;
             overflow-x: hidden;
             overflow-y: auto;
         }
 
+        /* FUNDO DE FUMAÇA EM ROXO NEON */
         .site-fundo-completo {
             position: fixed;
             top: 0;
@@ -27,7 +28,7 @@
             height: 100vh;
             background: url('IMG_4570.jpeg') center top/cover;
             z-index: 1;
-            filter: brightness(0.45) contrast(1.4) saturate(1.5);
+            filter: brightness(0.45) contrast(1.4) hue-rotate(60deg) saturate(1.5);
             animation: mov 18s ease-in-out infinite alternate;
             pointer-events: none;
         }
@@ -44,26 +45,28 @@
             padding: 35px 12px;
         }
 
+        /* BANNER DO TOPO COM BORDAS ROXAS */
         .topo-banner img {
             width: 85%;
             max-width: 400px;
             display: block;
             margin: 0 auto 20px;
             border-radius: 12px;
-            border: 2px solid #ff1a1a;
-            box-shadow: 0 0 25px rgba(255,26,26,0.45);
+            border: 2px solid #a020f0;
+            box-shadow: 0 0 25px rgba(160,32,240,0.45);
         }
 
         .titulo-secao {
             font-size: 24px;
             font-weight: 800;
-            color: #ff1a1a;
+            color: #a020f0;
             text-transform: uppercase;
             text-align: center;
             margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(255, 26, 26, 0.4);
+            text-shadow: 0 0 15px rgba(160, 32, 240, 0.4);
         }
 
+        /* SEÇÃO VANTAGENS EXCLUSIVAS (ESTILO ROXO PREMIUM) */
         .secao-vantagens {
             margin: 35px 0;
             display: grid;
@@ -73,12 +76,12 @@
         }
 
         .card-vantagem {
-            background: rgba(10, 2, 2, 0.85);
-            border: 1px solid rgba(255, 26, 26, 0.2);
+            background: rgba(5, 2, 10, 0.85);
+            border: 1px solid rgba(160, 32, 240, 0.25);
             border-radius: 12px;
             padding: 20px 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            border-bottom: 2px solid rgba(255, 26, 26, 0.4);
+            border-bottom: 2px solid rgba(160, 32, 240, 0.5);
         }
 
         .card-vantagem h3 {
@@ -96,6 +99,7 @@
             line-height: 1.4;
         }
 
+        /* SEÇÃO COMO FUNCIONA A COMPRA (ESTILO ROXO PREMIUM) */
         .secao-passos {
             margin: 35px 0;
             display: flex;
@@ -104,29 +108,29 @@
         }
 
         .card-passo {
-            background: rgba(10, 2, 2, 0.85);
-            border: 1px solid rgba(255, 26, 26, 0.2);
+            background: rgba(5, 2, 10, 0.85);
+            border: 1px solid rgba(160, 32, 240, 0.25);
             border-radius: 14px;
             padding: 18px 20px;
             display: flex;
             gap: 15px;
             align-items: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            border-bottom: 2px solid rgba(255, 26, 26, 0.4);
+            border-bottom: 2px solid rgba(160, 32, 240, 0.5);
         }
 
         .num-passo {
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff3333, #660000);
+            background: linear-gradient(135deg, #a020f0, #400080);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             font-size: 14px;
             flex-shrink: 0;
-            box-shadow: 0 0 10px rgba(255, 51, 51, 0.4);
+            box-shadow: 0 0 10px rgba(160, 32, 240, 0.5);
         }
 
         .texto-passo h3 {
@@ -145,36 +149,37 @@
         }
 
         .texto-passo strong {
-            color: #ff3333;
+            color: #a020f0;
         }
 
         .divisor {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             margin: 35px 0;
             width: 100%;
         }
 
+        /* SEÇÃO FILTRO */
         .secao-filtro {
-            background: rgba(10, 2, 2, 0.85);
-            border: 1px solid rgba(255, 26, 26, 0.2);
+            background: rgba(5, 2, 10, 0.85);
+            border: 1px solid rgba(160, 32, 240, 0.25);
             border-radius: 16px;
             padding: 20px 15px;
             text-align: center;
             margin-top: 35px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            border-bottom: 2px solid rgba(255, 26, 26, 0.4);
+            border-bottom: 2px solid rgba(160, 32, 240, 0.5);
         }
 
         .titulo-filtro {
             font-size: 24px;
-            color: #ff1a1a;
+            color: #a020f0;
             margin-bottom: 20px;
             text-transform: uppercase;
         }
 
         .label-grupo {
             font-size: 15px;
-            color: #ff1a1a;
+            color: #a020f0;
             margin-bottom: 10px;
             display: block;
             font-weight: bold;
@@ -201,10 +206,10 @@
         }
 
         .btn-filtro.ativo {
-            background: #ff1a1a;
-            color: #000;
-            border-color: #ff1a1a;
-            box-shadow: 0 0 12px #ff1a1a;
+            background: #a020f0;
+            color: #fff;
+            border-color: #a020f0;
+            box-shadow: 0 0 12px #a020f0;
         }
 
         .btn-bloqueado {
@@ -212,6 +217,7 @@
             opacity: 0.9;
         }
 
+        /* VITRINE EM 2 COLUNAS COLETIVAS */
         .grade-produtos {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -220,13 +226,13 @@
         }
 
         .card-produto {
-            background: rgba(12, 3, 3, 0.9);
-            border: 1px solid rgba(255, 26, 26, 0.2);
+            background: rgba(8, 3, 15, 0.9);
+            border: 1px solid rgba(160, 32, 240, 0.25);
             border-radius: 12px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            border-bottom: 3px solid #ff1a1a;
+            border-bottom: 3px solid #a020f0;
         }
 
         .escondido {
@@ -256,13 +262,13 @@
         }
 
         .bg-ios {
-            background: #1a1a1a;
+            background: #111;
             color: #00d2ff;
             border: 1px solid #00d2ff;
         }
 
         .bg-android {
-            background: #1a1a1a;
+            background: #111;
             color: #00ff66;
             border: 1px solid #00ff66;
         }
@@ -290,7 +296,7 @@
         }
 
         .btn-buy {
-            background: #ff1a1a;
+            background: #a020f0;
             color: #fff;
             text-align: center;
             text-decoration: none;
@@ -298,7 +304,7 @@
             font-size: 11px;
             font-weight: bold;
             border-radius: 6px;
-            border: 1px solid #ff5555;
+            border: 1px solid #c040ff;
             margin-top: auto;
             cursor: pointer;
             text-transform: uppercase;
@@ -312,6 +318,7 @@
     <div class="container-loja">
         <div class="topo-banner"><img src="IMG_4577.jpeg"></div>
 
+        <!-- SEÇÃO VANTAGENS EXCLUSIVAS (AVISOS COMPLETOS COM FUNDO ESCURO E BORDA ROXA) -->
         <div class="secao-vantagens">
             <div class="card-vantagem"><h3>Entrega Imediata</h3><p>Liberação automática após a compra. Você recebe o seu produto na hora.</p></div>
             <div class="card-vantagem"><h3>Suporte 24h</h3><p>Atendimento diretamente pelo site ou através do nosso WhatsApp.</p></div>
@@ -319,6 +326,7 @@
             <div class="card-vantagem"><h3>Atualizações</h3><p>Todas as atualizações do painel são grátis e enviadas direto no seu chat.</p></div>
         </div>
 
+        <!-- SEÇÃO COMO FUNCIONA A COMPRA (AVISOS COMPLETOS COM FUNDO ESCURO E BORDA ROXA) -->
         <div class="secao-passos">
             <h2 class="titulo-secao">Como funciona a compra?</h2>
             <div class="card-passo"><div class="num-passo">1</div><div class="texto-passo"><h3>Escolha</h3><p>Selecione seu painel favorito e acesse o pagamento <strong>seguro</strong>.</p></div></div>
@@ -328,6 +336,9 @@
 
         <div class="divisor"></div>
 
+        <!-- FILTRO DE PLUGINS -->
+        <div class="secao-filtro">
+        <!-- FILTRO DE PRODUTOS -->
         <div class="secao-filtro">
             <h2 class="titulo-filtro">Filtrar Produtos</h2>
             <span class="label-grupo">Plataforma</span>
@@ -336,17 +347,22 @@
                 <button class="btn-filtro" id="btn-android" onclick="filtro('android')">Android</button>
                 <button class="btn-filtro" id="btn-ios" onclick="filtro('ios')">iOS</button>
             </div>
+            <span class="label-grupo" style="margin-top:15px">Jogo</span>
+            <div class="alinhamento-botoes"><button class="btn-filtro ativo btn-bloqueado">Free Fire</button></div>
+        </div>
+
+        <!-- VITRINE COM TODOS OS 10 BLOCOS E EMOJI DE CAMINHÃO 🚛 -->
         <div class="grade-produtos">
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">FLUORITE</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('FLUORITE')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">MONITE</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('MONITE')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">PROXY iOS</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">BYPASS iOS</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS iOS')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">CERTIFICADO iOS</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('CERTIFICADO iOS')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">MOD MENU ANDROID</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('MOD MENU ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">EXTERNAL ANDROID</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('EXTERNAL ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">PROXY ANDROID</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">BYPASS ANDROID</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">TROCAR CONTA</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('TROCAR CONTA')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">FLUORITE</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('FLUORITE')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">MONITE</div><div class="status">Campanha 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('MONITE')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">PROXY iOS</div><div class="status">Transcription 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">BYPASS iOS</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS iOS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">CERTIFICADO iOS</div><div class="status">... 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('CERTIFICADO iOS')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">MOD MENU ANDROID</div><div class="status">Aviso 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('MOD MENU ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">EXTERNAL ANDROID</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('EXTERNAL ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">PROXY ANDROID</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">BYPASS ANDROID</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">TROCAR CONTA</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('TROCAR CONTA')">Comprar</button></div></div>
         </div>
     </div>
 
