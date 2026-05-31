@@ -4,77 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banner Animado - SMIT SENSI</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0101;
+            overflow: hidden; 
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #banner-movel {
+            position: absolute;
+            width: 300px; /* Tamanho do seu banner */
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Esse é o banner que vai se mover por todo o site -->
-    <img src="banner.jpg" id="banner-movel" alt="Banner SMIT SENSI">
+    <!-- Link direto da sua imagem hospedada -->
+    <img src="https://ibb.co" id="banner-movel" alt="Banner SMIT SENSI">
 
+    <script>
+        const banner = document.getElementById('banner-movel');
+
+        let posX = Math.random() * (window.innerWidth - 300);
+        let posY = Math.random() * (window.innerHeight - 250);
+
+        let velX = 3; 
+        let velY = 3;
+
+        function moverBanner() {
+            const larguraTela = window.innerWidth;
+            const alturaTela = window.innerHeight;
+            const larguraBanner = banner.offsetWidth;
+            const alturaBanner = banner.offsetHeight;
+
+            posX += velX;
+            posY += velY;
+
+            if (posX + larguraBanner >= larguraTela || posX <= 0) {
+                velX = -velX; 
+            }
+
+            if (posY + alturaBanner >= alturaTela || posY <= 0) {
+                velY = -velY; 
+            }
+
+            banner.style.left = posX + 'px';
+            banner.style.top = posY + 'px';
+
+            requestAnimationFrame(moverBanner);
+        }
+
+        window.addEventListener('load', moverBanner);
+
+        window.addEventListener('resize', () => {
+            if (posX + banner.offsetWidth > window.innerWidth) posX = window.innerWidth - banner.offsetWidth;
+            if (posY + banner.offsetHeight > window.innerHeight) posY = window.innerHeight - banner.offsetHeight;
+        });
+    </script>
 </body>
 </html>
-/* Remove as barras de rolagem para o banner não quebrar a tela */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #0b0101;
-    overflow: hidden; 
-    width: 100vw;
-    height: 100vh;
-}
-
-/* Configuração do banner flutuante */
-#banner-movel {
-    position: absolute;
-    width: 300px; /* Altere aqui para mudar o tamanho do banner */
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-    pointer-events: none; /* Permite clicar nas coisas atrás dele */
-}
-const banner = document.getElementById('banner-movel');
-
-// Posição inicial aleatória
-let posX = Math.random() * (window.innerWidth - 300);
-let posY = Math.random() * (window.innerHeight - 250);
-
-// Velocidade do movimento (mude os números para correr mais ou menos)
-let velX = 3; 
-let velY = 3;
-
-function moverBanner() {
-    const larguraTela = window.innerWidth;
-    const alturaTela = window.innerHeight;
-    const larguraBanner = banner.offsetWidth;
-    const alturaBanner = banner.offsetHeight;
-
-    // Atualiza a posição baseada na velocidade
-    posX += velX;
-    posY += velY;
-
-    // Colisão com as bordas laterais (esquerda e direita)
-    if (posX + larguraBanner >= larguraTela || posX <= 0) {
-        velX = -velX; // Inverte a direção horizontal
-    }
-
-    // Colisão com as bordas verticais (cima e baixo)
-    if (posY + alturaBanner >= alturaTela || posY <= 0) {
-        velY = -velY; // Inverte a direção vertical
-    }
-
-    // Aplica o movimento na tela
-    banner.style.left = posX + 'px';
-    banner.style.top = posY + 'px';
-
-    // Executa a função continuamente de forma suave
-    requestAnimationFrame(moverBanner);
-}
-
-// Inicia a animação assim que a página carrega
-window.addEventListener('load', moverBanner);
-
-// Reajusta os limites se o usuário mudar o tamanho da janela
-window.addEventListener('resize', () => {
-    if (posX + banner.offsetWidth > window.innerWidth) posX = window.innerWidth - banner.offsetWidth;
-    if (posY + banner.offsetHeight > window.innerHeight) posY = window.innerHeight - banner.offsetHeight;
-});
