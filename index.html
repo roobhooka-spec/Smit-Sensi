@@ -1,694 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMIT SENSI - Official Store</title>
-    
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SMIT SENSI</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body, html {
-            width: 100%;
-            height: 100%;
-            background-color: #050000;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #ffffff;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        /* 1. SEU FUNDO FIXO EM MOVIMENTO LENTO */
-        .site-fundo-completo {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: url('IMG_4570.jpeg');
-            background-size: cover;
-            background-position: center top;
-            z-index: 1;
-            filter: brightness(0.45) contrast(1.4) saturate(1.5); 
-            animation: movimentoFumacaFixed 18s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-
-        @keyframes movimentoFumacaFixed {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.04) translate(3px, 3px); }
-        }
-
-        /* CONTAINER PRINCIPAL */
-        .container-loja {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 600px; 
-            margin: 0 auto;
-            padding: 35px 12px 50px 12px;
-        }
-
-        /* 2. BANNER DO TOPO CENTRALIZADO E MAIOR */
-        .topo-banner-master {
-            width: 100%;
-            padding-bottom: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .topo-banner-master img {
-            width: 85%; 
-            max-width: 400px; 
-            height: auto;
-            border-radius: 12px;
-            border: 2px solid #ff1a1a;
-            box-shadow: 0 0 25px rgba(255, 26, 26, 0.45);
-            animation: balancoBanner 5s ease-in-out infinite alternate;
-        }
-
-        @keyframes balancoBanner {
-            0% { transform: translateY(-4px); filter: brightness(1.05); }
-            100% { transform: translateY(4px); filter: brightness(0.95); }
-        }
-
-        /* SEÇÃO: VANTAGENS EXCLUSIVAS (MANTIDO OS 4 QUADRADINHOS) */
-        .secao-vantagens {
-            margin: 35px 0;
-            text-align: center;
-        }
-
-        .titulo-secao {
-            font-size: 24px;
-            font-weight: 800;
-            color: #ff1a1a; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(255, 26, 26, 0.4);
-        }
-
-        .grade-vantagens {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .card-vantagem {
-            background: rgba(15, 5, 5, 0.85);
-            border: 1px solid rgba(255, 26, 26, 0.15);
-            border-radius: 12px;
-            padding: 20px 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .icone-vantagem {
-            width: 36px;
-            height: 36px;
-            margin-bottom: 12px;
-            fill: #ff1a1a; 
-            filter: drop-shadow(0 0 8px rgba(255, 26, 26, 0.6));
-        }
-
-        .card-vantagem h3 {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .card-vantagem p {
-            font-size: 11px;
-            color: #b3b3b3;
-            line-height: 1.4;
-        }
-
-        /* DIVISÓRIA */
-        .divisor {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 35px 0;
-            width: 100%;
-        }
-
-        /* =======================================================
-           NOVA SEÇÃO: COMO FUNCIONA A COMPRA? (IGUAL AO SEU PRINT)
-           ======================================================= */
-        .secao-passos {
-            margin: 35px 0;
-            width: 100%;
-        }
-
-        .grade-passos {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .card-passo {
-            background: rgba(15, 5, 5, 0.85);
-            border: 1px solid rgba(255, 26, 26, 0.12);
-            border-radius: 14px;
-            padding: 22px 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 18px;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Círculo com o número degradê estilo do print */
-        .numero-passo {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: linear-gradient(135px, #ff3333, #660000);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 16px;
-            color: #ffffff;
-            flex-shrink: 0;
-            box-shadow: 0 0 10px rgba(255, 51, 51, 0.4);
-        }
-
-        .texto-passo h3 {
-            font-size: 16px;
-            font-weight: bold;
-            color: #ff3333; /* Vermelho no tema do site */
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
-        }
-
-        .texto-passo p {
-            font-size: 12px;
-            color: #b3b3b3;
-            line-height: 1.5;
-        }
-        
-        .texto-passo strong {
-            color: #ffffff;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #050000; font-family: sans-serif; color: #fff; overflow-x: hidden; }
+        .site-fundo-completo { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: url('IMG_4570.jpeg') center top/cover; z-index: 1; filter: brightness(0.45) contrast(1.4) saturate(1.5); animation: mov 18s ease-in-out infinite alternate; pointer-events: none; }
+        @keyframes mov { 100% { transform: scale(1.04) translate(3px, 3px); } }
+        .container-loja { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; padding: 35px 12px; }
+        .topo-banner img { width: 85%; max-width: 400px; display: block; margin: 0 auto 20px; border-radius: 12px; border: 2px solid #ff1a1a; box-shadow: 0 0 25px rgba(255,26,26,0.45); }
+        .secao-vantagens { margin: 35px 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; text-align: center; }
+        .card-vantagem { background: rgba(15,5,5,0.85); border: 1px solid rgba(255,26,26,0.15); border-radius: 12px; padding: 20px 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .card-vantagem h3 { font-size: 14px; color: #ff1a1a; margin-bottom: 6px; text-transform: uppercase; }
+        .card-vantagem p { font-size: 11px; color: #b3b3b3; line-height: 1.4; }
+        .secao-passos { margin: 35px 0; display: flex; flex-direction: column; gap: 12px; }
+        .card-passo { background: rgba(15,5,5,0.85); border: 1px solid rgba(255,26,26,0.12); border-radius: 14px; padding: 15px; display: flex; gap: 15px; align-items: center; }
+        .num-passo { width: 30px; height: 30px; border-radius: 50%; background: #ff1a1a; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .texto-passo h3 { font-size: 15px; color: #ff1a1a; }
+        .texto-passo p { font-size: 12px; color: #b3b3b3; }
+        .secao-filtro { background: rgba(10,2,2,0.85); border: 1px solid rgba(255,26,26,0.1); border-radius: 16px; padding: 20px 15px; text-align: center; margin-top: 35px; }
+        .titulo-filtro { font-size: 24px; color: #ff1a1a; margin-bottom: 20px; text-transform: uppercase; }
+        .label-grupo { font-size: 15px; color: #ff1a1a; margin-bottom: 10px; display: block; font-weight: bold; }
+        .btn-filtro { padding: 8px 20px; font-size: 12px; font-weight: bold; border-radius: 20px; cursor: pointer; background: #121212; color: #666; border: 1px solid rgba(255,255,255,0.08); margin: 0 4px; }
+        .btn-filtro.ativo { background: #ff1a1a; color: #000; border-color: #ff1a1a; box-shadow: 0 0 12px #ff1a1a; }
+        .grade-produtos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 25px; }
+        .card-produto { background: rgba(12,3,3,0.9); border: 1px solid rgba(255,26,26,0.2); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; border-bottom: 3px solid #ff1a1a; }
+        .escondido { display: none !important; }
+        .foto-box { position: relative; aspect-ratio: 1/1; }
+        .foto-box img { width: 100%; height: 100%; object-fit: cover; }
+        .selo-sistema { position: absolute; top: 8px; right: 8px; padding: 3px 8px; font-size: 9px; font-weight: bold; border-radius: 4px; }
+        .bg-ios { background: #1a1a1a; color: #00d2ff; border: 1px solid #00d2ff; }
+        .bg-android { background: #1a1a1a; color: #00ff66; border: 1px solid #00ff66; }
+        .info-prod { padding: 10px; display: flex; flex-direction: column; flex-grow: 1; }
+        .nome-prod { font-size: 11px; font-weight: bold; margin-bottom: 6px; min-height: 32px; text-transform: uppercase; }
+        .status { font-size: 10px; color: #2de29b; font-weight: bold; margin-bottom: 10px; }
+        .btn-buy { background: #ff1a1a; color: #fff; text-align: center; text-decoration: none; padding: 9px; font-size: 11px; font-weight: bold; border-radius: 6px; border: 1px solid #ff5555; margin-top: auto; cursor: pointer; }
     </style>
 </head>
 <body>
-
-    <!-- Fundo de fumaça viva -->
     <div class="site-fundo-completo"></div>
-
     <div class="container-loja">
-        
-        <!-- Banner Principal -->
-        <div class="topo-banner-master">
-            <img src="IMG_4577.jpeg" alt="SMIT SENSI LOGO">
-        </div>
-
-        <!-- Seção: Vantagens Exclusivas (Os 4 quadradinhos originais mantidos) -->
+        <div class="topo-banner"><img src="IMG_4577.jpeg"></div>
         <div class="secao-vantagens">
-            <h2 class="titulo-secao">Vantagens exclusivas</h2>
-            <div class="grade-vantagens">
-                <div class="card-vantagem">
-                    <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M18 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm-12 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm15.56-7.11l-3.32-4.15c-.32-.4-.79-.64-1.3-.64H14V4c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h1c0 1.66 1.34 3 3 3s3-1.34 3-3h4c0 1.66 1.34 3 3 3s3-1.34 3-3h2c.55 0 1-.45 1-1v-4.34c0-.42-.17-.83-.44-1.11zM14 8h2.94l2.4 3H14V8z"/></svg>
-                    <h3>Entrega Imediata</h3>
-                    <p>Liberação automática após a compra. Você recebe o seu produto na hora.</p>
-                </div>
-                <div class="card-vantagem">
-                    <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
-                    <h3>Suporte 24h</h3>
-                    <p>Atendimento diretamente pelo site ou através do nosso WhatsApp.</p>
-                </div>
-                <div class="card-vantagem">
-                    <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                    <h3>Garantia</h3>
-                    <p>7 dias de garantia total. Se você testar e não gostar, seu dinheiro de volta.</p>
-                </div>
-                <div class="card-vantagem">
-                    <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
-                    <h3>Atualizações</h3>
-                    <p>Todas as atualizações do painel são grátis e enviadas direto no seu chat.</p>
-                </div>
-            </div>
+            <div class="card-vantagem"><h3>ENTREGA</h3><p>Produto enviado na hora.</p></div>
+            <div class="card-vantagem"><h3>SUPORTE</h3><p>Atendimento via WhatsApp.</p></div>
+            <div class="card-vantagem"><h3>GARANTIA</h3><p>7 dias de garantia total.</p></div>
+            <div class="card-vantagem"><h3>GRÁTIS</h3><p>Atualizações sem custos.</p></div>
         </div>
-
-        <!-- Divisória Visual -->
-        <div class="divisor"></div>
-
-        <!-- SEÇÃO ADICIONADA: Como funciona a compra? -->
         <div class="secao-passos">
-            <h2 class="titulo-secao">Como funciona a compra?</h2>
-            
-            <div class="grade-passos">
-                <!-- Passo 1 -->
-                <div class="card-passo">
-                    <div class="numero-passo">1</div>
-                    <div class="texto-passo">
-                        <h3>Escolha</h3>
-                        <p>Selecione seu painel favorito e acesse o pagamento <strong>seguro</strong>.</p>
-                    </div>
-                </div>
-
-                <!-- Passo 2 -->
-                <div class="card-passo">
-                    <div class="numero-passo">2</div>
-                    <div class="texto-passo">
-                        <h3>Receba</h3>
-                        <p>Link chega <strong>instantaneamente</strong> no e-mail e em "Meus Produtos".</p>
-                    </div>
-                </div>
-
-                <!-- Passo 3 -->
-                <div class="card-passo">
-                    <div class="numero-passo">3</div>
-                    <div class="texto-passo">
-                        <h3>Ative</h3>
-                        <p>Suporte <strong>24h</strong> para te ajudar durante a ativação.</p>
-                    </div>
-                </div>
-            </div>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Filtros - Vermelho</title>
-    
-    <style>
-        /* Fundo escuro padrão apenas para você visualizar o contraste */
-        body {
-            background-color: #050000;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* CONTAINER DO FILTRO */
-        .secao-filtro-produtos {
-            background: rgba(10, 2, 2, 0.85);
-            border: 1px solid rgba(255, 26, 26, 0.15);
-            border-radius: 16px;
-            padding: 22px 15px;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-            text-align: center;
-        }
-
-        /* Nome "Filtrar Produtos" grande em vermelho */
-        .titulo-filtro {
-            font-size: 26px;
-            font-weight: 700;
-            color: #ff1a1a; 
-            text-shadow: 0 0 10px rgba(255, 26, 26, 0.3);
-            margin-bottom: 5px;
-        }
-
-        .subtitulo-filtro {
-            font-size: 14px;
-            color: #888888;
-            margin-bottom: 25px;
-        }
-
-        .grupo-filtro {
-            margin-bottom: 20px;
-        }
-
-        /* Nomes "Plataforma" e "Jogo" em vermelho */
-        .label-grupo {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ff1a1a;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-            display: block;
-        }
-
-        .alinhamento-botoes {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        /* Botão desativado (Fundo escuro, texto cinza) */
-        .btn-filtro {
-            padding: 8px 22px;
-            font-size: 13px;
-            font-weight: bold;
-            border-radius: 20px;
-            cursor: pointer;
-            background-color: #121212;
-            color: #666666;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.25s ease;
-        }
-
-        /* BOTÃO ATIVADO EM VERMELHO NEON COM LETRA PRETA (IGUAL A ESTRUTURA DO SEU PRINT) */
-        .btn-filtro.ativo {
-            background-color: #ff1a1a;
-            color: #000000;
-            border-color: #ff1a1a;
-            box-shadow: 0 0 15px rgba(255, 26, 26, 0.5);
-        }
-
-        .btn-bloqueado {
-            cursor: not-allowed;
-            opacity: 0.9;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- ESTRUTURA DO PAINEL VERMELHO -->
-    <div class="secao-filtro-produtos">
-        <h2 class="titulo-filtro">Filtrar Produtos</h2>
-        <p class="subtitulo-filtro">Encontre exatamente o que precisa</p>
-
-        <!-- Filtro 1: Plataforma -->
-        <div class="grupo-filtro">
-            <span class="label-grupo">Plataforma</span>
+            <div class="card-passo"><div class="num-passo">1</div><div class="texto-passo"><h3>Escolha</h3><p>Selecione seu painel favorito.</p></div></div>
+            <div class="card-passo"><div class="num-passo">2</div><div class="texto-passo"><h3>Receba</h3><p>Link enviado na hora da compra.</p></div></div>
+            <div class="card-passo"><div class="num-passo">3</div><div class="texto-passo"><h3>Ative</h3><p>Suporte pronto para ajudar.</p></div></div>
+        </div>
+        <div class="secao-filtro">
+            <h2 class="titulo-filtro">Filtrar Produtos</h2><span class="label-grupo">Plataforma</span>
             <div class="alinhamento-botoes">
-                <button class="btn-filtro ativo" id="btn-todos" onclick="alternarBotao('btn-todos')">Todos</button>
-                <button class="btn-filtro" id="btn-android" onclick="alternarBotao('btn-android')">Android</button>
-                <button class="btn-filtro" id="btn-ios" onclick="alternarBotao('btn-ios')">iOS</button>
+                <button class="btn-filtro ativo" id="btn-todos" onclick="filtro('todos')">Todos</button>
+                <button class="btn-filtro" id="btn-android" onclick="filtro('android')">Android</button>
+                <button class="btn-filtro" id="btn-ios" onclick="filtro('ios')">iOS</button>
             </div>
         </div>
-
-        <!-- Filtro 2: Jogo -->
-        <div class="grupo-filtro" style="margin-bottom: 0;">
-            <span class="label-grupo">Jogo</span>
-            <div class="alinhamento-botoes">
-                <button class="btn-filtro ativo btn-bloqueado">Free Fire</button>
-            </div>
+        <div class="grade-produtos">
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">FLUORITE</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('FLUORITE')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">MONITE</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('MONITE')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">PROXY iOS</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">BYPASS iOS</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS iOS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">CERTIFICADO iOS</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('CERTIFICADO iOS')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">MOD MENU ANDROID</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('MOD MENU ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">EXTERNAL ANDROID</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('EXTERNAL ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">PROXY ANDROID</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">BYPASS ANDROID</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">TROCAR CONTA</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('TROCAR CONTA')">Comprar</button></div></div>
         </div>
     </div>
-
-    <!-- LOGICA DE CLIQUE (MUDAR PARA VERMELHO QUANDO CLICA) -->
     <script>
-        function alternarBotao(idBotao) {
-            // Remove o vermelho ativo de todos os botões de Plataforma
-            const botoes = document.querySelectorAll('.grupo-filtro:first-of-type .btn-filtro');
-            botoes.forEach(btn => btn.classList.remove('ativo'));
-            
-            // Adiciona a cor vermelha com letra preta apenas no botão clicado
-            document.getElementById(idBotao).classList.add('ativo');
+        function buy(item) { window.open(`https://wa.me{encodeURIComponent('Olá, vim pelo site e quero fazer a: *' + item + '*')}`, '_blank'); }
+        function filtro(plat) {
+            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
+            document.getElementById('btn-' + plat).classList.add('ativo');
+            document.querySelectorAll('.item').forEach(p => {
+                if (plat === 'todos' || p.classList.contains(plat)) { p.classList.remove('escondido'); } else { p.classList.add('escondido'); }
+            });
         }
     </script>
-
 </body>
 </html>
-
-<m
-<!-- COPIE DAQUI PARA BAIXO -->
-<style>
-    /* GRADE DE PRODUTOS (Organiza em 2 colunas no celular igual à sua referência) */
-    .grade-produtos-loja {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        width: 100%;
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 0 12px;
-    }
-
-    /* CARD DO PRODUTO (Estilo escuro premium com borda sutil) */
-    .card-item-store {
-        background: rgba(12, 3, 3, 0.9);
-        border: 1px solid rgba(255, 26, 26, 0.15);
-        border-radius: 14px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-        border-bottom: 3px solid rgba(255, 26, 26, 0.35);
-    }
-
-    /* Foto do Produto Perfeitamente Quadrada */
-    .foto-box-item {
-        width: 100%;
-        position: relative;
-        aspect-ratio: 1 / 1; 
-        background-color: #111;
-    }
-
-    .foto-box-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* Selo Redondo do Sistema no topo direito da foto */
-    .tag-sistema-item {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        padding: 4px 10px;
-        font-size: 9px;
-        font-weight: 900;
-        border-radius: 20px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-    }
-    .selo-ios { background-color: #007aff; color: #ffffff; }
-    .selo-android { background-color: #28a745; color: #ffffff; }
-
-    /* Textos e Informações abaixo da foto */
-    .detalhes-box-item {
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-
-    /* Estrelas amarelas de avaliação igual ao print */
-    .estrelas-item {
-        display: flex;
-        align-items: center;
-        font-size: 10px;
-        color: #ffc107;
-        margin-bottom: 6px;
-    }
-    .estrelas-item span {
-        color: #ffffff;
-        margin-left: 4px;
-        font-weight: bold;
-        background: rgba(255,255,255,0.1);
-        padding: 1px 5px;
-        border-radius: 4px;
-    }
-
-    /* Nome do Painel/Xit em letras Brancas */
-    .titulo-item-store {
-        font-size: 13px;
-        font-weight: bold;
-        text-transform: uppercase;
-        line-height: 1.3;
-        margin-bottom: 6px;
-        color: #ffffff;
-        letter-spacing: 0.3px;
-    }
-
-    /* Raiozinho verde de Entrega Imediata igual ao seu print */
-    .status-entrega-item {
-        display: flex;
-        align-items: center;
-        font-size: 11px;
-        color: #2de29b;
-        font-weight: bold;
-        margin-bottom: 12px;
-    }
-    .status-entrega-item svg {
-        margin-right: 4px;
-        fill: #2de29b;
-    }
-
-    /* Botão de Compra Vermelho */
-    .btn-action-comprar {
-        background: #ff1a1a;
-        color: #ffffff;
-        text-align: center;
-        text-decoration: none;
-        padding: 10px;
-        font-size: 11px;
-        font-weight: bold;
-        text-transform: uppercase;
-        border-radius: 8px;
-        border: 1px solid #ff5555;
-        letter-spacing: 1px;
-        margin-top: auto;
-        cursor: pointer;
-    }
-</style>
-
-<!-- VITRINE COM AS 10 ABAS DE PRODUTOS COMPLETA -->
-<div class="grade-produtos-loja">
-
-    <!-- ABA 1 -->
-    <div class="card-item-store">
-        <div class="foto-box-item">
-            <img src="IMG_4521.jpeg" alt="FLUORITE VIP">
-            <span class="tag-sistema-item selo-ios">iOS</span>
-        </div>
-        <div class="detalhes-box-item">
-            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>5.0</span></div>
-            <h4 class="titulo-item-store">FLUORITE iOS</h4>
-            <div class="status-entrega-item">
-                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
-                Entrega imediata
-            </div>
-            <button class="btn-action-comprar" onclick="comprarProduto('Sensi VIP iOS')">Comprar</button>
-        </div>
-    </div>
-
-    <!-- ABA 2 -->
-    <div class="card-item-store">
-        <div class="foto-box-item">
-            <img src="IMG_4521.jpeg" alt="Regedit Android">
-            <span class="tag-sistema-item selo-android">Android</span>
-        </div>
-        <div class="detalhes-box-item">
-            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.9</span></div>
-            <h4 class="titulo-item-store">Regedit VIP Android</h4>
-            <div class="status-entrega-item">
-                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
-                Entrega imediata
-            </div>
-            <button class="btn-action-comprar" onclick="comprarProduto('Regedit VIP Android')">Comprar</button>
-        </div>
-    </div>
-
-    <!-- ABA 3 -->
-    <div class="card-item-store">
-        <div class="foto-box-item">
-            <img src="IMG_4521.jpeg" alt="Painel Macro">
-            <span class="tag-sistema-item selo-ios">iOS</span>
-        </div>
-        <div class="detalhes-box-item">
-            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.8</span></div>
-            <h4 class="titulo-item-store">GBOX iOS</h4>
-            <div class="status-entrega-item">
-                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
-                Entrega imediata
-            </div>
-            <button class="btn-action-comprar" onclick="comprarProduto('Painel Macro iOS')">Comprar</button>
-        </div>
-    </div>
-
-    <!-- ABA 4 -->
-    <div class="card-item-store">
-        <div class="foto-box-item">
-            <img src="IMG_4521.jpeg" alt="Xit Premium">
-            <span class="tag-sistema-item selo-android">Android</span>
-        </div>
-        <div class="detalhes-box-item">
-            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>5.0</span></div>
-            <h4 class="titulo-item-store">Xit Proxy Android</h4>
-            <div class="status-entrega-item">
-                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
-                Entrega imediata
-            </div>
-            <button class="btn-action-comprar" onclick="comprarProduto('Xit Proxy Android')">Comprar</button>
-        </div>
-    </div>
-
-    <!-- ABA 5 -->
-    <div class="card-item-store">
-        <div class="foto-box-item">
-            <img src="IMG_4521.jpeg" alt="HS Peito">
-            <span class="tag-sistema-item selo-ios">iOS</span>
-        </div>
-        <div class="detalhes-box-item">
-            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.5</span></div>
-            <h4 class="titulo-item-store">BYPESS iOS</h4>
-            <div class="status-entrega-item">
-                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
-                Entrega imediata
-            </div>
-            <button class="btn-action-comprar" onclick="comprarProduto('PROXY iOS')">Comprar</button>
-        </div>
-    </div>
-
-    <!-- ABA 6 -->
-    <div class="card-item-store">
-        <div class="foto-box-item">
-            <img src="IMG_4521.jpeg" alt="Bypass">
-            <span class="tag-sistema-item selo-android">Android</span>
-        </div>
-        <div class="detalhes-box-item">
-            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.7</span></div>
-            <h4 class="titulo-item-store">Bypass Anti-Ban</h4>
-            <div class="status-entrega-item">
-                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
-                Entrega imediata
-            </div>
-            <button class="btn-action-comprar" onclick="comprarProduto('Bypass Anti-Ban')">Comprar</button>
-        </div>
-    </div>
-
-    <!-- ABA 7 -->
-    <div class="card-item-store">
-        <div class="foto-box-item">
-            <img src="IMG_4521.jpeg" alt="MONITE IOS">
-            <span class="tag-sistema-item selo-ios">iOS</span>
-        </div>
-        <div class="detalhes-box-item">
-            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.9</span></div>
-            <h4 class="titulo-item-store">MONITE iOS</h4>
-            <div class="status-entrega-item">
-                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
-                Entrega imediata
-            </div>
-            <button class="btn-action-comprar" onclick="comprarProduto('Regedit Extreme iOS')">Comprar</button>
-        </div>
-    </div>
-
-    <!-- ABA 8 -->
-    <div class="card-item-store">
-        <div class="foto-box-item">
-            <img src="IMG_4521.jpeg" alt="Sensi Max">
-            <span class="tag-sistema-item selo-android">Android</span>
-        </div>
-        <div class="detalhes-box-item">
-            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>5.0</span></div>
-       <!-- No 1º quadradinho (onde está SENSI VIP IOS), mude para: -->
-<h4 class="nome-produto">FLUORITE</h4>
-
-<!-- No 2º quadradinho (onde está REGEDIT VIP ANDROID), mude para: -->
-<h4 class="nome-produto">MONITE</h4>
-
-<!-- No 3º quadradinho (onde está PAINEL MACRO IOS), mude para: -->
-<h4 class="nome-produto">PROXY iOS</h4>
-
-<!-- No 4º quadradinho (onde está XIT PROXY ANDROID), mude para: -->
-<h4 class="nome-produto">BYPASS iOS</h4>to('PROXY iOS')">Comprar</button>
-    </div>
-    <<!-- COPIE APENAS DAQUI PARA BAIXO -->
-<div class="card-produto item ios">
-    <div class="foto-box">
-        <img src="IMG_4521.jpeg">
-        <span class="selo-sistema bg-ios">iOS</span>
-    </div>
-    <div class="info-prod">
-        <div class="nome-prod">PROXY iOS</div>
-        <div class="status">⚡ Entrega imediata</div>
-        <button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button>
-    </div>
-</div>
-<!-- 
-
-
