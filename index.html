@@ -18,7 +18,7 @@
             background-color: #050000;
         }
 
-        /* A sua imagem original fixa ocupando todo o fundo do site */
+        /* Exibe a sua imagem original exatamente como ela é, cobrindo a tela toda */
         .fundo-imagem {
             position: absolute;
             top: 0;
@@ -31,7 +31,7 @@
             z-index: 1;
         }
 
-        /* A camada de fumaça animada que se mexe por cima da imagem */
+        /* Efeito de fumaça vermelha extra se movendo suavemente em cima */
         canvas {
             position: absolute;
             top: 0;
@@ -39,17 +39,18 @@
             width: 100%;
             height: 100%;
             z-index: 2;
-            mix-blend-mode: screen; /* Faz a fumaça se misturar perfeitamente com a foto */
+            mix-blend-mode: screen; 
             pointer-events: none;
+            opacity: 0.6; /* Deixa a fumaça de código suave para não tampar a foto principal */
         }
     </style>
 </head>
 <body>
 
-    <!-- Sua foto do Gengar com SMIT SENSI no fundo -->
+    <!-- Sua foto original com letras vermelhas e Gengar -->
     <div class="fundo-imagem"></div>
 
-    <!-- Fumaça vermelha em movimento por cima -->
+    <!-- Fumaça em movimento -->
     <canvas id="fumaca"></canvas>
 
     <script>
@@ -64,7 +65,7 @@
         redimensionar();
 
         const particulas = [];
-        const quantidadeParticulas = 40; // Ajustado para não tampar completamente a imagem de trás
+        const quantidadeParticulas = 30; 
 
         class ParticulaFumaca {
             constructor() {
@@ -74,11 +75,11 @@
             resetar(inicioAleatorio = false) {
                 this.x = Math.random() * canvas.width;
                 this.y = inicioAleatorio ? Math.random() * canvas.height : canvas.height + Math.random() * 100;
-                this.tamanho = Math.random() * 180 + 120;
-                this.velX = Math.random() * 0.4 - 0.2;
-                this.velY = -(Math.random() * 0.5 + 0.2);
-                this.opacidade = Math.random() * 0.2 + 0.05; // Fumaça suave para destacar o fundo
-                this.fading = Math.random() * 0.0015 + 0.0005;
+                this.tamanho = Math.random() * 200 + 150;
+                this.velX = Math.random() * 0.3 - 0.15;
+                this.velY = -(Math.random() * 0.4 + 0.15);
+                this.opacidade = Math.random() * 0.15 + 0.05; 
+                this.fading = Math.random() * 0.001 + 0.0005;
             }
 
             atualizar() {
@@ -94,8 +95,8 @@
             desenhar() {
                 ctx.beginPath();
                 let gradiente = ctx.createRadialGradient(this.x, this.y, 10, this.x, this.y, this.tamanho);
-                gradiente.addColorStop(0, `rgba(230, 10, 10, ${this.opacidade})`); 
-                gradiente.addColorStop(0.6, `rgba(100, 0, 0, ${this.opacidade * 0.3})`); 
+                gradiente.addColorStop(0, `rgba(255, 0, 0, ${this.opacidade})`); 
+                gradiente.addColorStop(0.5, `rgba(120, 0, 0, ${this.opacidade * 0.3})`); 
                 gradiente.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
                 ctx.fillStyle = gradiente;
