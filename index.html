@@ -3,122 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMIT SENSI - SITE OFICIAL</title>
-    <!-- Tailwind CSS via CDN -->
+    <title>SMIT SENSI - LOJA OFICIAL</title>
     <script src="https://tailwindcss.com"></script>
     <style>
-        /* ANIMAÇÃO DO BANNER DO GENGAR VERMELHO SE MEXENDO CONTINUAMENTE */
-        .gengar-bg {
-            background-image: url('gengar-vermelho.png'); /* Certifique-se de salvar sua foto com este nome */
-            background-size: cover;
-            background-position: center;
-            animation: gengarMove 25s ease-in-out infinite;
-        }
-        @keyframes gengarMove {
-            0%, 100% { background-position: center; transform: scale(1.02); }
-            50% { background-position: top right; transform: scale(1.08); }
-        }
-        /* ESTILOS NEON VERMELHOS E PREMIUM */
-        .neon-border-red { box-shadow: 0 0 15px rgba(239, 68, 68, 0.35); }
-        .neon-text-red { text-shadow: 0 0 12px rgba(239, 68, 68, 0.7); }
+        .gengar-bg { background-image: url('gengar-vermelho.png'); background-size: cover; background-position: center; animation: gMove 20s ease-in-out infinite; background-attachment: fixed; }
+        @keyframes gMove { 0%, 100% { background-position: center; transform: scale(1.02); } 50% { background-position: top right; transform: scale(1.06); } }
+        .neon-border-red { box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+        .neon-text-red { text-shadow: 0 0 10px rgba(239, 68, 68, 0.6); }
         .neon-text-green { text-shadow: 0 0 8px rgba(52, 211, 153, 0.5); }
-        .backdrop-blur-md { backdrop-filter: blur(12px); }
     </style>
 </head>
-<body class="gengar-bg text-white font-sans antialiased min-h-screen relative selection:bg-red-600 selection:text-white">
-
-    <!-- CAMADA ESCURA PARA AJUSTAR O CONTRASTE DO FUNDO ANIMADO -->
-    <div class="absolute inset-0 bg-black/80 z-0 pointer-events-none"></div>
-
-    <!-- CONTEÚDO DA PÁGINA (ACIMA DO FUNDO) -->
-    <div class="relative z-10 max-w-md mx-auto px-4 pt-6 pb-24 space-y-8">
-
-        <!-- CABEÇALHO COM O NOME VERMELHO LINDO -->
+<body class="gengar-bg text-white font-sans antialiased min-h-screen relative">
+    <div class="absolute inset-0 bg-black/85 z-0 pointer-events-none"></div>
+    <div class="relative z-10 max-w-md mx-auto px-4 pt-6 pb-24 space-y-6">
         <header class="text-center space-y-3">
-            <h1 class="text-4xl font-black tracking-tighter uppercase">
-                <span class="bg-gradient-to-r from-red-500 to-rose-600 bg-clip-text text-transparent neon-text-red">SMIT SENSI</span>
-            </h1>
-            <p class="text-zinc-400 text-[10px] tracking-widest uppercase font-bold">A MAIOR EVOLUÇÃO EM DESEMPENHO E PRECISÃO</p>
-            
-            <!-- CRONÔMETRO REVERSIVO DE OFERTA RELÂMPAGO -->
-            <div class="inline-block bg-zinc-950/80 border border-red-500/30 rounded-full px-5 py-2 text-xs font-bold text-red-400 backdrop-blur-md">
-                ⏱️ OFERTA RELÂMPAGO: OS PREÇOS SOBEM EM <span id="main-timer">08:38</span>
-            </div>
-
-            <!-- AVISO DE CONTAS GEMADAS -->
-            <div class="bg-gradient-to-r from-red-950/40 to-zinc-900/60 border border-red-500/30 rounded-xl p-3 text-center text-xs font-black tracking-wide uppercase backdrop-blur-md">
-                💳 AVISO: ACEITAMOS CONTAS GEMADAS COMO FORMA DE PAGAMENTO!
-            </div>
+            <h1 class="text-4xl font-black tracking-tighter uppercase"><span class="bg-gradient-to-r from-red-500 to-purple-600 bg-clip-text text-transparent neon-text-red">SMIT SENSI</span></h1>
+            <p class="text-zinc-400 text-[10px] tracking-widest uppercase font-black">A MAIOR EVOLUÇÃO EM DESEMPENHO E PRECISÃO</p>
+            <div class="inline-block bg-zinc-950 border border-red-500/40 rounded-full px-5 py-2 text-xs font-black text-red-500">OFERTA RELÂMPAGO: OS PREÇOS SOBEM EM <span id="main-timer">08:38</span></div>
+            <div class="bg-gradient-to-r from-red-950/60 to-zinc-950/80 border border-red-500/30 rounded-xl p-3 text-center text-xs font-black uppercase">💳 AVISO: ACEITAMOS CONTAS GEMADAS COMO FORMA DE PAGAMENTO!</div>
         </header>
-
-        <!-- EXPLICAÇÃO DE COMO FUNCIONA A COMPRA -->
-        <section class="bg-zinc-950/60 border border-zinc-900/80 rounded-2xl p-4 space-y-3 backdrop-blur-md">
-            <h2 class="text-xs font-black tracking-wider uppercase text-red-400 mb-1">🛒 COMO FUNCIONA A COMPRA?</h2>
-            <div class="text-xs space-y-2 text-zinc-300 font-bold">
-                <p>1️⃣ <span class="text-white">ESCOLHA:</span> SELECIONE SEU PAINEL FAVORITO E ACESSE O PAGAMENTO SEGURO.</p>
-                <p>2️⃣ <span class="text-white">RECEBA:</span> LINK CHEGA INSTANTANEAMENTE NO E-MAIL E NA TELA APÓS O PIX.</p>
-                <p>3️⃣ <span class="text-white">ATIVE:</span> SUPORTE COMPLETO PARA TE AJUDAR DURANTE A ATIVAÇÃO.</p>
-            </div>
+        <section class="bg-zinc-900/90 border border-zinc-800 p-4 rounded-2xl space-y-2 text-xs">
+            <h4 class="font-black text-red-500 uppercase">🛒 COMO FUNCIONA A COMPRA?</h4>
+            <p><strong>1️⃣ ESCOLHA:</strong> SELECIONE SEU PAINEL FAVORITO E ACESSE O PAGAMENTO SEGURO.</p>
+            <p><strong>2️⃣ RECEBA:</strong> LINK CHEGA INSTANTANEAMENTE NO E-MAIL E NA TELA APÓS O PIX.</p>
+            <p><strong>3️⃣ ATIVE:</strong> SUPORTE COMPLETO PARA TE AJUDAR DURANTE A ATIVAÇÃO.</p>
         </section>
-
-        <!-- SISTEMA DE FILTRO POR ABAS -->
-        <div class="flex space-x-2 bg-zinc-950/80 p-1.5 rounded-xl border border-zinc-900/80 backdrop-blur-md">
-            <button onclick="switchTab('todos')" id="tab-todos" class="w-full text-center py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition bg-red-600 text-white">TODOS</button>
-            <button onclick="switchTab('android')" id="tab-android" class="w-full text-center py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition text-zinc-400 hover:text-white">ANDROID</button>
-            <button onclick="switchTab('ios')" id="tab-ios" class="w-full text-center py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition text-zinc-400 hover:text-white">IOS</button>
+        <div class="flex space-x-2 bg-zinc-950 p-1.5 rounded-xl border border-zinc-800">
+            <button onclick="filterCat('all')" id="b-all" class="w-full text-center py-2 rounded-lg text-xs font-black bg-red-600">TODOS</button>
+            <button onclick="filterCat('and')" id="b-and" class="w-full text-center py-2 rounded-lg text-xs font-black text-zinc-400">ANDROID</button>
+            <button onclick="filterCat('ios')" id="b-ios" class="w-full text-center py-2 rounded-lg text-xs font-black text-zinc-400">IOS</button>
         </div>
+        <main class="grid grid-cols-2 gap-3">
+            <div class="p-card ios bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3 flex flex-col justify-between"><img src="painel-ios.png" class="w-full h-24 object-cover rounded-xl mb-2"><h3 class="text-xs font-black uppercase truncate">PAINEL FLUORITE iOS</h3><p class="text-[10px] text-emerald-400 font-bold">R$ 15,99 - R$ 91,55</p><button onclick="openM('FLUORITE')" class="w-full bg-red-600 py-2 mt-2 rounded-lg text-[10px] font-black uppercase">VER OPÇÕES</button></div>
+            <div class="p-card and bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3 flex flex-col justify-between"><img src="painel-android-interno.png" class="w-full h-24 object-cover rounded-xl mb-2"><h3 class="text-xs font-black uppercase truncate">ANDROID INTERNO</h3><p class="text-[10px] text-emerald-400 font-bold">R$ 10,99 - R$ 49,99</p><button onclick="openM('INTERNO')" class="w-full bg-red-600 py-2 mt-2 rounded-lg text-[10px] font-black uppercase">VER OPÇÕES</button></div>
+            <div class="p-card and bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3 flex flex-col justify-between"><img src="painel-android-external.png" class="w-full h-24 object-cover rounded-xl mb-2"><h3 class="text-xs font-black uppercase truncate">ANDROID EXTERNAL</h3><p class="text-[10px] text-emerald-400 font-bold">R$ 12,50 - R$ 90,00</p><button onclick="openM('EXTERNAL')" class="w-full bg-red-600 py-2 mt-2 rounded-lg text-[10px] font-black uppercase">VER OPÇÕES</button></div>
+            <div class="p-card and bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3 flex flex-col justify-between"><img src="proxy-android.png" class="w-full h-24 object-cover rounded-xl mb-2"><h3 class="text-xs font-black uppercase truncate">PROXY ANDROID</h3><p class="text-[10px] text-emerald-400 font-bold">R$ 25,99</p><button onclick="openM('PROXY_AND')" class="w-full bg-red-600 py-2 mt-2 rounded-lg text-[10px] font-black uppercase">VER OPÇÕES</button></div>
+            <div class="p-card and bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3 flex flex-col justify-between"><img src="bypess-android.png" class="w-full h-24 object-cover rounded-xl mb-2"><h3 class="text-xs font-black uppercase truncate">BYPESS ANDROID</h3><p class="text-[10px] text-emerald-400 font-bold">R$ 12,50 - R$ 25,99</p><button onclick="openM('BYPESS_AND')" class="w-full bg-red-600 py-2 mt-2 rounded-lg text-[10px] font-black uppercase">VER OPÇÕES</button></div>
+            <div class="p-card ios bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3 flex flex-col justify-between"><img src="proxy-ios.png" class="w-full h-24 object-cover rounded-xl mb-2"><h3 class="text-xs font-black uppercase truncate">PROXY iOS</h3><p class="text-[10px] text-emerald-400 font-bold">R$ 15,99 - R$ 50,00</p><button onclick="openM('PROXY_IOS')" class="w-full bg-red-600 py-2 mt-2 rounded-lg text-[10px] font-black uppercase">VER OPÇÕES</button></div>
+            <div class="p-card ios bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3 flex flex-col justify-between"><img src="bypess-ios.png" class="w-full h-24 object-cover rounded-xl mb-2"><h3 class="text-xs font-black uppercase truncate">BYPESS iOS</h3><p class="text-[10px] text-emerald-400 font-bold">R$ 16,99 - R$ 68,00</p><button onclick="openM('BYPESS_IOS')" class="w-full bg-red-600 py-2 mt-2 rounded-lg text-[10px] font-black uppercase">VER OPÇÕES</button></div>
+            <div class="p-card ios bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3 flex flex-col justify-between"><img src="painel-monite-ios.png" class="w-full h-24 object-cover rounded-xl mb-2"><h3 class="text-xs font-black uppercase truncate">PAINEL MONITE iOS</h3><p class="text-[10px] text-emerald-400 font-bold">R$ 19,00 - R$ 60,00</p><button onclick="openM('MONITE')" class="w-full bg-red-600 py-2 mt-2 rounded-lg text-[10px] font-black uppercase">VER OPÇÕES</button></div>
+            <div class="p-card ios bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3 flex flex-col justify-between col-span-2"><img src="gbox-ios.png" class="w-full h-24 object-cover rounded-xl mb-2"><h3 class="text-xs font-black uppercase truncate">GBOX iOS</h3><p class="text-[10px] text-emerald-400 font-bold">ANUAL R$ 65,00</p><button onclick="openM('GBOX')" class="w-full bg-red-600 py-2 mt-2 rounded-lg text-[10px] font-black uppercase">VER OPÇÕES</button></div>
+        </main>
+    </div>
+    <!-- MODAL DETALHES -->
+    <div id="modal" class="fixed inset-0 bg-black/90 hidden items-center justify-center p-4 z-50 overflow-y-auto">
+        <div class="bg-zinc-900 border border-zinc-800 w-full max-w-md rounded-2xl p-5 space-y-4 max-h-[90vh] overflow-y-auto relative">
+            <div class="flex justify-between items-center border-b border-zinc-800 pb-2"><h2 id="m-title" class="font-black text-sm uppercase text-red-500"></h2><button onclick="closeM()" class="text-zinc-500 font-bold text-lg">&times;</button></div>
+            <div id="m-desc" class="text-[11px] text-zinc-300 space-y-3 uppercase font-semibold"></div>
+            <div class="space-y-2 pt-2 border-t border-zinc-800"><label class="text-[10px] font-black text-zinc-400 uppercase">SELECIONE O PLANO:</label><select id="m-select" onchange="updateMPrice()" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2 text-xs font-bold text-white focus:outline-none"></select></div>
+            <div class="flex justify-between items-center bg-zinc-950 p-3 rounded-xl border border-zinc-800"><span class="text-[10px] font-black text-zinc-400">TOTAL:</span><span id="m-price" class="font-black text-emerald-400 text-lg neon-text-green"></span></div>
+            <button onclick="goToPay()" class="w-full bg-gradient-to-r from-red-600 to-purple-600 text-white font-black text-xs py-3 rounded-xl uppercase">AVANÇAR PARA PAGAMENTO</button>
+        </div>
+    </div>
 
-        <!-- GRID DE PRODUTOS EM 2 COLUNAS -->
-        <main id="products-grid" class="grid grid-cols-2 gap-3">
-
-            <!-- 1. PAINEL FLUORITE iOS -->
-            <div class="product-card ios bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
-                <span class="absolute top-2 left-2 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">IOS</span>
-                <img src="painel-ios.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="FLUORITE">
-                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">PAINEL FLUORITE iOS</h3>
-                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 15,99</p>
-                <button onclick="openModal('FLUORITE')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
+    <!-- MODAL PIX -->
+    <div id="pix-modal" class="fixed inset-0 bg-black/95 hidden items-center justify-center p-4 z-50">
+        <div class="bg-zinc-900 border border-zinc-800 w-full max-w-md rounded-2xl p-6 text-center space-y-4 neon-border-red">
+            <span class="bg-red-500/10 text-red-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">AGUARDANDO PAGAMENTO</span>
+            <h3 class="text-base font-black">REALIZE O PIX COPIA E COLA</h3>
+            <p id="pix-value" class="text-2xl font-black text-emerald-400"></p>
+            <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-2.5 flex items-center justify-between">
+                <input type="text" id="pix-key" value="riick01silva@gmail.com" readonly class="bg-transparent text-xs text-zinc-400 w-full font-bold focus:outline-none truncate select-all px-2">
+                <button onclick="copyPix()" id="cp-btn" class="bg-red-600 text-white font-black text-[10px] px-4 py-2 rounded-lg uppercase shrink-0">COPIAR</button>
             </div>
+            <div class="text-[10px] text-zinc-500 bg-zinc-950 p-3 rounded-lg border border-zinc-800 uppercase">⚠️ APÓS PAGAR, CLIQUE NO BOTÃO ABAIXO PARA LIBERAR SEU ACESSO IMEDIATO NO SUPORTE.</div>
+            <button onclick="openSuport()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-black text-xs py-3 rounded-xl uppercase">🟢 ENVIAR COMPROVANTE NO SUPORTE</button>
+            <button onclick="closePix()" class="text-zinc-500 text-xs font-bold block mx-auto pt-2">VOLTAR</button>
+        </div>
+    </div>
 
-            <!-- 2. ANDROID INTERNO -->
-            <div class="product-card android bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
-                <span class="absolute top-2 left-2 bg-green-600 text-black text-[8px] font-black px-1.5 py-0.5 rounded uppercase">ANDROID</span>
-                <img src="painel-android-interno.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="INTERNO">
-                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">ANDROID INTERNO</h3>
-                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 10,99</p>
-                <button onclick="openModal('INTERNO')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
-            </div>
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <div class="fixed bottom-4 right-4 z-40"><a href="https://wa.me" target="_blank" class="bg-emerald-500 text-zinc-950 w-12 h-12 rounded-full flex items-center justify-center shadow-lg text-lg font-bold">💬</a></div>
 
-            <!-- 3. ANDROID EXTERNAL -->
-            <div class="product-card android bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
-                <span class="absolute top-2 left-2 bg-green-500 text-black text-[8px] font-black px-1.5 py-0.5 rounded uppercase">ANDROID</span>
-                <img src="painel-android-external.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="EXTERNAL">
-                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">ANDROID EXTERNAL</h3>
-                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 12,50</p>
-                <button onclick="openModal('EXTERNAL')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
-            </div>
+    <script>
+        const pData = {
+            FLUORITE: { name: "PAINEL FLUORITE iOS", options: {"1 DIA": 15.99, "7 DIAS": 57.99, "30 DIAS": 91.55}, desc: "• AIMBOT: ALEATÓRIO, CABEÇA, PESCOÇO, QUADRIL, COLUNA<br>• VISUAIS (ESP): LINHA, CAIXA, VIDA, NICK, DISTÂNCIA<br>• DIVERSOS: SEM DISPERSÃO, LOOTEAR INSTANTÂNEO, GELO INVERTEDO" },
+            INTERNO: { name: "ANDROID INTERNO", options: {"1 DIA": 10.99, "7 DIAS": 34.77, "30 DIAS": 49.99}, desc: "• AIMBOT TOTALMENTE CONFIGURÁVEL (CABEÇA, PESCOÇO, PEITO)<br>• CONTROLE DE SUAVIDADE E PRECISÃO<br>• ESP CONFIGURÁVEL COMPLETO<br>• ANDROID 12 PARA CIMA. SEM PC OU ROOT." },
+            EXTERNAL: { name: "ANDROID EXTERNAL", options: {"1 DIA": 12.50, "7 DIAS": 42.88, "30 DIAS": 90.00}, desc: "• AIMBOT (LEGIT/RAGE), SILENT AIM, AIM SHOULDER, SILENT KILL<br>• FUNÇÕES SEPARADAS POR CATEGORIA (PLAYER/VEHICLE/DRAW)<br>• ANDROID 12 PARA CIMA. MÉTODO SEGURO OTIMIZADO." },
+            PROXY_AND: { name: "PROXY ANDROID", options: {"ILIMITADA": 25.99}, desc: "• INSTALAÇÃO RÁPIDA, TOTALMENTE EXTERNAL. SEM ROOT OU PC.<br>• FUNCIONA EM TODAS AS VERSÕES ANDROID NO APP DA PLAY STORE<br>• APENAS PARA FOCO EM APOSTADOS / SALAS<br>• OPÇÕES: HS ALTO, HS NECK, HS CAVEIRA" },
+            BYPESS_AND: { name: "BYPESS ANDROID", options: {"BYPESS DIAMANTE": 15.99, "BYPESS PLAY STORE": 12.50, "BYPESS PASSADOR": 25.99}, desc: "• DIAMANTE: APARECE DIAMANTES EM R$, MOSTRA CONTA NORMAL<br>• PLAY STORE: MOSTRA INSTALAÇÃO PELA LOJA ORIGINAL<br>• PASSADOR: TRANSFERE REPLAY DO FF MAX PARA O FF NORMAL" },
+            PROXY_IOS: { name: "PROXY iOS", options: {"1 DIA": 15.99, "30 DIAS": 50.00}, desc: "• TODOS IOS. EXTERNAL. APP STORE NORMAL. INSTALAÇÃO RÁPIDA.<br>• HS + ANTENA. NÃO PRECISA DE GBOX OU ESIGN.<br>• BURLA HISTÓRICO DE LOGIN COMPLETO." },
+            BYPESS_IOS: { name: "BYPESS iOS", options: {"1 DIA": 16.99, "3 DIAS": 21.00, "7 DIAS": 35.99, "30 DIAS": 68.00}, desc: "• TODOS IOS. EXTERNAL. APP STORE NORMAL. HS PESCOÇO + ANTENA.<br>• NÃO PRECISA DE GBOX OU ESIGN." },
+            MONITE: { name: "PAINEL MONITE iOS", options: {"1 DIA": 19.00, "7 DIAS": 37.99, "30 DIAS": 60.00}, desc: "• BÁSICO: AIMBOT, ESP, NO RECOIL, 120 FPS, STREAM MODE<br>• FULL: BÁSICO + AIMKILL, SPEED, TELEPORT (10M)<br>• INSTALAÇÃO VIA GBOX OU ESIGN. MODO DESENVOLVEDOR." },
+            GBOX: { name: "GBOX iOS", options: {"ANUAL": 65.00}, desc: "• UTILIZAÇÃO 100% PELO CELULAR, SEM COMPUTADOR<br>• AUXÍLIO EM ERROS DE .IPA E MODO DESENVOLVEDOR NO IPHONE<br>• ACESSO A MAIS DE 1000 APLICATIVOS DE FORMA SIMPLES" }
+        };
 
-            <!-- 4. PROXY ANDROID -->
-            <div class="product-card android bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
-                <span class="absolute top-2 left-2 bg-green-500 text-black text-[8px] font-black px-1.5 py-0.5 rounded uppercase">ANDROID</span>
-                <img src="proxy-android.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="PROXY ANDROID">
-                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">PROXY ANDROID</h3>
-                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">VITALÍCIO R$ 25,99</p>
-                <button onclick="openModal('PROXY_AND')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
-            </div>
+        const textGarantia = "<br><br><span class='text-red-500 font-black block mt-2'>🛡️ RECURSOS EXCLUSIVOS E GARANTIA:</span><span class='text-zinc-400 font-bold block text-[10px] mt-1'>• ENTREGA IMEDIATA NO SEU E-MAIL JUNTO COM NOSSO CONTATO PARA O SUPORTE!<br>• PROTEÇÃO TOTAL ANTIBAN • 100% ANTIBAN • 7 DIAS DE GARANTIA • DIREITO A REEMBOLSO<br>• INSTALAÇÃO LIMPA • É SÓ INSTALAR E JOGAR • NÃO PRECISA DE ROOT • NÃO PRECISA DE PC • NÃO PRECISA FORMATAR</span>";
+        let selectedProd = "";
 
-            <!-- 6. PROXY iOS -->
-            <div class="product-card ios bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
-                <span class="absolute top-2 left-2 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">IOS</span>
-                <img src="proxy-ios.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="PROXY IOS">
-                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">PROXY iOS</h3>
-                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 15,99</p>
-                <button onclick="openModal('PROXY_IOS')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
-            </div>
+        function filterCat(cat) {
+            document.querySelectorAll('.p-card').forEach(el => {
+                if (cat === 'all') el.style.display = 'flex';
+                else if (cat === 'and' && el.classList.contains('and')) el.style.display = 'flex';
+                else if (cat === 'ios' && el.classList.contains('ios')) el.style.display = 'flex';
+                else el.style.display = 'none';
+            });
+            ['all', 'and', 'ios'].forEach(c => { document.getElementById('b-'+c).className = "w-full text-center py-2 rounded-lg text-xs font-black " + (c === cat ? "bg-red-600 text-white" : "text-zinc-400"); });
+        }
 
-            <!-- 8. PAINEL MONITE iOS -->
-            <div class="product-card ios bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
-                <span class="absolute top-2 left-2 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">IOS</span>
-                <img src="painel-monite-ios.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="MONITE IOS">
-                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">PAINEL MONITE iOS</h3>
-                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 19,00</p>
+        function openM(id) {
+            selectedProd = id; const p = pData[id]; document.getElementById('m-title').innerText = p.name; document.getElementById('m-desc').innerHTML = p.desc + textGarantia;
+            const sel = document.getElementById('m-select'); sel.innerHTML = "";
+            for(let k in p.options) { let o = document.createElement('option'); o.value = p.options[k]; o.innerText = k; sel.appendChild(o); }
+            updateMPrice(); document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeM() { document.getElementById('modal').style.display = 'none'; }
+        function updateMPrice() { document.getElementById('m-price').innerText = "R$ " + parseFloat(document.getElementById('m-select').value).toFixed(2); }
+        
+        function goToPay() { closeM(); document.getElementById('pix-value').innerText = document.getElementById('m-price').innerText; document.getElementById('pix-modal').style.display = 'flex'; }
+        function closePix() { document.getElementById('pix-modal').style.display = 'none'; }
+        
+        function copyPix() { navigator.clipboard.writeText(document.getElementById('pix-key').value); const b = document.getElementById('cp-btn'); b.innerText = "COPIADO! 🎉"; setTimeout(() => { b.innerText = "COPIAR"; }, 2000); }
+        
+        function openSuport() {
+            const p = pData[selectedProd]; const sel = document.getElementById('m-select'); const plano = sel.options[sel.selectedIndex].text;
+            const msg = `OLÁ, REALIZEI O PAGAMENTO DE R$ ${parseFloat(sel.value).toFixed(2)} VIA PIX DA MINHA COMPRA.\n\nPRODUTO: ${p.name}\nPLANO: ${plano}\n\nSEGUE O COMPROVANTE PARA LIBERAÇÃO DO ACESSO E SUPORTE!`;
+            window.open(`https://wa.me?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        let timeRemaining = 518;
+        setInterval(() => {
+            let m = Math.floor(timeRemaining / 60), s = timeRemaining % 60;
+            document.getElementById('main-timer').innerText = (m < 10 ? "0"+m : m) + ":" + (s < 10 ? "0"+s : s);
+            if (--timeRemaining < 0) timeRemaining = 518;
+        }, 1000);
+    </script>
+</body>
+</html>
