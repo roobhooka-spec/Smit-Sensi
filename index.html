@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMIT SENSI - Categorias</title>
+    <title>SMIT SENSI - Loja</title>
     
     <style>
         * {
@@ -22,7 +22,7 @@
             overflow-y: auto;
         }
 
-        /* 1. SEU FUNDO FIXO EM MOVIMENTO LENTO (GARANTIDO AQUI) */
+        /* 1. SEU FUNDO FIXO EM MOVIMENTO LENTO */
         .site-fundo-completo {
             position: fixed;
             top: -40px;
@@ -52,7 +52,7 @@
             padding: 20px 12px;
         }
 
-        /* SELETOR DE CATEGORIAS ESTILO NEON PREMIUM */
+        /* SELETOR DE CATEGORIAS: BOTÕES PRETOS COM TEXTO BRANCO */
         .abas-categorias {
             display: flex;
             justify-content: center;
@@ -67,27 +67,18 @@
             text-transform: uppercase;
             border-radius: 8px; 
             cursor: pointer;
-            background-color: #0d0202; 
+            background-color: #000000; /* Fundo totalmente preto */
+            color: #ffffff; /* Texto branco puro */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Borda discreta */
             transition: all 0.3s ease;
             letter-spacing: 1.5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* iOS: Borda e texto azul neon */
-        .aba-btn.ios {
-            color: #00d2ff;
-            border: 2px solid #00d2ff;
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
-        }
-
-        /* Android: Borda e texto verde neon */
-        .aba-btn.android {
-            color: #00ff66;
-            border: 2px solid #00ff66;
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
-        }
-
+        /* Efeito de clique sutil */
         .aba-btn:active {
             transform: scale(0.95);
+            background-color: #111111;
         }
 
         /* GRADE DE PRODUTOS QUADRADINHOS */
@@ -124,18 +115,18 @@
 </head>
 <body>
 
-    <!-- Sua fumaça vertical se movendo ao fundo do site -->
+    <!-- Sua fumaça vertical se movendo ao fundo -->
     <div class="site-fundo-completo"></div>
 
     <div class="container-loja">
         
-        <!-- Botões com as novas cores neon -->
+        <!-- Botões atualizados para Preto e Branco -->
         <div class="abas-categorias">
-            <button class="aba-btn ios">iOS</button>
-            <button class="aba-btn android">Android</button>
+            <button class="aba-btn">iOS</button>
+            <button class="aba-btn">Android</button>
         </div>
 
-        <!-- Caixinhas estruturadas esperando as fotos dos produtos -->
+        <!-- Caixinhas estruturadas esperando as infos -->
         <div class="grade-produtos">
             <div class="card-placeholder">Produto 1<br>(Aguardando Foto)</div>
             <div class="card-placeholder">Produto 2<br>(Aguardando Foto)</div>
