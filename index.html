@@ -3,271 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smit Sensi - Loja Oficial</title>
+    <title>SMIT SENSI - SITE OFICIAL</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* ANIMAÇÃO DO BANNER DO GENGAR VERMELHO SE MEXENDO CONTINUAMENTE */
+        .gengar-bg {
+            background-image: url('gengar-vermelho.png'); /* Certifique-se de salvar sua foto com este nome */
+            background-size: cover;
+            background-position: center;
+            animation: gengarMove 25s ease-in-out infinite;
         }
-        
-        body {
-            background-color: #06070d;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
-            background-size: 550px 550px, 350px 350px;
-            color: #ffffff;
-            padding: 0 0 40px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+        @keyframes gengarMove {
+            0%, 100% { background-position: center; transform: scale(1.02); }
+            50% { background-position: top right; transform: scale(1.08); }
         }
-
-        /* BANNER LINDO E ANIMADO NO TOPO */
-        .hero-banner {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(-45deg, #7928ca, #00e1ff, #ff007a, #00ff66);
-            background-size: 400% 400%;
-            animation: gradienteBanner 12s ease infinite;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(121, 40, 202, 0.3);
-            border-bottom: 2px solid #242936;
-            overflow: hidden;
-        }
-
-        /* Partículas brilhantes dentro do banner */
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 20%, #06070d 95%);
-            opacity: 0.6;
-        }
-
-        /* ANIMAÇÃO DO TEXTO DO BANNER SE MEXENDO */
-        .hero-banner h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #ffffff;
-            z-index: 2;
-            text-shadow: 2px 2px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 0px 0px 20px rgba(255,255,255,0.6);
-            animation: balanco 4s ease-in-out infinite;
-        }
-
-        .hero-banner p {
-            color: #ffffff;
-            z-index: 2;
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-top: 5px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 4px 15px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Animação de movimento do fundo do banner */
-        @keyframes gradienteBanner {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Animação do nome balançando de leve */
-        @keyframes balanco {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(1deg); }
-        }
-
-        .container {
-            width: 100%;
-            max-width: 500px;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: rgba(22, 25, 32, 0.9);
-            border: 1px solid #242936;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-        }
-
-        .card h2 {
-            color: #00e1ff;
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #242936;
-            padding-bottom: 8px;
-        }
-
-        .price-list {
-            list-style: none;
-        }
-
-        .price-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px dashed #242936;
-            font-size: 1.05rem;
-        }
-
-        .price-list li:last-child {
-            border-bottom: none;
-        }
-
-        .tempo {
-            color: #ececec;
-        }
-
-        .valor {
-            color: #00ff66;
-            font-weight: bold;
-        }
-        
-        .card-gemada {
-            background: linear-gradient(135deg, rgba(27, 19, 46, 0.95) 0%, rgba(22, 25, 32, 0.95) 100%);
-            border: 1px solid #7928ca;
-            box-shadow: 0 0 20px rgba(121, 40, 202, 0.3);
-        }
-
-        .card-gemada h2 {
-            color: #ff007a;
-            border-bottom: 1px solid #3c1e61;
-        }
-
-        .card-gemada p {
-            font-size: 0.95rem;
-            color: #d1d1d1;
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 15px;
-            border-radius: 12px;
-            width: 100%;
-            margin-top: 15px;
-            text-transform: uppercase;
-            transition: transform 0.2s;
-        }
-
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        .btn-whatsapp {
-            background-color: #00ff66;
-            color: #0d0e12;
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
-        }
-
-        .btn-gemada {
-            background-color: #7928ca;
-            color: #ffffff;
-            box-shadow: 0 0 15px rgba(121, 40, 202, 0.5);
-            border: 1px solid #9b4de3;
-        }
-
-        footer {
-            margin-top: 40px;
-            color: #525866;
-            font-size: 0.85rem;
-            text-align: center;
-        }
+        /* ESTILOS NEON VERMELHOS E PREMIUM */
+        .neon-border-red { box-shadow: 0 0 15px rgba(239, 68, 68, 0.35); }
+        .neon-text-red { text-shadow: 0 0 12px rgba(239, 68, 68, 0.7); }
+        .neon-text-green { text-shadow: 0 0 8px rgba(52, 211, 153, 0.5); }
+        .backdrop-blur-md { backdrop-filter: blur(12px); }
     </style>
 </head>
-<body>
+<body class="gengar-bg text-white font-sans antialiased min-h-screen relative selection:bg-red-600 selection:text-white">
 
-    <!-- BANNER TOPO ANIMADO -->
-    <div class="hero-banner">
-        <h1>Smit Sensi</h1>
-        <p>🚀 Os melhores painéis do mercado</p>
-    </div>
+    <!-- CAMADA ESCURA PARA AJUSTAR O CONTRASTE DO FUNDO ANIMADO -->
+    <div class="absolute inset-0 bg-black/80 z-0 pointer-events-none"></div>
 
-    <div class="container">
+    <!-- CONTEÚDO DA PÁGINA (ACIMA DO FUNDO) -->
+    <div class="relative z-10 max-w-md mx-auto px-4 pt-6 pb-24 space-y-8">
 
-        <!-- Produto 1 -->
-        <div class="card">
-            <h2>Painel Fluorite iOS</h2>
-            <ul class="price-list">
-                <li><span class="tempo">1 dia</span> <span class="valor">R$ 14,55</span></li>
-                <li><span class="tempo">7 dias</span> <span class="valor">R$ 56,77</span></li>
-                <li><span class="tempo">30 dias</span> <span class="valor">R$ 100,00</span></li>
-            </ul>
-        </div>
-
-        <!-- Produto 2 -->
-        <div class="card">
-            <h2>Drip Cliente Android</h2>
-            <ul class="price-list">
-                <li><span class="tempo">1 dia</span> <span class="valor">R$ 10,99</span></li>
-                <li><span class="tempo">7 dias</span> <span class="valor">R$ 44,66</span></li>
-                <li><span class="tempo">30 dias</span> <span class="valor">R$ 78,99</span></li>
-            </ul>
-        </div>
-
-        <!-- Produto 3 -->
-        <div class="card">
-            <h2>Proxy</h2>
-            <ul class="price-list">
-                <li><span class="tempo">7 dias</span> <span class="valor">R$ 42,00</span></li>
-                <li><span class="tempo">30 dias</span> <span class="valor">R$ 79,99</span></li>
-            </ul>
-        </div>
-
-        <!-- Produto 4 -->
-        <div class="card">
-            <h2>GBox</h2>
-            <ul class="price-list">
-                <li><span class="tempo">Anual</span> <span class="valor">R$ 55,00</span></li>
-            </ul>
-        </div>
-
-        <!-- Área de Conta Gemada -->
-        <div class="card card-gemada">
-            <h2>🔥 Pagamento via Conta Gemada</h2>
-            <p>Não tem dinheiro vivo agora? Eu aceito sua <strong>conta gemada do Free Fire</strong> como forma de pagamento pelos painéis!</p>
-            <p>⚠️ A conta passará por uma avaliação de valor antes da liberação do produto.</p>
+        <!-- CABEÇALHO COM O NOME VERMELHO LINDO -->
+        <header class="text-center space-y-3">
+            <h1 class="text-4xl font-black tracking-tighter uppercase">
+                <span class="bg-gradient-to-r from-red-500 to-rose-600 bg-clip-text text-transparent neon-text-red">SMIT SENSI</span>
+            </h1>
+            <p class="text-zinc-400 text-[10px] tracking-widest uppercase font-bold">A MAIOR EVOLUÇÃO EM DESEMPENHO E PRECISÃO</p>
             
-            <a href="https://wa.me!" target="_blank" class="btn btn-gemada">
-                🔄 Negociar Conta Gemada
-            </a>
+            <!-- CRONÔMETRO REVERSIVO DE OFERTA RELÂMPAGO -->
+            <div class="inline-block bg-zinc-950/80 border border-red-500/30 rounded-full px-5 py-2 text-xs font-bold text-red-400 backdrop-blur-md">
+                ⏱️ OFERTA RELÂMPAGO: OS PREÇOS SOBEM EM <span id="main-timer">08:38</span>
+            </div>
+
+            <!-- AVISO DE CONTAS GEMADAS -->
+            <div class="bg-gradient-to-r from-red-950/40 to-zinc-900/60 border border-red-500/30 rounded-xl p-3 text-center text-xs font-black tracking-wide uppercase backdrop-blur-md">
+                💳 AVISO: ACEITAMOS CONTAS GEMADAS COMO FORMA DE PAGAMENTO!
+            </div>
+        </header>
+
+        <!-- EXPLICAÇÃO DE COMO FUNCIONA A COMPRA -->
+        <section class="bg-zinc-950/60 border border-zinc-900/80 rounded-2xl p-4 space-y-3 backdrop-blur-md">
+            <h2 class="text-xs font-black tracking-wider uppercase text-red-400 mb-1">🛒 COMO FUNCIONA A COMPRA?</h2>
+            <div class="text-xs space-y-2 text-zinc-300 font-bold">
+                <p>1️⃣ <span class="text-white">ESCOLHA:</span> SELECIONE SEU PAINEL FAVORITO E ACESSE O PAGAMENTO SEGURO.</p>
+                <p>2️⃣ <span class="text-white">RECEBA:</span> LINK CHEGA INSTANTANEAMENTE NO E-MAIL E NA TELA APÓS O PIX.</p>
+                <p>3️⃣ <span class="text-white">ATIVE:</span> SUPORTE COMPLETO PARA TE AJUDAR DURANTE A ATIVAÇÃO.</p>
+            </div>
+        </section>
+
+        <!-- SISTEMA DE FILTRO POR ABAS -->
+        <div class="flex space-x-2 bg-zinc-950/80 p-1.5 rounded-xl border border-zinc-900/80 backdrop-blur-md">
+            <button onclick="switchTab('todos')" id="tab-todos" class="w-full text-center py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition bg-red-600 text-white">TODOS</button>
+            <button onclick="switchTab('android')" id="tab-android" class="w-full text-center py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition text-zinc-400 hover:text-white">ANDROID</button>
+            <button onclick="switchTab('ios')" id="tab-ios" class="w-full text-center py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition text-zinc-400 hover:text-white">IOS</button>
         </div>
 
-        <!-- Botão de Compra -->
-        <a href="https://wa.me." target="_blank" class="btn btn-whatsapp">
-            📱 Comprar no Pix / Dinheiro
-        </a>
+        <!-- GRID DE PRODUTOS EM 2 COLUNAS -->
+        <main id="products-grid" class="grid grid-cols-2 gap-3">
 
-    </div>
+            <!-- 1. PAINEL FLUORITE iOS -->
+            <div class="product-card ios bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
+                <span class="absolute top-2 left-2 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">IOS</span>
+                <img src="painel-ios.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="FLUORITE">
+                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">PAINEL FLUORITE iOS</h3>
+                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 15,99</p>
+                <button onclick="openModal('FLUORITE')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
+            </div>
 
-    <footer>
-        &copy; 2026 Smit Sensi. Todos os direitos reservados.
-    </footer>
+            <!-- 2. ANDROID INTERNO -->
+            <div class="product-card android bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
+                <span class="absolute top-2 left-2 bg-green-600 text-black text-[8px] font-black px-1.5 py-0.5 rounded uppercase">ANDROID</span>
+                <img src="painel-android-interno.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="INTERNO">
+                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">ANDROID INTERNO</h3>
+                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 10,99</p>
+                <button onclick="openModal('INTERNO')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
+            </div>
 
-</body>
-</html>
+            <!-- 3. ANDROID EXTERNAL -->
+            <div class="product-card android bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
+                <span class="absolute top-2 left-2 bg-green-500 text-black text-[8px] font-black px-1.5 py-0.5 rounded uppercase">ANDROID</span>
+                <img src="painel-android-external.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="EXTERNAL">
+                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">ANDROID EXTERNAL</h3>
+                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 12,50</p>
+                <button onclick="openModal('EXTERNAL')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
+            </div>
+
+            <!-- 4. PROXY ANDROID -->
+            <div class="product-card android bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
+                <span class="absolute top-2 left-2 bg-green-500 text-black text-[8px] font-black px-1.5 py-0.5 rounded uppercase">ANDROID</span>
+                <img src="proxy-android.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="PROXY ANDROID">
+                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">PROXY ANDROID</h3>
+                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">VITALÍCIO R$ 25,99</p>
+                <button onclick="openModal('PROXY_AND')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
+            </div>
+
+            <!-- 6. PROXY iOS -->
+            <div class="product-card ios bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
+                <span class="absolute top-2 left-2 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">IOS</span>
+                <img src="proxy-ios.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="PROXY IOS">
+                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">PROXY iOS</h3>
+                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 15,99</p>
+                <button onclick="openModal('PROXY_IOS')" class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-[10px] py-2 mt-3 rounded-lg uppercase tracking-wider transition">VER OPÇÕES</button>
+            </div>
+
+            <!-- 8. PAINEL MONITE iOS -->
+            <div class="product-card ios bg-zinc-900/80 border border-zinc-800/80 rounded-2xl p-3 flex flex-col justify-between backdrop-blur-md relative overflow-hidden group">
+                <span class="absolute top-2 left-2 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">IOS</span>
+                <img src="painel-monite-ios.png" class="w-full h-24 object-cover rounded-xl mb-2 border border-zinc-800" alt="MONITE IOS">
+                <h3 class="text-xs font-black text-zinc-100 uppercase tracking-tight line-clamp-1">PAINEL MONITE iOS</h3>
+                <p class="text-[9px] text-emerald-400 font-bold mt-0.5">A PARTIR DE R$ 19,00</p>
