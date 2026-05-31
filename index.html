@@ -16,33 +16,34 @@
             height: 100%;
             overflow: hidden;
             background-color: #050000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* A sua foto original esticada na tela inteira se movendo bem lento */
+        /* A imagem agora se ajusta inteira na tela sem cortes */
         .fundo-fumaca {
             position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 150%;
-            height: 150%;
+            width: 110%;
+            height: 110%;
             background-image: url('IMG_4521.jpeg');
-            background-size: cover;
+            background-size: contain; /* Faz a foto inteira caber na tela do celular */
+            background-repeat: no-repeat;
             background-position: center;
             z-index: 1;
-            animation: moverFundoReal 25s linear infinite alternate;
+            animation: moverFundoReal 15s linear infinite alternate;
         }
 
-        /* Movimento suave e contínuo para dar vida à fumaça da foto */
+        /* Movimento bem sutil e curto para não tirar a foto do lugar */
         @keyframes moverFundoReal {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-40px, -20px) scale(1.06); }
-            100% { transform: translate(20px, -40px) scale(1); }
+            0% { transform: translate(-5px, -5px); }
+            100% { transform: translate(5px, 5px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Apenas a sua imagem com efeito de fumaça viva de fundo -->
+    <!-- Sua arte completa se movendo suavemente sem cortes -->
     <div class="fundo-fumaca"></div>
 
 </body>
