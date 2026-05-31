@@ -18,51 +18,53 @@
             position: relative;
         }
 
-        /* 📸 A SUA IMAGEM DO GENGAR COMO FUNDO ANIMADO DA TELA TODA */
+        /* 📸 FUNDO CORRIGIDO: CORTA O TEXTO FORA E DEIXA SÓ A FUMAÇA */
         .fundo-gengar-animado {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 130%; /* Aumentamos levemente para dar margem de movimento */
-            height: 130%;
+            top: -20%; /* Sobe um pouco para focar na fumaça do topo */
+            left: -20%;
+            width: 140%; 
+            height: 140%;
             background-image: url('IMG_4570.jpeg'); 
             background-size: cover;
-            /* 🌟 O TRUQUE ESTÁ AQUI: top center faz o fundo focar na fumaça de cima e joga o texto do fundo para fora da tela */
-            background-position: top center; 
+            background-position: center top; 
             z-index: 0; 
-            animation: fumaçaGengar 15s infinite ease-in-out alternate;
+            /* 🌟 O TRUQUE: Dá zoom e corta a parte de baixo (onde fica o texto gigante) */
+            transform: scale(2.2); 
+            clip-path: inset(0px 0px 40% 0px); 
+            animation: fumaçaGengar 14s infinite ease-in-out alternate;
             pointer-events: none;
         }
 
-        /* Animação corrigida para focar apenas no topo e laterais, escondendo a parte de baixo */
+        /* Animação suave simulando fumaça sem trazer o texto de volta */
         @keyframes fumaçaGengar {
             0% {
-                transform: translate(-3%, -2%) scale(1.05) rotate(0deg);
-                filter: brightness(0.85) contrast(1.1);
+                transform: scale(2.2) translate(-2px, -2px) rotate(0deg);
+                filter: brightness(0.8) contrast(1.1);
             }
             50% {
-                transform: translate(3%, 0%) scale(1.1) rotate(1deg); /* Tiramos o movimento para baixo (Y) para o texto não subir */
-                filter: brightness(1.05) contrast(1.15); 
+                transform: scale(2.3) translate(3px, 1px) rotate(1deg);
+                filter: brightness(1.0) contrast(1.2); 
             }
             100% {
-                transform: translate(-2%, -1%) scale(1.03) rotate(-0.5deg);
-                filter: brightness(0.8) contrast(1);
+                transform: scale(2.2) translate(-1px, 2px) rotate(-1deg);
+                filter: brightness(0.75) contrast(1);
             }
         }
 
-        /* Camada escura por cima do fundo para destacar o conteúdo principal */
+        /* Filtro escuro para dar contraste nos botões e produtos */
         .filtro-escuro {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Deixamos um pouquinho mais escuro para o texto dos produtos destacar mais */
+            background: rgba(0, 0, 0, 0.5); 
             z-index: 1;
             pointer-events: none;
         }
 
-        /* Garante que o conteúdo fique por cima do fundo animado */
+        /* Garante que o conteúdo fique na frente */
         .conteudo-site {
             position: relative;
             z-index: 2; 
@@ -70,7 +72,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 40px;
+            padding-bottom: 50px;
         }
 
         /* Container do Banner Deitado */
@@ -86,7 +88,7 @@
             overflow: hidden;
         }
 
-        /* Imagem dentro do banner */
+        /* Imagem estática dentro do banner */
         .banner-fundo {
             position: absolute;
             width: 100%;
@@ -111,7 +113,7 @@
             font-weight: bold;
             text-transform: uppercase;
             color: #ffffff;
-            background-color: rgba(0, 0, 0, 0.6); 
+            background-color: rgba(0, 0, 0, 0.65); 
             border: 2px solid #ff3700; 
             border-radius: 8px;
             text-align: center;
@@ -134,7 +136,7 @@
         .card-produto {
             flex: 1;
             height: 200px;
-            background: rgba(12, 12, 16, 0.75); 
+            background: rgba(12, 12, 16, 0.8); 
             border: 2px solid #ff3700; 
             border-radius: 12px;
             display: flex;
@@ -152,11 +154,11 @@
 </head>
 <body>
 
-    <!-- A SUA IMAGEM FAZENDO O PAPEL DE FUMAÇA NO SITE TODO -->
+    <!-- FUNDO COM ZOOM PARA DEIXAR APENAS A FUMAÇA SE MEXENDO -->
     <div class="fundo-gengar-animado"></div>
     <div class="filtro-escuro"></div>
 
-    <!-- TODO O CONTEÚDO DO SITE -->
+    <!-- CONTEÚDO DO SITE -->
     <div class="conteudo-site">
         
         <!-- BANNER DEITADO -->
