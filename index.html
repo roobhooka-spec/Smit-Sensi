@@ -73,7 +73,7 @@
             text-shadow: 0 0 15px rgba(160, 32, 240, 0.6);
         }
 
-        /* GRADE DE VANTAGENS EXCLUSIVAS FIXADA EM 2 COLUNAS */
+        /* GRADE DE VANTAGENS CORRIGIDA EM 2 COLUNAS LADO A LADO */
         .secao-vantagens {
             margin: 25px 0;
             display: grid;
@@ -83,18 +83,18 @@
 
         .card-vantagem {
             background: rgba(5, 2, 10, 0.85);
-            border: 2px solid rgba(160, 32, 240, 0.2);
+            border: 1px solid rgba(160, 32, 240, 0.25);
             border-radius: 16px;
             padding: 25px 15px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: inset 0 0 15px rgba(160, 32, 240, 0.05), 0 4px 20px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
             border-bottom: 3px solid rgba(160, 32, 240, 0.55);
         }
 
-        /* ÍCONES EM ROXO NEON BRILHANTE */
+        /* ICONES ROXOS BRILHANTES */
         .icone-vantagem {
             font-size: 32px;
             margin-bottom: 16px;
@@ -116,7 +116,7 @@
             line-height: 1.5;
         }
 
-        /* COMO FUNCIONA A COMPRA */
+        /* COMO FUNCIONA A COMPRA EM LISTA VERTICAL ALINHADA */
         .secao-passos {
             margin: 35px 0;
             display: flex;
@@ -335,70 +335,38 @@
     <div class="container-loja">
         <div class="topo-banner"><img src="IMG_4577.jpeg"></div>
 
-        <!-- SEÇÃO VANTAGENS EXCLUSIVAS -->
         <h2 class="titulo-secao">Vantagens Exclusivas</h2>
+        
+        <!-- SEÇÃO VANTAGENS RECONSTRUÍDA SEM ERRO -->
         <div class="secao-vantagens">
-            <!-- ENTREGA IMEDIATA -->
             <div class="card-vantagem">
                 <div class="icone-vantagem">🚚</div>
                 <h3>Entrega Imediata</h3>
                 <p>Liberação automática após a compra. Você recebe instantaneamente o seu produto.</p>
             </div>
-
-            <!-- SUPORTE 24H -->
             <div class="card-vantagem">
                 <div class="icone-vantagem">🎧</div>
                 <h3>Suporte 24h</h3>
                 <p>Atendimento 24 Horas, diretamente pelo nosso site, via WhatsApp ou Telegram.</p>
             </div>
-
-            <!-- GARANTIA -->
             <div class="card-vantagem">
                 <div class="icone-vantagem">🛡️</div>
                 <h3>Garantia</h3>
                 <p>7 dias de garantia incondicional. Você testa o produto, se não gostar pede reembolso.</p>
             </div>
-
-            <!-- ATUALIZAÇÕES GRÁTIS -->
-            <div class="card-vantagem">
-                <div class="icone-vantagem">🔄</div>
-            <!-- ATUALIZAÇÕES GRÁTIS -->
             <div class="card-vantagem">
                 <div class="icone-vantagem">🔄</div>
                 <h3>Atualizações Grátis</h3>
                 <p>Todas futuras atualizações sem custo, você não pagará nada pelas atualizações.</p>
-            </div>
-        </div>
-
         <!-- COMO FUNCIONA A COMPRA -->
         <div class="secao-passos">
             <h2 class="titulo-secao">Como funciona a compra?</h2>
-            <div class="card-passo">
-                <div class="num-passo">1</div>
-                <div class="texto-passo">
-                    <h3>Escolha</h3>
-                    <p>Selecione seu painel favorito e acesse o pagamento <strong>seguro</strong>.</p>
-                </div>
-            </div>
-            <div class="card-passo">
-                <div class="num-passo">2</div>
-                <div class="texto-passo">
-                    <h3>Receba</h3>
-                    <p>Link chega <strong>instantaneamente</strong> no e-mail e em "Meus Produtos".</p>
-                </div>
-            </div>
-            <div class="card-passo">
-                <div class="num-passo">3</div>
-                <div class="texto-passo">
-                    <h3>Ative</h3>
-                    <p>Suporte <strong>24h</strong> para te ajudar durante a ativação.</p>
-                </div>
-            </div>
+            <div class="card-passo"><div class="num-passo">1</div><div class="texto-passo"><h3>Escolha</h3><p>Selecione seu painel favorito e acesse o pagamento <strong>seguro</strong>.</p></div></div>
+            <div class="card-passo"><div class="num-passo">2</div><div class="texto-passo"><h3>Receba</h3><p>Link chega <strong>instantaneamente</strong> no e-mail e em "Meus Produtos".</p></div></div>
+            <div class="card-passo"><div class="num-passo">3</div><div class="texto-passo"><h3>Ative</h3><p>Suporte <strong>24h</strong> para te ajudar durante a ativação.</p></div></div>
         </div>
 
-        <div class="divisor"></div>
-
-        <!-- SEÇÃO FILTRO -->
+        <!-- FILTRAR PRODUTOS -->
         <div class="secao-filtro">
             <h2 class="titulo-filtro">Filtrar Produtos</h2>
             <span class="label-grupo">Plataforma</span>
@@ -408,93 +376,21 @@
                 <button class="btn-filtro" id="btn-ios" onclick="filtro('ios')">iOS</button>
             </div>
             <span class="label-grupo" style="margin-top:15px">Jogo</span>
-            <div class="alinhamento-botoes">
-                <button class="btn-filtro ativo btn-bloqueado">Free Fire</button>
-            </div>
+            <div class="alinhamento-botoes"><button class="btn-filtro ativo btn-bloqueado">Free Fire</button></div>
         </div>
 
-        <!-- VITRINE COM TODOS OS 10 BLOCOS -->
+        <!-- VITRINE COM TODOS OS 10 BLOCOS ALINHADOS -->
         <div class="grade-produtos">
-            <div class="card-produto item ios">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">FLUORITE</div>
-                    <div class="status">Modificações 1 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('FLUORITE')">Comprar</button>
-                </div>
-            </div>
-            <div class="card-produto item ios">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">MONITE</div>
-                    <div class="status">Campanha 2 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('MONITE')">Comprar</button>
-                </div>
-            </div>
-            <div class="card-produto item ios">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">PROXY iOS</div>
-                    <div class="status">Filtros 3 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button>
-                </div>
-            </div>
-            <div class="card-produto item ios">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">BYPASS iOS</div>
-                    <div class="status">Ajustes 4 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('BYPASS iOS')">Comprar</button>
-                </div>
-            </div>
-            <div class="card-produto item ios">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">CERTIFICADO iOS</div>
-                    <div class="status">Validação 5 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('CERTIFICADO iOS')">Comprar</button>
-                </div>
-            </div>
-            <div class="card-produto item android">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">MOD MENU ANDROID</div>
-                    <div class="status">Aviso 6 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('MOD MENU ANDROID')">Comprar</button>
-                </div>
-            </div>
-            <div class="card-produto item android">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">EXTERNAL ANDROID</div>
-                    <div class="status">Painel 7 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('EXTERNAL ANDROID')">Comprar</button>
-                </div>
-            </div>
-            <div class="card-produto item android">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">PROXY ANDROID</div>
-                    <div class="status">Segurança 8 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('PROXY ANDROID')">Comprar</button>
-                </div>
-            </div>
-            <div class="card-produto item android">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">BYPASS ANDROID</div>
-                    <div class="status">Invisível 9 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('BYPASS ANDROID')">Comprar</button>
-                </div>
-            </div>
-            <div class="card-produto item ios">
-                <div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div>
-                <div class="info-prod">
-                    <div class="nome-prod">TROCAR CONTA</div>
-                    <div class="status">Gerenciamento 10 🚛 Entrega imediata</div>
-                    <button class="btn-buy" onclick="buy('TROCAR CONTA')">Comprar</button>
-                </div>
-            </div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">FLUORITE</div><div class="status">Modificações 1 1 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('FLUORITE')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">MONITE</div><div class="status">Campanha 2 2 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('MONITE')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">PROXY iOS</div><div class="status">Filtros 3 3 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">BYPASS iOS</div><div class="status">Ajustes 4 4 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS iOS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">CERTIFICADO iOS</div><div class="status">Validação 5 5 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('CERTIFICADO iOS')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">MOD MENU ANDROID</div><div class="status">Aviso 6 6 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('MOD MENU ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">EXTERNAL ANDROID</div><div class="status">Painel 7 7 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('EXTERNAL ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">PROXY ANDROID</div><div class="status">Segurança 8 8 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">BYPASS ANDROID</div><div class="status">Invisível 9 9 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS ANDROID')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">TROCAR CONTA</div><div class="status">Gerenciamento 10 10 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('TROCAR CONTA')">Comprar</button></div></div>
         </div>
     </div>
 
