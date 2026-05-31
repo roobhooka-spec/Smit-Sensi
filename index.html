@@ -278,12 +278,12 @@
                     </div>
                 </div>
             </div>
-        </div><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Filtros</title>
+    <title>Painel de Filtros - Vermelho</title>
     
     <style>
         /* Fundo escuro padrão apenas para você visualizar o contraste */
@@ -295,10 +295,10 @@
             justify-content: center;
         }
 
-        /* CONTAINER DO FILTRO (IGUAL AO SEU PRINT) */
+        /* CONTAINER DO FILTRO */
         .secao-filtro-produtos {
             background: rgba(10, 2, 2, 0.85);
-            border: 1px solid rgba(255, 26, 26, 0.1);
+            border: 1px solid rgba(255, 26, 26, 0.15);
             border-radius: 16px;
             padding: 22px 15px;
             width: 100%;
@@ -307,11 +307,12 @@
             text-align: center;
         }
 
-        /* Nome "Filtrar Produtos" grande em ciano */
+        /* Nome "Filtrar Produtos" grande em vermelho */
         .titulo-filtro {
             font-size: 26px;
             font-weight: 700;
-            color: #00ffcc; 
+            color: #ff1a1a; 
+            text-shadow: 0 0 10px rgba(255, 26, 26, 0.3);
             margin-bottom: 5px;
         }
 
@@ -325,11 +326,11 @@
             margin-bottom: 20px;
         }
 
-        /* Nomes "Plataforma" e "Jogo" em ciano */
+        /* Nomes "Plataforma" e "Jogo" em vermelho */
         .label-grupo {
             font-size: 16px;
             font-weight: 700;
-            color: #00ffcc;
+            color: #ff1a1a;
             margin-bottom: 12px;
             letter-spacing: 0.5px;
             display: block;
@@ -354,12 +355,12 @@
             transition: all 0.25s ease;
         }
 
-        /* BOTÃO ATIVADO (Fundo Ciano/Verde-Água Neon, Letra Preta e Brilho) */
+        /* BOTÃO ATIVADO EM VERMELHO NEON COM LETRA PRETA (IGUAL A ESTRUTURA DO SEU PRINT) */
         .btn-filtro.ativo {
-            background-color: #00ffcc;
+            background-color: #ff1a1a;
             color: #000000;
-            border-color: #00ffcc;
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+            border-color: #ff1a1a;
+            box-shadow: 0 0 15px rgba(255, 26, 26, 0.5);
         }
 
         .btn-bloqueado {
@@ -370,7 +371,7 @@
 </head>
 <body>
 
-    <!-- ESTRUTURA DO PAINEL -->
+    <!-- ESTRUTURA DO PAINEL VERMELHO -->
     <div class="secao-filtro-produtos">
         <h2 class="titulo-filtro">Filtrar Produtos</h2>
         <p class="subtitulo-filtro">Encontre exatamente o que precisa</p>
@@ -394,14 +395,14 @@
         </div>
     </div>
 
-    <!-- LOGICA DE CLIQUE (MUDAR A COR DO BOTÃO QUANDO CLICA) -->
+    <!-- LOGICA DE CLIQUE (MUDAR PARA VERMELHO QUANDO CLICA) -->
     <script>
         function alternarBotao(idBotao) {
-            // Remove a cor verde-água (classe 'ativo') de todos os botões de Plataforma
+            // Remove o vermelho ativo de todos os botões de Plataforma
             const botoes = document.querySelectorAll('.grupo-filtro:first-of-type .btn-filtro');
             botoes.forEach(btn => btn.classList.remove('ativo'));
             
-            // Adiciona a cor verde-água apenas no botão que você clicou
+            // Adiciona a cor vermelha com letra preta apenas no botão clicado
             document.getElementById(idBotao).classList.add('ativo');
         }
     </script>
@@ -409,8 +410,4 @@
 </body>
 </html>
 
-
-    </div>
-
-</body>
-</html>
+<
