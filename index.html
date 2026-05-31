@@ -6,6 +6,7 @@
     <title>Banner Animado - SMIT SENSI</title>
     
     <style>
+        /* Fundo do site */
         body {
             margin: 0;
             padding: 0;
@@ -13,44 +14,81 @@
             overflow: hidden; 
             width: 100vw;
             height: 100vh;
+            font-family: 'Arial Black', Impact, sans-serif;
         }
 
+        /* O Banner feito totalmente em código (sem precisar de imagem) */
         #banner-movel {
             position: absolute;
             width: 300px; 
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            height: 180px;
+            border-radius: 15px;
+            background: linear-gradient(135px, #ff0000, #3a0000, #1a0000);
+            border: 3px solid #ff1a1a;
+            box-shadow: 0 0 30px #ff0000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            user-select: none;
+        }
+
+        /* Texto SMIT SENSI dentro do banner */
+        #banner-movel h1 {
+            color: #ffffff;
+            font-size: 32px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0px #000000, 0 0 10px #ff0000;
+            font-style: italic;
+        }
+
+        #banner-movel p {
+            color: #ffb3b3;
+            font-size: 14px;
+            margin: 5px 0 0 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px #000000;
         }
     </style>
 </head>
 <body>
 
-    <!-- Imagem vinda direto do repositório público do GitHub -->
-    <img src="https://githubusercontent.com" id="banner-movel" alt="Banner SMIT SENSI" onerror="this.src='https://unsplash.com'">
+    <!-- Banner digital criado por código -->
+    <div id="banner-movel">
+        <h1>SMIT SENSI</h1>
+        <p>Oficial</p>
+    </div>
 
     <script>
         const banner = document.getElementById('banner-movel');
 
+        // Posição inicial
         let posX = Math.random() * (window.innerWidth - 300);
-        let posY = Math.random() * (window.innerHeight - 250);
+        let posY = Math.random() * (window.innerHeight - 180);
 
+        // Velocidade do movimento
         let velX = 3; 
         let velY = 3;
 
         function moverBanner() {
             const larguraTela = window.innerWidth;
             const alturaTela = window.innerHeight;
-            const larguraBanner = banner.offsetWidth || 300;
-            const alturaBanner = banner.offsetHeight || 300;
+            const larguraBanner = banner.offsetWidth;
+            const alturaBanner = banner.offsetHeight;
 
             posX += velX;
             posY += velY;
 
+            // Colisão direita e esquerda
             if (posX + larguraBanner >= larguraTela || posX <= 0) {
                 velX = -velX; 
             }
 
+            // Colisão baixo e cima
             if (posY + alturaBanner >= alturaTela || posY <= 0) {
                 velY = -velY; 
             }
@@ -61,14 +99,8 @@
             requestAnimationFrame(moverBanner);
         }
 
-        window.addEventListener('load', moverBanner);
-        // Garante o início do movimento mesmo se o load demorar
-        setTimeout(moverBanner, 500);
-
-        window.addEventListener('resize', () => {
-            if (posX + banner.offsetWidth > window.innerWidth) posX = window.innerWidth - banner.offsetWidth;
-            if (posY + banner.offsetHeight > window.innerHeight) posY = window.innerHeight - banner.offsetHeight;
-        });
+        // Executa a animação
+        moverBanner();
     </script>
 </body>
 </html>
