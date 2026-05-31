@@ -18,8 +18,8 @@
             background-color: #050000;
         }
 
-        /* 1. FUMAÇA DE FUNDO: Ocupa a tela toda eliminando as faixas pretas */
-        .fundo-viva {
+        /* 1. O FUNDO: Sua fumaça real se movendo bem lento por toda a tela */
+        .fundo-fumaca-real {
             position: absolute;
             top: -50px;
             left: -50px;
@@ -28,55 +28,75 @@
             background-image: url('IMG_4521.jpeg');
             background-size: cover;
             background-position: center;
-            filter: blur(20px) brightness(0.6); /* Desfoca o fundo para dar profundidade */
+            filter: brightness(0.4); /* Deixa o fundo mais escuro para o banner flutuante destacar */
             z-index: 1;
-            animation: moverFundo 25s linear infinite alternate;
+            animation: moverFundoLento 25s linear infinite alternate;
         }
 
-        /* 2. ARTE PRINCIPAL: Centralizada, nítida e sem cortes */
-        .arte-principal {
+        /* 2. O BANNER FLUTUANTE: Sua imagem retangular com a borda neon que corre o site todo */
+        #banner-movel {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 450px; /* Tamanho ideal para preencher bem o celular */
+            width: 320px; 
             height: auto;
-            z-index: 2;
-            padding: 15px;
-        }
-
-        .arte-principal img {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
             border: 2px solid #ff1a1a;
-            animation: balancoSuave 6s ease-in-out infinite alternate;
+            z-index: 2; /* Fica na frente correndo por cima da fumaça */
         }
 
-        /* Animação para a fumaça de fundo se mexer lentamente */
-        @keyframes moverFundo {
+        /* Animação para a fumaça de fundo se mexer suavemente */
+        @keyframes moverFundoLento {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-30px, -30px) scale(1.05); }
-        }
-
-        /* Balanço leve na imagem principal para dar mais estilo */
-        @keyframes balancoSuave {
-            0% { transform: translateY(-4px); }
-            100% { transform: translateY(4px); }
+            100% { transform: translate(-40px, -30px) scale(1.05); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Fumaça vermelha preenchendo o fundo inteiro sem deixar faixas pretas -->
-    <div class="fundo-viva"></div>
+    <!-- Fumaça real em movimento no fundo de todo o site -->
+    <div class="fundo-fumaca-real"></div>
 
-    <!-- Sua arte original com o nome e os bonecos sem cortar nada -->
-    <div class="arte-principal">
-        <img src="IMG_4521.jpeg" alt="SMIT SENSI">
-    </div>
+    <!-- O banner do Gengar que vai ficar flutuando e batendo nas bordas -->
+    <img src="IMG_4521.jpeg" id="banner-movel" alt="SMIT SENSI">
 
+    <script>
+        const banner = document.getElementById('banner-movel');
+
+        // Posição inicial aleatória
+        let posX = Math.random() * (window.innerWidth - 320);
+        let posY = Math.random() * (window.innerHeight - 280);
+
+        // Velocidade do banner flutuante
+        let velX = 2.5; 
+        let velY = 2.5;
+
+        function moverBanner() {
+            const larguraTela = window.innerWidth;
+            const alturaTela = window.innerHeight;
+            const larguraBanner = banner.offsetWidth || 320;
+            const alturaBanner = banner.offsetHeight || 280;
+
+            posX += velX;
+            posY += velY;
+
+            // Colisão com as bordas laterais
+            if (posX + larguraBanner >= larguraTela || posX <= 0) {
+                velX = -velX; 
+            }
+
+            // Colisão com as bordas de cima e baixo
+            if (posY + alturaBanner >= alturaTela || posY <= 0) {
+                velY = -velY; 
+            }
+
+            banner.style.left = posX + 'px';
+            banner.style.top = posY + 'px';
+
+            requestAnimationFrame(moverBanner);
+        }
+
+        window.addEventListener('load', moverBanner);
+        setTimeout(moverBanner, 500); 
+    </script>
 </body>
 </html>
