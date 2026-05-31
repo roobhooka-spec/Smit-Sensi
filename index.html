@@ -6,16 +6,30 @@
     <title>SMIT SENSI</title>
     
     <style>
-        body {
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #0b0101;
-            overflow: hidden; 
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #050000;
         }
 
-        /* Banner configurado com o nome exato da foto enviada */
+        /* Fumaça cobrindo o site inteiro ao fundo */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Seu banner original se movendo na frente */
         #banner-movel {
             position: absolute;
             width: 320px; 
@@ -23,24 +37,92 @@
             border-radius: 12px;
             box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
             border: 2px solid #ff1a1a;
+            z-index: 2; 
         }
     </style>
 </head>
 <body>
 
-    <!-- Puxa a imagem com o nome exato que subiu no GitHub -->
+    <!-- Canvas para a fumaça lenta no fundo -->
+    <canvas id="fumaca"></canvas>
+
+    <!-- Sua foto cadastrada no GitHub -->
     <img src="IMG_4521.jpeg" id="banner-movel" alt="SMIT SENSI">
 
     <script>
-        const banner = document.getElementById('banner-movel');
+        const canvas = document.getElementById('fumaca');
+        const ctx = canvas.getContext('2d');
 
+        function redimensionar() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', redimensionar);
+        redimensionar();
+
+        const particulas = [];
+        const quantidadeParticulas = 45; 
+
+        class ParticulaFumaca {
+            constructor() {
+                this.resetar(true);
+            }
+
+            resetar(inicioAleatorio = false) {
+                this.x = Math.random() * canvas.width;
+                this.y = inicioAleatorio ? Math.random() * canvas.height : canvas.height + Math.random() * 100;
+                this.tamanho = Math.random() * 180 + 120; // Nuvens maiores e mais suaves
+                this.velX = Math.random() * 0.15 - 0.075; // Movimento pros lados bem sutil
+                this.velY = -(Math.random() * 0.2 + 0.1);  // SUBIDA BEM DEVAGAR E SUAVE
+                this.opacidade = Math.random() * 0.22 + 0.04; 
+                this.fading = Math.random() * 0.0008 + 0.0003; // Demora mais para sumir
+            }
+
+            atualizar() {
+                this.x += this.velX;
+                this.y += this.velY;
+                this.opacidade -= this.fading;
+
+                if (this.opacidade <= 0 || this.y + this.tamanho < 0) {
+                    this.resetar(false);
+                }
+            }
+
+            desenhar() {
+                ctx.beginPath();
+                let gradiente = ctx.createRadialGradient(this.x, this.y, 10, this.x, this.y, this.tamanho);
+                gradiente.addColorStop(0, `rgba(235, 15, 15, ${this.opacidade})`); 
+                gradiente.addColorStop(0.5, `rgba(80, 0, 0, ${this.opacidade * 0.3})`); 
+                gradiente.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = gradiente;
+                ctx.arc(this.x, this.y, this.tamanho, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < quantidadeParticulas; i++) {
+            particulas.push(new ParticulaFumaca());
+        }
+
+        // Movimentação do seu banner
+        const banner = document.getElementById('banner-movel');
         let posX = Math.random() * (window.innerWidth - 320);
         let posY = Math.random() * (window.innerHeight - 280);
-
         let velX = 2.5; 
         let velY = 2.5;
 
-        function moverBanner() {
+        function animar() {
+            ctx.fillStyle = '#050000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Roda a fumaça bem lenta de fundo
+            particulas.forEach(particula => {
+                particula.atualizar();
+                particula.desenhar();
+            });
+
+            // Mantém o banner se movendo
             const larguraTela = window.innerWidth;
             const alturaTela = window.innerHeight;
             const larguraBanner = banner.offsetWidth || 320;
@@ -49,22 +131,17 @@
             posX += velX;
             posY += velY;
 
-            if (posX + larguraBanner >= larguraTela || posX <= 0) {
-                velX = -velX; 
-            }
-
-            if (posY + alturaBanner >= alturaTela || posY <= 0) {
-                velY = -velY; 
-            }
+            if (posX + larguraBanner >= larguraTela || posX <= 0) { velX = -velX; }
+            if (posY + alturaBanner >= alturaTela || posY <= 0) { velY = -velY; }
 
             banner.style.left = posX + 'px';
             banner.style.top = posY + 'px';
 
-            requestAnimationFrame(moverBanner);
+            requestAnimationFrame(animar);
         }
 
-        window.addEventListener('load', moverBanner);
-        setTimeout(moverBanner, 500); 
+        window.addEventListener('load', animar);
+        setTimeout(animar, 500);
     </script>
 </body>
 </html>
