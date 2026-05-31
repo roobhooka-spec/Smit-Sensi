@@ -26,8 +26,8 @@
 </head>
 <body>
 
-    <!-- Link direto e funcional da sua imagem -->
-    <img src="https://imgbox.com" id="banner-movel" alt="Banner SMIT SENSI">
+    <!-- Imagem vinda direto do repositório público do GitHub -->
+    <img src="https://githubusercontent.com" id="banner-movel" alt="Banner SMIT SENSI" onerror="this.src='https://unsplash.com'">
 
     <script>
         const banner = document.getElementById('banner-movel');
@@ -41,8 +41,8 @@
         function moverBanner() {
             const larguraTela = window.innerWidth;
             const alturaTela = window.innerHeight;
-            const larguraBanner = banner.offsetWidth;
-            const alturaBanner = banner.offsetHeight;
+            const larguraBanner = banner.offsetWidth || 300;
+            const alturaBanner = banner.offsetHeight || 300;
 
             posX += velX;
             posY += velY;
@@ -62,6 +62,8 @@
         }
 
         window.addEventListener('load', moverBanner);
+        // Garante o início do movimento mesmo se o load demorar
+        setTimeout(moverBanner, 500);
 
         window.addEventListener('resize', () => {
             if (posX + banner.offsetWidth > window.innerWidth) posX = window.innerWidth - banner.offsetWidth;
