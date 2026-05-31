@@ -3,56 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMIT SENSI</title>
-    
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #050000;
-        }
-
-        /* O site todo agora é a sua nova imagem vertical se movendo */
-        .site-fundo-completo {
-            position: absolute;
-            top: -40px;
-            left: -40px;
-            width: calc(100% + 80px);
-            height: calc(100% + 80px);
-            background-image: url('IMG_4570.jpeg');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-            /* Faz o fundo inteiro deslizar bem devagar e suavemente */
-            animation: movimentoFumaca 18s ease-in-out infinite alternate;
-        }
-
-        /* Animação suave de vai e vem para dar vida à fumaça sem cortar o nome */
-        @keyframes movimentoFumaca {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(20px, 15px) scale(1.02); }
-            100% { transform: translate(-10px, 30px) scale(1); }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Sua nova imagem em pé ocupando e movimentando a tela toda -->
-    <div class="site-fundo-completo"></div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMIT SENSI - Categorias</title>
     
     <style>
@@ -72,155 +22,7 @@
             overflow-y: auto;
         }
 
-        /* SEU FUNDO FIXO EM MOVIMENTO LENTO */
-        .site-fundo-completo {
-            position: fixed;
-            top: -40px;
-            left: -40px;
-            width: calc(100% + 80px);
-            height: calc(100% + 80px);
-            background-image: url('IMG_4570.jpeg');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-            filter: brightness(0.3);
-            animation: movimentoFumaca 18s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-
-        @keyframes movimentoFumaca {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(20px, 15px) scale(1.02); }
-        }
-
-        .container-loja {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 12px;
-        }
-
-        /* SELETOR DE CATEGORIAS IGUAL AO MODELO */
-        .abas-categorias {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0 25px 0;
-        }
-
-        .aba-btn {
-            padding: 8px 24px;
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-radius: 20px;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        /* Cores fiéis aos botões redondos de categoria do print */
-        .aba-btn.ios {
-            background-color: #007aff;
-            color: #ffffff;
-            box-shadow: 0 0 15px rgba(0, 122, 255, 0.4);
-        }
-
-        .aba-btn.android {
-            background-color: #28a745;
-            color: #ffffff;
-            box-shadow: 0 0 15px rgba(40, 167, 69, 0.4);
-        }
-
-        .aba-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* GRADE DE PRODUTOS QUADRADINHOS */
-        .grade-produtos {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        /* Estrutura vazia dos cards esperando suas fotos e textos */
-        .card-placeholder {
-            background: rgba(15, 5, 5, 0.75);
-            border: 1px solid rgba(255, 26, 26, 0.15);
-            border-radius: 14px;
-            aspect-ratio: 1 / 1.5; /* Mantém a proporção esticada vertical do card */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            border-bottom: 3px solid rgba(255, 26, 26, 0.3);
-        }
-
-        @media (min-width: 768px) {
-            .grade-produtos { grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Fundo de fumaça ativa mantido -->
-    <div class="site-fundo-completo"></div>
-
-    <div class="container-loja">
-        
-        <!-- Botões de Categoria Centralizados -->
-        <div class="abas-categorias">
-            <button class="aba-btn ios">iOS</button>
-            <button class="aba-btn android">Android</button>
-        </div>
-
-        <!-- Grade com os quadradinhos dos produtos estruturados -->
-        <div class="grade-produtos">
-            <div class="card-placeholder">Produto 1 (Aguardando Foto)</div>
-            <div class="card-placeholder">Produto 2 (Aguardando Foto)</div>
-            <div class="card-placeholder">Produto 3 (Aguardando Foto)</div>
-            <div class="card-placeholder">Produto 4 (Aguardando Foto)</div>
-        </div>
-
-    </div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMIT SENSI - Categorias</title>
-    
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body, html {
-            width: 100%;
-            height: 100%;
-            background-color: #050000;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #ffffff;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        /* 1. SEU FUNDO FIXO EM MOVIMENTO LENTO (MANTIDO 100% IGUAL) */
+        /* 1. SEU FUNDO FIXO EM MOVIMENTO LENTO (GARANTIDO AQUI) */
         .site-fundo-completo {
             position: fixed;
             top: -40px;
@@ -322,7 +124,7 @@
 </head>
 <body>
 
-    <!-- Sua fumaça vertical se movendo ao fundo -->
+    <!-- Sua fumaça vertical se movendo ao fundo do site -->
     <div class="site-fundo-completo"></div>
 
     <div class="container-loja">
@@ -333,7 +135,7 @@
             <button class="aba-btn android">Android</button>
         </div>
 
-        <!-- Caixinhas estruturadas esperando as infos -->
+        <!-- Caixinhas estruturadas esperando as fotos dos produtos -->
         <div class="grade-produtos">
             <div class="card-placeholder">Produto 1<br>(Aguardando Foto)</div>
             <div class="card-placeholder">Produto 2<br>(Aguardando Foto)</div>
