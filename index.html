@@ -278,7 +278,137 @@
                     </div>
                 </div>
             </div>
+        </div><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Filtros</title>
+    
+    <style>
+        /* Fundo escuro padrão apenas para você visualizar o contraste */
+        body {
+            background-color: #050000;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* CONTAINER DO FILTRO (IGUAL AO SEU PRINT) */
+        .secao-filtro-produtos {
+            background: rgba(10, 2, 2, 0.85);
+            border: 1px solid rgba(255, 26, 26, 0.1);
+            border-radius: 16px;
+            padding: 22px 15px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        /* Nome "Filtrar Produtos" grande em ciano */
+        .titulo-filtro {
+            font-size: 26px;
+            font-weight: 700;
+            color: #00ffcc; 
+            margin-bottom: 5px;
+        }
+
+        .subtitulo-filtro {
+            font-size: 14px;
+            color: #888888;
+            margin-bottom: 25px;
+        }
+
+        .grupo-filtro {
+            margin-bottom: 20px;
+        }
+
+        /* Nomes "Plataforma" e "Jogo" em ciano */
+        .label-grupo {
+            font-size: 16px;
+            font-weight: 700;
+            color: #00ffcc;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            display: block;
+        }
+
+        .alinhamento-botoes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Botão desativado (Fundo escuro, texto cinza) */
+        .btn-filtro {
+            padding: 8px 22px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            background-color: #121212;
+            color: #666666;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s ease;
+        }
+
+        /* BOTÃO ATIVADO (Fundo Ciano/Verde-Água Neon, Letra Preta e Brilho) */
+        .btn-filtro.ativo {
+            background-color: #00ffcc;
+            color: #000000;
+            border-color: #00ffcc;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+        }
+
+        .btn-bloqueado {
+            cursor: not-allowed;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ESTRUTURA DO PAINEL -->
+    <div class="secao-filtro-produtos">
+        <h2 class="titulo-filtro">Filtrar Produtos</h2>
+        <p class="subtitulo-filtro">Encontre exatamente o que precisa</p>
+
+        <!-- Filtro 1: Plataforma -->
+        <div class="grupo-filtro">
+            <span class="label-grupo">Plataforma</span>
+            <div class="alinhamento-botoes">
+                <button class="btn-filtro ativo" id="btn-todos" onclick="alternarBotao('btn-todos')">Todos</button>
+                <button class="btn-filtro" id="btn-android" onclick="alternarBotao('btn-android')">Android</button>
+                <button class="btn-filtro" id="btn-ios" onclick="alternarBotao('btn-ios')">iOS</button>
+            </div>
         </div>
+
+        <!-- Filtro 2: Jogo -->
+        <div class="grupo-filtro" style="margin-bottom: 0;">
+            <span class="label-grupo">Jogo</span>
+            <div class="alinhamento-botoes">
+                <button class="btn-filtro ativo btn-bloqueado">Free Fire</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGICA DE CLIQUE (MUDAR A COR DO BOTÃO QUANDO CLICA) -->
+    <script>
+        function alternarBotao(idBotao) {
+            // Remove a cor verde-água (classe 'ativo') de todos os botões de Plataforma
+            const botoes = document.querySelectorAll('.grupo-filtro:first-of-type .btn-filtro');
+            botoes.forEach(btn => btn.classList.remove('ativo'));
+            
+            // Adiciona a cor verde-água apenas no botão que você clicou
+            document.getElementById(idBotao).classList.add('ativo');
+        }
+    </script>
+
+</body>
+</html>
+
 
     </div>
 
