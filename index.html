@@ -18,85 +18,33 @@
             background-color: #050000;
         }
 
-        /* 1. O FUNDO: Sua fumaça real se movendo bem lento por toda a tela */
-        .fundo-fumaca-real {
+        /* O site todo agora é a sua nova imagem vertical se movendo */
+        .site-fundo-completo {
             position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 150%;
-            height: 150%;
-            background-image: url('IMG_4521.jpeg');
+            top: -40px;
+            left: -40px;
+            width: calc(100% + 80px);
+            height: calc(100% + 80px);
+            background-image: url('IMG_4570.jpeg');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.4); /* Deixa o fundo mais escuro para o banner flutuante destacar */
             z-index: 1;
-            animation: moverFundoLento 25s linear infinite alternate;
+            /* Faz o fundo inteiro deslizar bem devagar e suavemente */
+            animation: movimentoFumaca 18s ease-in-out infinite alternate;
         }
 
-        /* 2. O BANNER FLUTUANTE: Sua imagem retangular com a borda neon que corre o site todo */
-        #banner-movel {
-            position: absolute;
-            width: 320px; 
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
-            border: 2px solid #ff1a1a;
-            z-index: 2; /* Fica na frente correndo por cima da fumaça */
-        }
-
-        /* Animação para a fumaça de fundo se mexer suavemente */
-        @keyframes moverFundoLento {
+        /* Animação suave de vai e vem para dar vida à fumaça sem cortar o nome */
+        @keyframes movimentoFumaca {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-40px, -30px) scale(1.05); }
+            50% { transform: translate(20px, 15px) scale(1.02); }
+            100% { transform: translate(-10px, 30px) scale(1); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Fumaça real em movimento no fundo de todo o site -->
-    <div class="fundo-fumaca-real"></div>
+    <!-- Sua nova imagem em pé ocupando e movimentando a tela toda -->
+    <div class="site-fundo-completo"></div>
 
-    <!-- O banner do Gengar que vai ficar flutuando e batendo nas bordas -->
-    <img src="IMG_4521.jpeg" id="banner-movel" alt="SMIT SENSI">
-
-    <script>
-        const banner = document.getElementById('banner-movel');
-
-        // Posição inicial aleatória
-        let posX = Math.random() * (window.innerWidth - 320);
-        let posY = Math.random() * (window.innerHeight - 280);
-
-        // Velocidade do banner flutuante
-        let velX = 2.5; 
-        let velY = 2.5;
-
-        function moverBanner() {
-            const larguraTela = window.innerWidth;
-            const alturaTela = window.innerHeight;
-            const larguraBanner = banner.offsetWidth || 320;
-            const alturaBanner = banner.offsetHeight || 280;
-
-            posX += velX;
-            posY += velY;
-
-            // Colisão com as bordas laterais
-            if (posX + larguraBanner >= larguraTela || posX <= 0) {
-                velX = -velX; 
-            }
-
-            // Colisão com as bordas de cima e baixo
-            if (posY + alturaBanner >= alturaTela || posY <= 0) {
-                velY = -velY; 
-            }
-
-            banner.style.left = posX + 'px';
-            banner.style.top = posY + 'px';
-
-            requestAnimationFrame(moverBanner);
-        }
-
-        window.addEventListener('load', moverBanner);
-        setTimeout(moverBanner, 500); 
-    </script>
 </body>
 </html>
