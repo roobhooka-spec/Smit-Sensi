@@ -3,104 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banner Animado - SMIT SENSI</title>
+    <title>SMIT SENSI - Oficial</title>
     
     <style>
-        /* Fundo do site */
+        /* Reseta a tela para ocupar 100% do espaço */
+        * {
+            box-sizing: border-box;
+        }
         body {
             margin: 0;
             padding: 0;
-            background-color: #0b0101;
+            background-color: #050000;
             overflow: hidden; 
             width: 100vw;
             height: 100vh;
             font-family: 'Arial Black', Impact, sans-serif;
-        }
-
-        /* O Banner feito totalmente em código (sem precisar de imagem) */
-        #banner-movel {
-            position: absolute;
-            width: 300px; 
-            height: 180px;
-            border-radius: 15px;
-            background: linear-gradient(135px, #ff0000, #3a0000, #1a0000);
-            border: 3px solid #ff1a1a;
-            box-shadow: 0 0 30px #ff0000;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
+        }
+
+        /* Camada do efeito de fumaça ocupando o fundo inteiro */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Texto principal centralizado na frente da fumaça */
+        .conteudo {
+            position: relative;
+            z-index: 2;
             text-align: center;
             user-select: none;
+            pointer-events: none;
         }
 
-        /* Texto SMIT SENSI dentro do banner */
-        #banner-movel h1 {
+        .conteudo h1 {
             color: #ffffff;
-            font-size: 32px;
+            font-size: 64px;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 0px #000000, 0 0 10px #ff0000;
+            letter-spacing: 4px;
+            text-shadow: 4px 4px 0px #000000, 0 0 25px #ff0000;
             font-style: italic;
+            animation: pulsar 2s ease-in-out infinite alternate;
         }
 
-        #banner-movel p {
-            color: #ffb3b3;
-            font-size: 14px;
-            margin: 5px 0 0 0;
-            letter-spacing: 4px;
+        .conteudo p {
+            color: #ff3333;
+            font-size: 18px;
+            margin: 10px 0 0 0;
+            letter-spacing: 8px;
             text-transform: uppercase;
-            text-shadow: 1px 1px 2px #000000;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        /* Efeito sutil de pulsação no brilho do texto */
+        @keyframes pulsar {
+            from { text-shadow: 4px 4px 0px #000000, 0 0 20px #ff0000; }
+            to { text-shadow: 4px 4px 0px #000000, 0 0 40px #ff3333; }
+        }
+
+        /* Ajuste para telas de celular pequenas */
+        @media (max-width: 600px) {
+            .conteudo h1 { font-size: 42px; }
+            .conteudo p { font-size: 14px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Banner digital criado por código -->
-    <div id="banner-movel">
+    <!-- Tela onde a fumaça será desenhada se movendo -->
+    <canvas id="fumaca"></canvas>
+
+    <!-- Texto fixado na frente do efeito -->
+    <div class="conteudo">
         <h1>SMIT SENSI</h1>
         <p>Oficial</p>
     </div>
 
     <script>
-        const banner = document.getElementById('banner-movel');
+        const canvas = document.getElementById('fumaca');
+        const ctx = canvas.getContext('2d');
 
-        // Posição inicial
-        let posX = Math.random() * (window.innerWidth - 300);
-        let posY = Math.random() * (window.innerHeight - 180);
+        // Ajusta o tamanho do fundo dinamicamente
+        function redimensionar() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', redimensionar);
+        redimensionar();
 
-        // Velocidade do movimento
-        let velX = 3; 
-        let velY = 3;
+        // Configuração do sistema de partículas de fumaça
+        const particulas = [];
+        const quantidadeParticulas = 60; // Quantidade de nuvens de fumaça na tela
 
-        function moverBanner() {
-            const larguraTela = window.innerWidth;
-            const alturaTela = window.innerHeight;
-            const larguraBanner = banner.offsetWidth;
-            const alturaBanner = banner.offsetHeight;
-
-            posX += velX;
-            posY += velY;
-
-            // Colisão direita e esquerda
-            if (posX + larguraBanner >= larguraTela || posX <= 0) {
-                velX = -velX; 
+        class ParticulaFumaca {
+            constructor() {
+                this.resetar(true);
             }
 
-            // Colisão baixo e cima
-            if (posY + alturaBanner >= alturaTela || posY <= 0) {
-                velY = -velY; 
+            resetar(inicioAleatorio = false) {
+                this.x = Math.random() * canvas.width;
+                // Distribui na tela no início ou faz nascer debaixo
+                this.y = inicioAleatorio ? Math.random() * canvas.height : canvas.height + Math.random() * 100;
+                this.tamanho = Math.random() * 120 + 80; // Tamanho de cada nuvem de fumaça
+                this.velX = Math.random() * 0.4 - 0.2; // Movimento pros lados
+                this.velY = -(Math.random() * 0.5 + 0.2); // Sobe lentamente
+                this.opacidade = Math.random() * 0.3 + 0.05; // Fumaça transparente e suave
+                this.fading = Math.random() * 0.002 + 0.001;
             }
 
-            banner.style.left = posX + 'px';
-            banner.style.top = posY + 'px';
+            atualizar() {
+                this.x += this.velX;
+                this.y += this.velY;
+                this.opacidade -= this.fading;
 
-            requestAnimationFrame(moverBanner);
+                // Se a fumaça sumir ou passar do topo, recria embaixo
+                if (this.opacidade <= 0 || this.y + this.tamanho < 0) {
+                    this.resetar(false);
+                }
+            }
+
+            desenhar() {
+                ctx.beginPath();
+                // Cria um efeito gradiente circular para simular fumaça realista
+                let gradiente = ctx.createRadialGradient(this.x, this.y, 10, this.x, this.y, this.tamanho);
+                gradiente.addColorStop(0, `rgba(180, 0, 0, ${this.opacidade})`); // Vermelho no centro
+                gradiente.addColorStop(0.5, `rgba(80, 0, 0, ${this.opacidade * 0.4})`); // Escurecendo nas pontas
+                gradiente.addColorStop(1, 'rgba(5, 0, 0, 0)'); // Invisível na borda
+
+                ctx.fillStyle = gradiente;
+                ctx.arc(this.x, this.y, this.tamanho, 0, Math.PI * 2);
+                ctx.fill();
+            }
         }
 
-        // Executa a animação
-        moverBanner();
+        // Inicializa as partículas
+        for (let i = 0; i < quantidadeParticulas; i++) {
+            particulas.push(new ParticulaFumaca());
+        }
+
+        // Loop contínuo da animação
+        function animar() {
+            // Limpa a tela com tom avermelhado de fundo bem escuro
+            ctx.fillStyle = '#050000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Atualiza e desenha cada pedaço da fumaça
+            particulas.forEach(particula => {
+                particula.atualizar();
+                particula.desenhar();
+            });
+
+            requestAnimationFrame(animar);
+        }
+
+        animar();
     </script>
 </body>
 </html>
