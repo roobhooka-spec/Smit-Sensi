@@ -410,7 +410,7 @@
 </body>
 </html>
 
-<
+<m
 <!-- COPIE DAQUI PARA BAIXO -->
 <style>
     /* GRADE DE PRODUTOS (Organiza em 2 colunas no celular igual à sua referência) */
@@ -666,3 +666,75 @@
         <div class="detalhes-box-item">
             <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>5.0</span></div>
             <h4 class="titulo-item-store">Sensi Max Android</h4>
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMIT SENSI</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #050000; font-family: sans-serif; color: #fff; overflow-x: hidden; }
+        .site-fundo-completo { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: url('IMG_4570.jpeg') center top/cover; z-index: 1; filter: brightness(0.45) contrast(1.4) saturate(1.5); animation: mov 18s ease-in-out infinite alternate; pointer-events: none; }
+        @keyframes mov { 100% { transform: scale(1.04) translate(3px, 3px); } }
+        .container-loja { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; padding: 35px 12px; }
+        .topo-banner img { width: 85%; max-width: 400px; display: block; margin: 0 auto 20px; border-radius: 12px; border: 2px solid #ff1a1a; box-shadow: 0 0 25px rgba(255,26,26,0.45); }
+        .secao-filtro { background: rgba(10,2,2,0.85); border: 1px solid rgba(255,26,26,0.1); border-radius: 16px; padding: 20px 15px; text-align: center; }
+        .titulo-filtro { font-size: 24px; color: #ff1a1a; margin-bottom: 20px; text-transform: uppercase; }
+        .label-grupo { font-size: 15px; color: #ff1a1a; margin-bottom: 10px; display: block; font-weight: bold; }
+        .btn-filtro { padding: 8px 20px; font-size: 12px; font-weight: bold; border-radius: 20px; cursor: pointer; background: #121212; color: #666; border: 1px solid rgba(255,255,255,0.08); margin: 0 4px; }
+        .btn-filtro.ativo { background: #ff1a1a; color: #000; border-color: #ff1a1a; box-shadow: 0 0 12px #ff1a1a; }
+        .grade-produtos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 25px; }
+        .card-produto { background: rgba(12,3,3,0.9); border: 1px solid rgba(255,26,26,0.2); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; border-bottom: 3px solid #ff1a1a; }
+        .escondido { display: none !important; }
+        .foto-box { position: relative; aspect-ratio: 1/1; }
+        .foto-box img { width: 100%; height: 100%; object-fit: cover; }
+        .selo-sistema { position: absolute; top: 8px; right: 8px; padding: 3px 8px; font-size: 9px; font-weight: bold; border-radius: 4px; }
+        .bg-ios { background: #1a1a1a; color: #00d2ff; border: 1px solid #00d2ff; }
+        .bg-android { background: #1a1a1a; color: #00ff66; border: 1px solid #00ff66; }
+        .info-prod { padding: 10px; display: flex; flex-direction: column; flex-grow: 1; }
+        .nome-prod { font-size: 11px; font-weight: bold; margin-bottom: 6px; min-height: 32px; text-transform: uppercase; }
+        .status { font-size: 10px; color: #2de29b; font-weight: bold; margin-bottom: 10px; }
+        .btn-buy { background: #ff1a1a; color: #fff; text-align: center; text-decoration: none; padding: 9px; font-size: 11px; font-weight: bold; border-radius: 6px; border: 1px solid #ff5555; margin-top: auto; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="site-fundo-completo"></div>
+    <div class="container-loja">
+        <div class="topo-banner"><img src="IMG_4577.jpeg"></div>
+        <div class="secao-filter">
+            <div class="secao-filtro">
+                <h2 class="titulo-filtro">Filtrar Produtos</h2>
+                <span class="label-grupo">Plataforma</span>
+                <div class="alinhamento-botoes">
+                    <button class="btn-filtro ativo" id="btn-todos" onclick="filtro('todos')">Todos</button>
+                    <button class="btn-filtro" id="btn-android" onclick="filtro('android')">Android</button>
+                    <button class="btn-filtro" id="btn-ios" onclick="filtro('ios')">iOS</button>
+                </div>
+            </div>
+        </div>
+        <div class="grade-produtos">
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">iOS FLUORITE</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('iOS FLUORITE')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">iOS MONITE</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('iOS MONITE')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">iOS PROXY</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('iOS PROXY')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">iOS BYPASS</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('iOS BYPASS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">iOS CERTIFICADO</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('iOS CERTIFICADO')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">ANDROID MOD MENU</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('ANDROID MOD MENU')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">ANDROID EXTERNAL</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('ANDROID EXTERNAL')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">ANDROID PROXY</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('ANDROID PROXY')">Comprar</button></div></div>
+            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">ANDROID BYPASS</div><div class="status">⚡ Entrega imediata</div><button class="btn-buy" onclick="buy('ANDROID BYPASS')">Comprar</button></div></div>
+        </div>
+    </div>
+    <script>
+        const WHATSAPP = '5500000000000'; // ⚠️ DIGITE SEU WHATSAPP REAL COM DDD AQUI!
+        function buy(item) { window.open(`https://wa.me{WHATSAPP}?text=${encodeURIComponent('Olá, quero comprar o produto: *' + item + '*')}`, '_blank'); }
+        function filtro(plat) {
+            document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
+            document.getElementById('btn-' + plat).classList.add('ativo');
+            document.querySelectorAll('.item').forEach(p => {
+                if (plat === 'todos' || p.classList.contains(plat)) { p.classList.remove('escondido'); } else { p.classList.add('escondido'); }
+            });
+        }
+    </script>
+</body>
+</html>
