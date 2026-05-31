@@ -16,20 +16,25 @@
             height: 100%;
             overflow: hidden;
             background-color: #050000;
+            font-family: 'Arial Black', Impact, sans-serif;
         }
 
-        /* Fumaça cobrindo o site inteiro ao fundo */
-        canvas {
+        /* Fundo com a sua fumaça real se movendo infinitamente */
+        .fundo-fumaca {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: -50px;
+            left: -50px;
+            width: 150%;
+            height: 150%;
+            background-image: url('IMG_4521.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px) brightness(0.5); /* Deixa o fundo suave para destacar o banner e o botão */
             z-index: 1;
-            pointer-events: none;
+            animation: moverFundoReal 25s linear infinite alternate;
         }
 
-        /* Seu banner original se movendo na frente */
+        /* Seu banner original do Gengar correndo na frente */
         #banner-movel {
             position: absolute;
             width: 320px; 
@@ -39,90 +44,74 @@
             border: 2px solid #ff1a1a;
             z-index: 2; 
         }
+
+        /* Container do botão fixo no centro */
+        .container-vendas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3; /* Fica na frente da fumaça, mas atrás do banner flutuante */
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        /* Botão do WhatsApp estilizado no tema do site */
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: #ff0000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            border: 2px solid #ff5555;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #cc0000;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
+            transform: scale(1.05);
+        }
+
+        /* Movimento lento, realista e suave da fumaça de fundo */
+        @keyframes moverFundoReal {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-40px, -20px) scale(1.06); }
+            100% { transform: translate(20px, -40px) scale(1); }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Canvas para a fumaça lenta no fundo -->
-    <canvas id="fumaca"></canvas>
+    <!-- Camada que usa sua imagem para criar o fundo de fumaça viva -->
+    <div class="fundo-fumaca"></div>
 
-    <!-- Sua foto cadastrada no GitHub -->
+    <!-- Botão de vendas fixo no centro do site -->
+    <div class="container-vendas">
+        <!-- Cole o link do seu WhatsApp no lugar do # entre as aspas -->
+        <a href="https://wa.me" target="_blank" class="btn-whatsapp">
+            Comprar Sensi Oficial
+        </a>
+    </div>
+
+    <!-- Seu banner flutuante principal -->
     <img src="IMG_4521.jpeg" id="banner-movel" alt="SMIT SENSI">
 
     <script>
-        const canvas = document.getElementById('fumaca');
-        const ctx = canvas.getContext('2d');
-
-        function redimensionar() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', redimensionar);
-        redimensionar();
-
-        const particulas = [];
-        const quantidadeParticulas = 45; 
-
-        class ParticulaFumaca {
-            constructor() {
-                this.resetar(true);
-            }
-
-            resetar(inicioAleatorio = false) {
-                this.x = Math.random() * canvas.width;
-                this.y = inicioAleatorio ? Math.random() * canvas.height : canvas.height + Math.random() * 100;
-                this.tamanho = Math.random() * 180 + 120; // Nuvens maiores e mais suaves
-                this.velX = Math.random() * 0.15 - 0.075; // Movimento pros lados bem sutil
-                this.velY = -(Math.random() * 0.2 + 0.1);  // SUBIDA BEM DEVAGAR E SUAVE
-                this.opacidade = Math.random() * 0.22 + 0.04; 
-                this.fading = Math.random() * 0.0008 + 0.0003; // Demora mais para sumir
-            }
-
-            atualizar() {
-                this.x += this.velX;
-                this.y += this.velY;
-                this.opacidade -= this.fading;
-
-                if (this.opacidade <= 0 || this.y + this.tamanho < 0) {
-                    this.resetar(false);
-                }
-            }
-
-            desenhar() {
-                ctx.beginPath();
-                let gradiente = ctx.createRadialGradient(this.x, this.y, 10, this.x, this.y, this.tamanho);
-                gradiente.addColorStop(0, `rgba(235, 15, 15, ${this.opacidade})`); 
-                gradiente.addColorStop(0.5, `rgba(80, 0, 0, ${this.opacidade * 0.3})`); 
-                gradiente.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-                ctx.fillStyle = gradiente;
-                ctx.arc(this.x, this.y, this.tamanho, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        for (let i = 0; i < quantidadeParticulas; i++) {
-            particulas.push(new ParticulaFumaca());
-        }
-
-        // Movimentação do seu banner
         const banner = document.getElementById('banner-movel');
         let posX = Math.random() * (window.innerWidth - 320);
         let posY = Math.random() * (window.innerHeight - 280);
         let velX = 2.5; 
         let velY = 2.5;
 
-        function animar() {
-            ctx.fillStyle = '#050000';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Roda a fumaça bem lenta de fundo
-            particulas.forEach(particula => {
-                particula.atualizar();
-                particula.desenhar();
-            });
-
-            // Mantém o banner se movendo
+        function animarBanner() {
             const larguraTela = window.innerWidth;
             const alturaTela = window.innerHeight;
             const larguraBanner = banner.offsetWidth || 320;
@@ -137,11 +126,11 @@
             banner.style.left = posX + 'px';
             banner.style.top = posY + 'px';
 
-            requestAnimationFrame(animar);
+            requestAnimationFrame(animarBanner);
         }
 
-        window.addEventListener('load', animar);
-        setTimeout(animar, 500);
+        window.addEventListener('load', animarBanner);
+        setTimeout(animarBanner, 500);
     </script>
 </body>
 </html>
