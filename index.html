@@ -6,7 +6,7 @@
     <title>Smit Sensi</title>
     
     <style>
-        /* Fundo escuro do site para não ficar branco */
+        /* Fundo escuro do site fixo */
         body {
             background-color: #0c0c0e;
             color: #ffffff;
@@ -14,9 +14,42 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
         }
 
-        /* Container do Banner (Deitado e Médio) */
+        /* 💨 FUMAÇA QUE MEXE NA TELA COMPLETA (FUNDO) */
+        .fumaça-tela-cheia {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%; 
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 55, 0, 0.15) 0%, rgba(0, 0, 0, 0) 60%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 30, 0, 0.12) 0%, rgba(0, 0, 0, 0) 50%);
+            filter: blur(50px);
+            z-index: 0; 
+            animation: moverFumacaFundo 12s infinite ease-in-out alternate;
+            pointer-events: none;
+        }
+
+        @keyframes moverFumacaFundo {
+            0% { transform: translate(-10%, -10%) scale(1) rotate(0deg); }
+            50% { transform: translate(5%, 10%) scale(1.2) rotate(5deg); }
+            100% { transform: translate(-5%, 0%) scale(0.95) rotate(-5deg); }
+        }
+
+        /* Garante que o conteúdo fique por cima da fumaça do fundo */
+        .conteudo-site {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Container do Banner Deitado */
         .banner-container {
             position: relative;
             width: 90%;
@@ -29,7 +62,7 @@
             overflow: hidden;
         }
 
-        /* Pega o segundo arquivo que você mostrou (IMG_4570.jpeg) */
+        /* Sua imagem de fundo do banner */
         .banner-fundo {
             position: absolute;
             width: 100%;
@@ -37,36 +70,17 @@
             background-image: url('IMG_4570.jpeg'); 
             background-size: cover;
             background-position: center;
-            z-index: 1;
         }
 
-        /* Efeito da fumaça se mexendo suave */
-        .fumaça-animada {
-            position: absolute;
-            width: 160%;
-            height: 160%;
-            background: radial-gradient(circle, rgba(255, 55, 0, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
-            filter: blur(35px);
-            z-index: 2;
-            animation: moverFumaca 7s infinite ease-in-out alternate;
-            pointer-events: none;
-        }
-
-        @keyframes moverFumaca {
-            0% { transform: translate(-8%, -8%) scale(1); }
-            50% { transform: translate(4%, 4%) scale(1.15); }
-            100% { transform: translate(-4%, 2%) scale(0.95); }
-        }
-
-        /* Botões iOS e Android na mesma linha */
+        /* Botões iOS e Android */
         .botoes-plataforma {
             display: flex;
             justify-content: center;
             gap: 15px; 
             margin: 20px 0;
+            width: 100%;
         }
 
-        /* Mesma cor e estilo para os dois botões */
         .btn-plataforma {
             width: 120px;
             padding: 10px 0;
@@ -80,20 +94,61 @@
             text-decoration: none;
             box-shadow: 0 0 10px rgba(255, 55, 0, 0.3);
         }
+
+        /* --- CONTAINER DOS QUADRADOS DE PRODUTOS --- */
+        .produtos-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            width: 90%;
+            max-width: 450px;
+            margin-top: 10px;
+        }
+
+        /* Estilo dos Cards (Preto transparente com borda da cor do tema) */
+        .card-produto {
+            flex: 1;
+            height: 200px;
+            background: rgba(18, 18, 22, 0.65); /* Escuro transparente para ver a fumaça atrás */
+            border: 2px solid #ff3700; /* Mesma cor dos botões */
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(255, 55, 0, 0.2);
+        }
     </style>
 </head>
 <body>
 
-    <!-- BANNER COM A SUA IMAGEM IMG_4570.jpeg E FUMAÇA -->
-    <div class="banner-container">
-        <div class="banner-fundo"></div>
-        <div class="fumaça-animada"></div>
-    </div>
+    <!-- FUMAÇA SE MEXENDO POR TRÁS DE TUDO -->
+    <div class="fumaça-tela-cheia"></div>
 
-    <!-- BOTÕES NA MESMA COR -->
-    <div class="botoes-plataforma">
-        <a href="#" class="btn-plataforma">iOS</a>
-        <a href="#" class="btn-plataforma">Android</a>
+    <!-- CONTEÚDO DO SITE -->
+    <div class="conteudo-site">
+        
+        <!-- BANNER COM A SUA IMAGEM VERMELHA -->
+        <div class="banner-container">
+            <div class="banner-fundo"></div>
+        </div>
+
+        <!-- BOTÕES -->
+        <div class="botoes-plataforma">
+            <a href="#" class="btn-plataforma">iOS</a>
+            <a href="#" class="btn-plataforma">Android</a>
+        </div>
+
+        <!-- QUADRADINHOS DE PRODUTOS IGUAIS A FOTO -->
+        <div class="produtos-container">
+            <div class="card-produto">PRODUTO 1<br>(AGUARDANDO FOTO)</div>
+            <div class="card-produto">PRODUTO 2<br>(AGUARDANDO FOTO)</div>
+        </div>
+
     </div>
 
 </body>
