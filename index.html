@@ -16,10 +16,9 @@
             height: 100%;
             overflow: hidden;
             background-color: #050000;
-            font-family: 'Arial Black', Impact, sans-serif;
         }
 
-        /* Fundo com a sua fumaça real se movendo infinitamente */
+        /* A sua foto original esticada na tela inteira se movendo bem lento */
         .fundo-fumaca {
             position: absolute;
             top: -50px;
@@ -29,58 +28,11 @@
             background-image: url('IMG_4521.jpeg');
             background-size: cover;
             background-position: center;
-            filter: blur(8px) brightness(0.5); /* Deixa o fundo suave para destacar o banner e o botão */
             z-index: 1;
             animation: moverFundoReal 25s linear infinite alternate;
         }
 
-        /* Seu banner original do Gengar correndo na frente */
-        #banner-movel {
-            position: absolute;
-            width: 320px; 
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
-            border: 2px solid #ff1a1a;
-            z-index: 2; 
-        }
-
-        /* Container do botão fixo no centro */
-        .container-vendas {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 3; /* Fica na frente da fumaça, mas atrás do banner flutuante */
-            text-align: center;
-            width: 90%;
-            max-width: 400px;
-        }
-
-        /* Botão do WhatsApp estilizado no tema do site */
-        .btn-whatsapp {
-            display: inline-block;
-            background-color: #ff0000;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 8px;
-            border: 2px solid #ff5555;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-            transition: all 0.3s ease;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #cc0000;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
-            transform: scale(1.05);
-        }
-
-        /* Movimento lento, realista e suave da fumaça de fundo */
+        /* Movimento suave e contínuo para dar vida à fumaça da foto */
         @keyframes moverFundoReal {
             0% { transform: translate(0, 0) scale(1); }
             50% { transform: translate(-40px, -20px) scale(1.06); }
@@ -90,47 +42,8 @@
 </head>
 <body>
 
-    <!-- Camada que usa sua imagem para criar o fundo de fumaça viva -->
+    <!-- Apenas a sua imagem com efeito de fumaça viva de fundo -->
     <div class="fundo-fumaca"></div>
 
-    <!-- Botão de vendas fixo no centro do site -->
-    <div class="container-vendas">
-        <!-- Cole o link do seu WhatsApp no lugar do # entre as aspas -->
-        <a href="https://wa.me" target="_blank" class="btn-whatsapp">
-            Comprar Sensi Oficial
-        </a>
-    </div>
-
-    <!-- Seu banner flutuante principal -->
-    <img src="IMG_4521.jpeg" id="banner-movel" alt="SMIT SENSI">
-
-    <script>
-        const banner = document.getElementById('banner-movel');
-        let posX = Math.random() * (window.innerWidth - 320);
-        let posY = Math.random() * (window.innerHeight - 280);
-        let velX = 2.5; 
-        let velY = 2.5;
-
-        function animarBanner() {
-            const larguraTela = window.innerWidth;
-            const alturaTela = window.innerHeight;
-            const larguraBanner = banner.offsetWidth || 320;
-            const alturaBanner = banner.offsetHeight || 280;
-
-            posX += velX;
-            posY += velY;
-
-            if (posX + larguraBanner >= larguraTela || posX <= 0) { velX = -velX; }
-            if (posY + alturaBanner >= alturaTela || posY <= 0) { velY = -velY; }
-
-            banner.style.left = posX + 'px';
-            banner.style.top = posY + 'px';
-
-            requestAnimationFrame(animarBanner);
-        }
-
-        window.addEventListener('load', animarBanner);
-        setTimeout(animarBanner, 500);
-    </script>
 </body>
 </html>
