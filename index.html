@@ -411,3 +411,258 @@
 </html>
 
 <
+<!-- COPIE DAQUI PARA BAIXO -->
+<style>
+    /* GRADE DE PRODUTOS (Organiza em 2 colunas no celular igual à sua referência) */
+    .grade-produtos-loja {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    /* CARD DO PRODUTO (Estilo escuro premium com borda sutil) */
+    .card-item-store {
+        background: rgba(12, 3, 3, 0.9);
+        border: 1px solid rgba(255, 26, 26, 0.15);
+        border-radius: 14px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        border-bottom: 3px solid rgba(255, 26, 26, 0.35);
+    }
+
+    /* Foto do Produto Perfeitamente Quadrada */
+    .foto-box-item {
+        width: 100%;
+        position: relative;
+        aspect-ratio: 1 / 1; 
+        background-color: #111;
+    }
+
+    .foto-box-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Selo Redondo do Sistema no topo direito da foto */
+    .tag-sistema-item {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        padding: 4px 10px;
+        font-size: 9px;
+        font-weight: 900;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .selo-ios { background-color: #007aff; color: #ffffff; }
+    .selo-android { background-color: #28a745; color: #ffffff; }
+
+    /* Textos e Informações abaixo da foto */
+    .detalhes-box-item {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    /* Estrelas amarelas de avaliação igual ao print */
+    .estrelas-item {
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+        color: #ffc107;
+        margin-bottom: 6px;
+    }
+    .estrelas-item span {
+        color: #ffffff;
+        margin-left: 4px;
+        font-weight: bold;
+        background: rgba(255,255,255,0.1);
+        padding: 1px 5px;
+        border-radius: 4px;
+    }
+
+    /* Nome do Painel/Xit em letras Brancas */
+    .titulo-item-store {
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.3;
+        margin-bottom: 6px;
+        color: #ffffff;
+        letter-spacing: 0.3px;
+    }
+
+    /* Raiozinho verde de Entrega Imediata igual ao seu print */
+    .status-entrega-item {
+        display: flex;
+        align-items: center;
+        font-size: 11px;
+        color: #2de29b;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+    .status-entrega-item svg {
+        margin-right: 4px;
+        fill: #2de29b;
+    }
+
+    /* Botão de Compra Vermelho */
+    .btn-action-comprar {
+        background: #ff1a1a;
+        color: #ffffff;
+        text-align: center;
+        text-decoration: none;
+        padding: 10px;
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 8px;
+        border: 1px solid #ff5555;
+        letter-spacing: 1px;
+        margin-top: auto;
+        cursor: pointer;
+    }
+</style>
+
+<!-- VITRINE COM AS 10 ABAS DE PRODUTOS COMPLETA -->
+<div class="grade-produtos-loja">
+
+    <!-- ABA 1 -->
+    <div class="card-item-store">
+        <div class="foto-box-item">
+            <img src="IMG_4521.jpeg" alt="Sensi VIP">
+            <span class="tag-sistema-item selo-ios">iOS</span>
+        </div>
+        <div class="detalhes-box-item">
+            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>5.0</span></div>
+            <h4 class="titulo-item-store">Sensi VIP iOS</h4>
+            <div class="status-entrega-item">
+                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
+                Entrega imediata
+            </div>
+            <button class="btn-action-comprar" onclick="comprarProduto('Sensi VIP iOS')">Comprar</button>
+        </div>
+    </div>
+
+    <!-- ABA 2 -->
+    <div class="card-item-store">
+        <div class="foto-box-item">
+            <img src="IMG_4521.jpeg" alt="Regedit Android">
+            <span class="tag-sistema-item selo-android">Android</span>
+        </div>
+        <div class="detalhes-box-item">
+            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.9</span></div>
+            <h4 class="titulo-item-store">Regedit VIP Android</h4>
+            <div class="status-entrega-item">
+                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
+                Entrega imediata
+            </div>
+            <button class="btn-action-comprar" onclick="comprarProduto('Regedit VIP Android')">Comprar</button>
+        </div>
+    </div>
+
+    <!-- ABA 3 -->
+    <div class="card-item-store">
+        <div class="foto-box-item">
+            <img src="IMG_4521.jpeg" alt="Painel Macro">
+            <span class="tag-sistema-item selo-ios">iOS</span>
+        </div>
+        <div class="detalhes-box-item">
+            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.8</span></div>
+            <h4 class="titulo-item-store">Painel Macro iOS</h4>
+            <div class="status-entrega-item">
+                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
+                Entrega imediata
+            </div>
+            <button class="btn-action-comprar" onclick="comprarProduto('Painel Macro iOS')">Comprar</button>
+        </div>
+    </div>
+
+    <!-- ABA 4 -->
+    <div class="card-item-store">
+        <div class="foto-box-item">
+            <img src="IMG_4521.jpeg" alt="Xit Premium">
+            <span class="tag-sistema-item selo-android">Android</span>
+        </div>
+        <div class="detalhes-box-item">
+            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>5.0</span></div>
+            <h4 class="titulo-item-store">Xit Proxy Android</h4>
+            <div class="status-entrega-item">
+                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
+                Entrega imediata
+            </div>
+            <button class="btn-action-comprar" onclick="comprarProduto('Xit Proxy Android')">Comprar</button>
+        </div>
+    </div>
+
+    <!-- ABA 5 -->
+    <div class="card-item-store">
+        <div class="foto-box-item">
+            <img src="IMG_4521.jpeg" alt="HS Peito">
+            <span class="tag-sistema-item selo-ios">iOS</span>
+        </div>
+        <div class="detalhes-box-item">
+            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.5</span></div>
+            <h4 class="titulo-item-store">HS Peito VIP iOS</h4>
+            <div class="status-entrega-item">
+                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
+                Entrega imediata
+            </div>
+            <button class="btn-action-comprar" onclick="comprarProduto('HS Peito VIP iOS')">Comprar</button>
+        </div>
+    </div>
+
+    <!-- ABA 6 -->
+    <div class="card-item-store">
+        <div class="foto-box-item">
+            <img src="IMG_4521.jpeg" alt="Bypass">
+            <span class="tag-sistema-item selo-android">Android</span>
+        </div>
+        <div class="detalhes-box-item">
+            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.7</span></div>
+            <h4 class="titulo-item-store">Bypass Anti-Ban</h4>
+            <div class="status-entrega-item">
+                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
+                Entrega imediata
+            </div>
+            <button class="btn-action-comprar" onclick="comprarProduto('Bypass Anti-Ban')">Comprar</button>
+        </div>
+    </div>
+
+    <!-- ABA 7 -->
+    <div class="card-item-store">
+        <div class="foto-box-item">
+            <img src="IMG_4521.jpeg" alt="Regedit Mobile">
+            <span class="tag-sistema-item selo-ios">iOS</span>
+        </div>
+        <div class="detalhes-box-item">
+            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>4.9</span></div>
+            <h4 class="titulo-item-store">Regedit Extreme iOS</h4>
+            <div class="status-entrega-item">
+                <svg width="10" height="14" viewBox="0 0 10 14"><path d="M9.6 5.2h-4V.7C5.6.2 5.1-.1 4.6 0c-.2.1-.4.2-.5.4L.1 7.7c-.3.4-.2 1 .2 1.3.1.1.3.2.5.2h4v4.5c0 .5.5.8 1 .7.2-.1.4-.2.5-.4l4-7.3c.3-.5.1-1.1-.3-1.4-.2-.1-.4-.1-.6-.1z"/></svg>
+                Entrega imediata
+            </div>
+            <button class="btn-action-comprar" onclick="comprarProduto('Regedit Extreme iOS')">Comprar</button>
+        </div>
+    </div>
+
+    <!-- ABA 8 -->
+    <div class="card-item-store">
+        <div class="foto-box-item">
+            <img src="IMG_4521.jpeg" alt="Sensi Max">
+            <span class="tag-sistema-item selo-android">Android</span>
+        </div>
+        <div class="detalhes-box-item">
+            <div class="estrelas-item">⭐⭐⭐⭐⭐ <span>5.0</span></div>
+            <h4 class="titulo-item-store">Sensi Max Android</h4>
