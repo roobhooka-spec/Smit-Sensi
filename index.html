@@ -20,27 +20,31 @@
             color: #ffffff;
             overflow-x: hidden;
             overflow-y: auto;
+            /* Remove espaçamentos padrões que geram barras no topo */
+            padding-top: 0 !important;
+            margin-top: 0 !important;
         }
 
-        /* 1. FUNDO COMPLETAMENTE CORRIGIDO ATÉ O TOPO ABSOLUTO DO CELULAR */
+        /* 1. FUNDO FORÇADO ATÉ O LIMITE MÁXIMO DO TOPO */
         .site-fundo-completo {
             position: fixed;
-            top: -60px; /* Sobe ainda mais para garantir que cobre o topo do celular */
-            left: -40px;
-            width: calc(100% + 80px);
-            height: calc(100% + 120px);
+            top: 0 !important; /* Fixa no limite zero do topo da tela física */
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             background-image: url('IMG_4570.jpeg');
             background-size: cover;
-            background-position: center top; /* Alinha por cima para preencher o topo */
+            background-position: center center;
             z-index: 1;
             filter: brightness(0.45) contrast(1.4) saturate(1.5); 
-            animation: movimentoFumaca 18s ease-in-out infinite alternate;
+            /* Movimento sutil alterado para não puxar a imagem para baixo */
+            animation: movimentoFumacaFixed 18s ease-in-out infinite alternate;
             pointer-events: none;
         }
 
-        @keyframes movimentoFumaca {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(20px, 15px) scale(1.02); }
+        @keyframes movimentoFumacaFixed {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05) translate(5px, 5px); }
         }
 
         /* CONTAINER PRINCIPAL */
@@ -50,8 +54,8 @@
             width: 100%;
             max-width: 600px; 
             margin: 0 auto;
-            /* Adiciona espaço no topo considerando a área do relógio do celular */
-            padding: calc(15px + env(safe-area-inset-top)) 12px 30px 12px;
+            /* Cria o espaçamento interno perfeito deixando o banner respirar */
+            padding: 20px 12px 30px 12px;
         }
 
         /* 2. BANNER DO TOPO MÉDIO (IMG_4577.jpeg) */
@@ -61,6 +65,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: 10px; /* Empurra o banner para baixo levemente sem mexer no fundo */
         }
 
         .topo-banner-master img {
@@ -136,12 +141,12 @@
 </head>
 <body>
 
-    <!-- Fundo estendido que resolve a faixa preta -->
+    <!-- Fundo forçado em tela cheia travado no topo zero -->
     <div class="site-fundo-completo"></div>
 
     <div class="container-loja">
         
-        <!-- Banner centralizado com recuo correto do topo -->
+        <!-- Banner principal -->
         <div class="topo-banner-master">
             <img src="IMG_4577.jpeg" alt="SMIT SENSI LOGO">
         </div>
