@@ -15,29 +15,28 @@
             height: 100vh;
         }
 
-        /* Esse é o seu banner completo que vai se mover por todo o site */
+        /* Banner com a imagem exata do Gengar e SMIT SENSI */
         #banner-movel {
             position: absolute;
-            width: 320px; /* Tamanho do seu banner na tela */
+            width: 320px; 
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+            border: 2px solid #ff1a1a;
         }
     </style>
 </head>
 <body>
 
-    <!-- Sua imagem real convertida diretamente em código seguro -->
-    <img src="https://postimg.co" id="banner-movel" alt="SMIT SENSI">
+    <!-- Link otimizado e direto com a imagem original -->
+    <img src="https://imgbox.com" id="banner-movel" alt="SMIT SENSI">
 
     <script>
         const banner = document.getElementById('banner-movel');
 
-        // Posição inicial aleatória na tela
         let posX = Math.random() * (window.innerWidth - 320);
         let posY = Math.random() * (window.innerHeight - 280);
 
-        // Velocidade do movimento (aumente os números para ir mais rápido)
         let velX = 2.5; 
         let velY = 2.5;
 
@@ -50,12 +49,10 @@
             posX += velX;
             posY += velY;
 
-            // Bate nas bordas dos lados e volta
             if (posX + larguraBanner >= larguraTela || posX <= 0) {
                 velX = -velX; 
             }
 
-            // Bate nas bordas de cima e baixo e volta
             if (posY + alturaBanner >= alturaTela || posY <= 0) {
                 velY = -velY; 
             }
@@ -66,9 +63,8 @@
             requestAnimationFrame(moverBanner);
         }
 
-        // Inicia a animação assim que carregar
         window.addEventListener('load', moverBanner);
-        setTimeout(moverBanner, 600); // Garante o início do movimento rápido
+        setTimeout(moverBanner, 500); 
     </script>
 </body>
 </html>
