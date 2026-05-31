@@ -19,7 +19,7 @@
             overflow-y: auto;
         }
 
-        /* FUNDO DE FUMAÇA EM ROXO NEON */
+        /* FUNDO DE FUMAÇA EM ROXO NEON FLUIDO VIA FILTRO */
         .site-fundo-completo {
             position: fixed;
             top: 0;
@@ -28,7 +28,7 @@
             height: 100vh;
             background: url('IMG_4570.jpeg') center top/cover;
             z-index: 1;
-            filter: brightness(0.45) contrast(1.4) hue-rotate(60deg) saturate(1.5);
+            filter: brightness(0.4) contrast(1.4) hue-rotate(60deg) saturate(1.6);
             animation: mov 18s ease-in-out infinite alternate;
             pointer-events: none;
         }
@@ -42,64 +42,84 @@
             z-index: 2;
             max-width: 600px;
             margin: 0 auto;
-            padding: 35px 12px;
+            padding: 25px 14px;
         }
 
         /* BANNER DO TOPO COM BORDAS ROXAS */
-        .topo-banner img {
-            width: 85%;
-            max-width: 400px;
-            display: block;
-            margin: 0 auto 20px;
-            border-radius: 12px;
-            border: 2px solid #a020f0;
-            box-shadow: 0 0 25px rgba(160,32,240,0.45);
+        .topo-banner {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
         }
 
+        .topo-banner img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            border-radius: 14px;
+            border: 2px solid #a020f0;
+            box-shadow: 0 0 25px rgba(160, 32, 240, 0.5);
+        }
+
+        /* TITULO VANTAGENS EXCLUSIVAS */
         .titulo-secao {
             font-size: 24px;
-            font-weight: 800;
+            font-weight: 900;
             color: #a020f0;
             text-transform: uppercase;
             text-align: center;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(160, 32, 240, 0.4);
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 15px rgba(160, 32, 240, 0.6);
         }
 
-        /* SEÇÃO VANTAGENS EXCLUSIVAS (ESTILO ROXO PREMIUM) */
+        /* GRADE DE VANTAGENS EXCLUSIVAS (CAIXINHAS IDÊNTICAS AO PRINT) */
         .secao-vantagens {
-            margin: 35px 0;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 14px;
+            margin-bottom: 35px;
             text-align: center;
         }
 
         .card-vantagem {
             background: rgba(5, 2, 10, 0.85);
             border: 1px solid rgba(160, 32, 240, 0.25);
-            border-radius: 12px;
-            padding: 20px 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            border-bottom: 2px solid rgba(160, 32, 240, 0.5);
+            border-radius: 16px;
+            padding: 25px 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            border-bottom: 3px solid rgba(160, 32, 240, 0.55);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ÍCONES EM ROXO NEON BRILHANTE */
+        .icone-vantagem {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 16px;
+            fill: #a020f0;
+            filter: drop-shadow(0 0 8px rgba(160, 32, 240, 0.8));
         }
 
         .card-vantagem h3 {
-            font-size: 13px;
+            font-size: 14px;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            font-weight: bold;
+            font-weight: 800;
             letter-spacing: 0.5px;
         }
 
         .card-vantagem p {
             font-size: 11px;
             color: #b3b3b3;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* SEÇÃO COMO FUNCIONA A COMPRA (ESTILO ROXO PREMIUM) */
+        /* COMO FUNCIONA A COMPRA */
         .secao-passos {
             margin: 35px 0;
             display: flex;
@@ -116,7 +136,7 @@
             gap: 15px;
             align-items: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            border-bottom: 2px solid rgba(160, 32, 240, 0.5);
+            border-bottom: 3px solid rgba(160, 32, 240, 0.5);
         }
 
         .num-passo {
@@ -167,7 +187,7 @@
             text-align: center;
             margin-top: 35px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            border-bottom: 2px solid rgba(160, 32, 240, 0.5);
+            border-bottom: 3px solid rgba(160, 32, 240, 0.5);
         }
 
         .titulo-filtro {
@@ -217,7 +237,7 @@
             opacity: 0.9;
         }
 
-        /* VITRINE EM 2 COLUNAS COLETIVAS */
+        /* VITRINE EM 2 COLUNAS */
         .grade-produtos {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -318,15 +338,42 @@
     <div class="container-loja">
         <div class="topo-banner"><img src="IMG_4577.jpeg"></div>
 
-        <!-- SEÇÃO VANTAGENS EXCLUSIVAS (AVISOS COMPLETOS COM FUNDO ESCURO E BORDA ROXA) -->
+        <!-- SEÇÃO VANTAGENS EXCLUSIVAS -->
+        <h2 class="titulo-secao">Vantagens Exclusivas</h2>
         <div class="secao-vantagens">
-            <div class="card-vantagem"><h3>Entrega Imediata</h3><p>Liberação automática após a compra. Você recebe o seu produto na hora.</p></div>
-            <div class="card-vantagem"><h3>Suporte 24h</h3><p>Atendimento diretamente pelo site ou através do nosso WhatsApp.</p></div>
-            <div class="card-vantagem"><h3>Garantia</h3><p>7 dias de garantia total. Se você testar e não gostar, seu dinheiro de volta.</p></div>
-            <div class="card-vantagem"><h3>Atualizações</h3><p>Todas as atualizações do painel são grátis e enviadas direto no seu chat.</p></div>
+            <!-- ENTREGA IMEDIATA -->
+            <div class="card-vantagem">
+                <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-5.5H15V9h2.46l2.04 2.5H18.5V13zm0 5.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                <h3>Entrega Imediata</h3>
+                <p>Liberação automática após a compra. Você recebe instantaneamente o seu produto.</p>
+            </div>
+
+            <!-- SUPORTE 24H -->
+            <div class="card-vantagem">
+                <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+            <!-- SUPORTE 24H -->
+            <div class="card-vantagem">
+                <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+                <h3>Suporte 24h</h3>
+                <p>Atendimento 24 Horas, diretamente pelo nosso site, via WhatsApp ou Telegram.</p>
+            </div>
+
+            <!-- GARANTIA -->
+            <div class="card-vantagem">
+                <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                <h3>Garantia</h3>
+                <p>7 dias de garantia incondicional. Você testa o produto, se não gostar pede reembolso.</p>
+            </div>
+
+            <!-- ATUALIZAÇÕES GRÁTIS -->
+            <div class="card-vantagem">
+                <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
+                <h3>Atualizações Grátis</h3>
+                <p>Todas futuras atualizações sem custo, você não pagará nada pelas atualizações.</p>
+            </div>
         </div>
 
-        <!-- SEÇÃO COMO FUNCIONA A COMPRA (AVISOS COMPLETOS COM FUNDO ESCURO E BORDA ROXA) -->
+        <!-- COMO FUNCIONA A COMPRA -->
         <div class="secao-passos">
             <h2 class="titulo-secao">Como funciona a compra?</h2>
             <div class="card-passo"><div class="num-passo">1</div><div class="texto-passo"><h3>Escolha</h3><p>Selecione seu painel favorito e acesse o pagamento <strong>seguro</strong>.</p></div></div>
@@ -334,10 +381,6 @@
             <div class="card-passo"><div class="num-passo">3</div><div class="texto-passo"><h3>Ative</h3><p>Suporte <strong>24h</strong> para te ajudar durante a ativação.</p></div></div>
         </div>
 
-        <div class="divisor"></div>
-
-        <!-- FILTRO DE PLUGINS -->
-        <div class="secao-filtro">
         <!-- FILTRO DE PRODUTOS -->
         <div class="secao-filtro">
             <h2 class="titulo-filtro">Filtrar Produtos</h2>
@@ -351,13 +394,13 @@
             <div class="alinhamento-botoes"><button class="btn-filtro ativo btn-bloqueado">Free Fire</button></div>
         </div>
 
-        <!-- VITRINE COM TODOS OS 10 BLOCOS E EMOJI DE CAMINHÃO 🚛 -->
+        <!-- VITRINE COM TODOS OS 10 BLOCOS -->
         <div class="grade-produtos">
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">FLUORITE</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('FLUORITE')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">FLUORITE</div><div class="status">Intervention 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('FLUORITE')">Comprar</button></div></div>
             <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">MONITE</div><div class="status">Campanha 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('MONITE')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">PROXY iOS</div><div class="status">Transcription 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">BYPASS iOS</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS iOS')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">CERTIFICADO iOS</div><div class="status">... 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('CERTIFICADO iOS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">PROXY iOS</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">BYPASS iOS</div><div class="status">Uk 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS iOS')">Comprar</button></div></div>
+            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">CERTIFICADO iOS</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('CERTIFICADO iOS')">Comprar</button></div></div>
             <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">MOD MENU ANDROID</div><div class="status">Aviso 🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('MOD MENU ANDROID')">Comprar</button></div></div>
             <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">EXTERNAL ANDROID</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('EXTERNAL ANDROID')">Comprar</button></div></div>
             <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">PROXY ANDROID</div><div class="status">🚛 Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY ANDROID')">Comprar</button></div></div>
@@ -383,35 +426,5 @@
             });
         }
     </script>
-        <!-- SEÇÃO VANTAGENS EXCLUSIVAS (TEMA ROXO NEON PREMIUM) -->
-        <h2 class="titulo-secao">Vantagens Exclusivas</h2>
-
-        <div class="secao-vantagens">
-            <!-- ENTREGA IMEDIATA -->
-            <div class="card-vantagem">
-                <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-5.5H15V9h2.46l2.04 2.5H18.5V13zm0 5.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                <h3>Entrega Imediata</h3>
-                <p>Liberação automática após a compra. Você recebe instantaneamente o seu produto.</p>
-            </div>
-
-            <!-- SUPORTE 24H -->
-            <div class="card-vantagem">
-                <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
-                <h3>Suporte 24h</h3>
-                <p>Atendimento 24 Horas, diretamente pelo nosso site, via WhatsApp ou Telegram.</p>
-            </div>
-
-            <!-- GARANTIA -->
-            <div class="card-vantagem">
-                <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                <h3>Garantia</h3>
-                <p>7 dias de garantia incondicional. Você testa o produto, se não gostar pede reembolso.</p>
-            </div>
-
-            <!-- ATUALIZAÇÕES GRÁTIS -->
-            <div class="card-vantagem">
-                <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
-                <h3>Atualizações Grátis</h3>
-                <p>Todas futuras atualizações sem custo, você não pagará nada pelas atualizações.</p>
-            </div>
-        </div>
+</body>
+</html>
