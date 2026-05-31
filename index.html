@@ -196,3 +196,152 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMIT SENSI - Categorias</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #050000;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* 1. SEU FUNDO FIXO EM MOVIMENTO LENTO (MANTIDO 100% IGUAL) */
+        .site-fundo-completo {
+            position: fixed;
+            top: -40px;
+            left: -40px;
+            width: calc(100% + 80px);
+            height: calc(100% + 80px);
+            background-image: url('IMG_4570.jpeg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            filter: brightness(0.35);
+            animation: movimentoFumaca 18s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes movimentoFumaca {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, 15px) scale(1.02); }
+        }
+
+        .container-loja {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 12px;
+        }
+
+        /* SELETOR DE CATEGORIAS ESTILO NEON PREMIUM */
+        .abas-categorias {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0 25px 0;
+        }
+
+        .aba-btn {
+            padding: 10px 28px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 8px; 
+            cursor: pointer;
+            background-color: #0d0202; 
+            transition: all 0.3s ease;
+            letter-spacing: 1.5px;
+        }
+
+        /* iOS: Borda e texto azul neon */
+        .aba-btn.ios {
+            color: #00d2ff;
+            border: 2px solid #00d2ff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+
+        /* Android: Borda e texto verde neon */
+        .aba-btn.android {
+            color: #00ff66;
+            border: 2px solid #00ff66;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+        }
+
+        .aba-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* GRADE DE PRODUTOS QUADRADINHOS */
+        .grade-produtos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .card-placeholder {
+            background: rgba(10, 2, 2, 0.8);
+            border: 1px solid rgba(255, 26, 26, 0.15);
+            border-radius: 14px;
+            aspect-ratio: 1 / 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 11px;
+            text-align: center;
+            padding: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            border-bottom: 3px solid rgba(255, 26, 26, 0.3);
+        }
+
+        @media (min-width: 768px) {
+            .grade-produtos { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sua fumaça vertical se movendo ao fundo -->
+    <div class="site-fundo-completo"></div>
+
+    <div class="container-loja">
+        
+        <!-- Botões com as novas cores neon -->
+        <div class="abas-categorias">
+            <button class="aba-btn ios">iOS</button>
+            <button class="aba-btn android">Android</button>
+        </div>
+
+        <!-- Caixinhas estruturadas esperando as infos -->
+        <div class="grade-produtos">
+            <div class="card-placeholder">Produto 1<br>(Aguardando Foto)</div>
+            <div class="card-placeholder">Produto 2<br>(Aguardando Foto)</div>
+            <div class="card-placeholder">Produto 3<br>(Aguardando Foto)</div>
+            <div class="card-placeholder">Produto 4<br>(Aguardando Foto)</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
