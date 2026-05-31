@@ -6,47 +6,70 @@
     <title>Smit Sensi</title>
     
     <style>
-        /* Fundo escuro do site fixo */
+        /* Configura a estrutura principal */
         body {
-            background-color: #0c0c0e;
-            color: #ffffff;
-            font-family: sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            position: relative;
+            background-color: #0c0c0e; /* Cor de segurança caso a foto demore a carregar */
+            font-family: sans-serif;
+            color: #ffffff;
             min-height: 100vh;
+            position: relative;
         }
 
-        /* 💨 FUMAÇA QUE MEXE NA TELA COMPLETA (FUNDO) */
-        .fumaça-tela-cheia {
+        /* 📸 A SUA IMAGEM DO GENGAR COMO FUNDO ANIMADO DA TELA TODA */
+        .fundo-gengar-animado {
             position: fixed;
             top: 0;
             left: 0;
-            width: 200%; 
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 55, 0, 0.15) 0%, rgba(0, 0, 0, 0) 60%),
-                        radial-gradient(circle at 70% 80%, rgba(255, 30, 0, 0.12) 0%, rgba(0, 0, 0, 0) 50%);
-            filter: blur(50px);
-            z-index: 0; 
-            animation: moverFumacaFundo 12s infinite ease-in-out alternate;
+            width: 120%; /* Um pouco maior para poder se mover sem mostrar bordas brancas */
+            height: 120%;
+            background-image: url('IMG_4570.jpeg'); /* Sua imagem vermelha */
+            background-size: cover;
+            background-position: center;
+            z-index: 0; /* Fica atrás de tudo */
+            animation: fumaçaGengar 15s infinite ease-in-out alternate;
             pointer-events: none;
         }
 
-        @keyframes moverFumacaFundo {
-            0% { transform: translate(-10%, -10%) scale(1) rotate(0deg); }
-            50% { transform: translate(5%, 10%) scale(1.2) rotate(5deg); }
-            100% { transform: translate(-5%, 0%) scale(0.95) rotate(-5deg); }
+        /* Animação que faz a sua própria imagem se mexer como fumaça */
+        @keyframes fumaçaGengar {
+            0% {
+                transform: translate(-2%, -2%) scale(1.05) rotate(0deg);
+                filter: brightness(0.9) contrast(1.1);
+            }
+            50% {
+                transform: translate(2%, 3%) scale(1.12) rotate(2deg);
+                filter: brightness(1.1) contrast(1.2); /* Dá um efeito de luz acendendo */
+            }
+            100% {
+                transform: translate(-3%, 1%) scale(1.02) rotate(-1deg);
+                filter: brightness(0.8) contrast(1);
+            }
         }
 
-        /* Garante que o conteúdo fique por cima da fumaça do fundo */
+        /* Camada escura opcional por cima do fundo para os botões não sumirem */
+        .filtro-escuro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Deixa o fundo levemente mais dark e nítido */
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Garante que o conteúdo fique por cima do fundo animado */
         .conteudo-site {
             position: relative;
-            z-index: 1;
+            z-index: 2; /* Fica na frente das imagens de fundo */
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-bottom: 40px;
         }
 
         /* Container do Banner Deitado */
@@ -58,11 +81,11 @@
             margin: 20px auto;
             border-radius: 15px;
             border: 2px solid #ff3700; 
-            box-shadow: 0 0 15px rgba(255, 55, 0, 0.4);
+            box-shadow: 0 0 15px rgba(255, 55, 0, 0.5);
             overflow: hidden;
         }
 
-        /* Sua imagem de fundo do banner */
+        /* Imagem estática dentro do banner se você quiser manter */
         .banner-fundo {
             position: absolute;
             width: 100%;
@@ -87,15 +110,16 @@
             font-weight: bold;
             text-transform: uppercase;
             color: #ffffff;
-            background-color: transparent;
+            background-color: rgba(0, 0, 0, 0.6); /* Fundo escurinho para destacar o texto */
             border: 2px solid #ff3700; 
             border-radius: 8px;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 0 10px rgba(255, 55, 0, 0.3);
+            box-shadow: 0 0 10px rgba(255, 55, 0, 0.4);
+            backdrop-filter: blur(3px); /* Efeito de vidro fosco no botão */
         }
 
-        /* --- CONTAINER DOS QUADRADOS DE PRODUTOS --- */
+        /* Container dos Quadrados de Produtos */
         .produtos-container {
             display: flex;
             gap: 15px;
@@ -105,12 +129,12 @@
             margin-top: 10px;
         }
 
-        /* Estilo dos Cards (Preto transparente com borda da cor do tema) */
+        /* Estilo dos Cards dos Produtos */
         .card-produto {
             flex: 1;
             height: 200px;
-            background: rgba(18, 18, 22, 0.65); /* Escuro transparente para ver a fumaça atrás */
-            border: 2px solid #ff3700; /* Mesma cor dos botões */
+            background: rgba(12, 12, 16, 0.75); /* Escuro transparente para ver o fundo se mexendo atrás */
+            border: 2px solid #ff3700; 
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -120,19 +144,21 @@
             font-size: 13px;
             font-weight: bold;
             letter-spacing: 1px;
-            box-shadow: 0 0 10px rgba(255, 55, 0, 0.2);
+            box-shadow: 0 0 10px rgba(255, 55, 0, 0.3);
+            backdrop-filter: blur(2px);
         }
     </style>
 </head>
 <body>
 
-    <!-- FUMAÇA SE MEXENDO POR TRÁS DE TUDO -->
-    <div class="fumaça-tela-cheia"></div>
+    <!-- A SUA IMAGEM FAZENDO O PAPEL DE FUMAÇA NO SITE TODO -->
+    <div class="fundo-gengar-animado"></div>
+    <div class="filtro-escuro"></div>
 
-    <!-- CONTEÚDO DO SITE -->
+    <!-- TODO O CONTEÚDO DO SITE -->
     <div class="conteudo-site">
         
-        <!-- BANNER COM A SUA IMAGEM VERMELHA -->
+        <!-- BANNER DEITADO -->
         <div class="banner-container">
             <div class="banner-fundo"></div>
         </div>
@@ -143,7 +169,7 @@
             <a href="#" class="btn-plataforma">Android</a>
         </div>
 
-        <!-- QUADRADINHOS DE PRODUTOS IGUAIS A FOTO -->
+        <!-- QUADRADINHOS DE PRODUTOS -->
         <div class="produtos-container">
             <div class="card-produto">PRODUTO 1<br>(AGUARDANDO FOTO)</div>
             <div class="card-produto">PRODUTO 2<br>(AGUARDANDO FOTO)</div>
