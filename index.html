@@ -9,78 +9,33 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #050101;
+            background-color: #0b0101;
             overflow: hidden; 
             width: 100vw;
             height: 100vh;
-            font-family: 'Impact', 'Arial Black', sans-serif;
         }
 
-        /* O Banner com a fumaça vermelha oficial de fundo */
+        /* Banner configurado com o nome exato da foto enviada */
         #banner-movel {
             position: absolute;
             width: 320px; 
-            height: 260px;
-            border-radius: 16px;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
-            border: 3px solid #ff1a1a;
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://unsplash.com');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        /* Efeito de fumaça extra se movendo dentro do próprio banner */
-        #banner-movel::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,0,0,0.4) 0%, rgba(0,0,0,0) 70%);
-            animation: girarFumaca 6s linear infinite;
-            z-index: 1;
-        }
-
-        /* Texto SMIT SENSI idêntico ao estilo da sua foto */
-        #banner-movel h1 {
-            color: #ff2a2a;
-            font-size: 46px;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-style: italic;
-            z-index: 2;
-            text-shadow: 
-                -2px -2px 0 #000,  
-                 2px -2px 0 #000,
-                -2px  2px 0 #000,
-                 2px  2px 0 #000,
-                 0px 0px 20px #ff0000;
-            transform: skewX(-10deg);
-        }
-
-        @keyframes girarFumaca {
-            0% { transform: translate(-25%, -25%) rotate(0deg); }
-            100% { transform: translate(-25%, -25%) rotate(360deg); }
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+            border: 2px solid #ff1a1a;
         }
     </style>
 </head>
 <body>
 
-    <!-- Estrutura do Banner com o Texto e Fundo customizados por código -->
-    <div id="banner-movel">
-        <h1>SMIT SENSI</h1>
-    </div>
+    <!-- Puxa a imagem com o nome exato que subiu no GitHub -->
+    <img src="IMG_4521.jpeg" id="banner-movel" alt="SMIT SENSI">
 
     <script>
         const banner = document.getElementById('banner-movel');
 
         let posX = Math.random() * (window.innerWidth - 320);
-        let posY = Math.random() * (window.innerHeight - 260);
+        let posY = Math.random() * (window.innerHeight - 280);
 
         let velX = 2.5; 
         let velY = 2.5;
@@ -88,8 +43,8 @@
         function moverBanner() {
             const larguraTela = window.innerWidth;
             const alturaTela = window.innerHeight;
-            const larguraBanner = banner.offsetWidth;
-            const alturaBanner = banner.offsetHeight;
+            const larguraBanner = banner.offsetWidth || 320;
+            const alturaBanner = banner.offsetHeight || 280;
 
             posX += velX;
             posY += velY;
@@ -108,7 +63,8 @@
             requestAnimationFrame(moverBanner);
         }
 
-        moverBanner();
+        window.addEventListener('load', moverBanner);
+        setTimeout(moverBanner, 500); 
     </script>
 </body>
 </html>
