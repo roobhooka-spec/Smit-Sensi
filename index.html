@@ -16,35 +16,67 @@
             height: 100%;
             overflow: hidden;
             background-color: #050000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        /* A imagem agora se ajusta inteira na tela sem cortes */
-        .fundo-fumaca {
+        /* 1. FUMAÇA DE FUNDO: Ocupa a tela toda eliminando as faixas pretas */
+        .fundo-viva {
             position: absolute;
-            width: 110%;
-            height: 110%;
+            top: -50px;
+            left: -50px;
+            width: 150%;
+            height: 150%;
             background-image: url('IMG_4521.jpeg');
-            background-size: contain; /* Faz a foto inteira caber na tela do celular */
-            background-repeat: no-repeat;
+            background-size: cover;
             background-position: center;
+            filter: blur(20px) brightness(0.6); /* Desfoca o fundo para dar profundidade */
             z-index: 1;
-            animation: moverFundoReal 15s linear infinite alternate;
+            animation: moverFundo 25s linear infinite alternate;
         }
 
-        /* Movimento bem sutil e curto para não tirar a foto do lugar */
-        @keyframes moverFundoReal {
-            0% { transform: translate(-5px, -5px); }
-            100% { transform: translate(5px, 5px); }
+        /* 2. ARTE PRINCIPAL: Centralizada, nítida e sem cortes */
+        .arte-principal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 450px; /* Tamanho ideal para preencher bem o celular */
+            height: auto;
+            z-index: 2;
+            padding: 15px;
+        }
+
+        .arte-principal img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            border: 2px solid #ff1a1a;
+            animation: balancoSuave 6s ease-in-out infinite alternate;
+        }
+
+        /* Animação para a fumaça de fundo se mexer lentamente */
+        @keyframes moverFundo {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-30px, -30px) scale(1.05); }
+        }
+
+        /* Balanço leve na imagem principal para dar mais estilo */
+        @keyframes balancoSuave {
+            0% { transform: translateY(-4px); }
+            100% { transform: translateY(4px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sua arte completa se movendo suavemente sem cortes -->
-    <div class="fundo-fumaca"></div>
+    <!-- Fumaça vermelha preenchendo o fundo inteiro sem deixar faixas pretas -->
+    <div class="fundo-viva"></div>
+
+    <!-- Sua arte original com o nome e os bonecos sem cortar nada -->
+    <div class="arte-principal">
+        <img src="IMG_4521.jpeg" alt="SMIT SENSI">
+    </div>
 
 </body>
 </html>
