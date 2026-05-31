@@ -1,92 +1,100 @@
-<!-- ESTILOS DO BANNER E BOTÕES -->
-<style>
-    /* Container do Banner Deitado e Médio */
-    .banner-container {
-        position: relative;
-        width: 90%;
-        max-width: 500px;
-        height: 180px; /* Altura média deitado */
-        margin: 20px auto;
-        border-radius: 15px;
-        border: 2px solid #ff3700; /* Borda neon combinando com seu tema */
-        box-shadow: 0 0 15px rgba(255, 55, 0, 0.4);
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smit Sensi</title>
+    
+    <style>
+        /* Fundo escuro do site para não ficar branco */
+        body {
+            background-color: #0c0c0e;
+            color: #ffffff;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-    /* Imagem de Fundo (Smit Sensi) */
-    .banner-fundo {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-image: url('sua-imagem-aqui.jpg'); /* ⚠️ TROQUE PELO NOME DO SEU ARQUIVO DE IMAGEM */
-        background-size: cover;
-        background-position: center;
-        z-index: 1;
-    }
+        /* Container do Banner (Deitado e Médio) */
+        .banner-container {
+            position: relative;
+            width: 90%;
+            max-width: 450px;
+            height: 180px; 
+            margin: 20px auto;
+            border-radius: 15px;
+            border: 2px solid #ff3700; 
+            box-shadow: 0 0 15px rgba(255, 55, 0, 0.4);
+            overflow: hidden;
+        }
 
-    /* Efeito de Fumaça se Mexendo Atrás e por Cima da Imagem */
-    .fumaça-animada {
-        position: absolute;
-        width: 160%;
-        height: 160%;
-        background: radial-gradient(circle, rgba(255, 55, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
-        filter: blur(40px);
-        z-index: 2;
-        animation: moverFumaca 6s infinite ease-in-out alternate;
-        pointer-events: none;
-    }
+        /* Pega o segundo arquivo que você mostrou (IMG_4570.jpeg) */
+        .banner-fundo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('IMG_4570.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
 
-    /* Animação que faz a fumaça se mexer suave */
-    @keyframes moverFumaca {
-        0% { transform: translate(-10%, -10%) scale(1); opacity: 0.6; }
-        50% { transform: translate(5%, 5%) scale(1.2); opacity: 0.9; }
-        100% { transform: translate(-5%, 5%) scale(0.95); opacity: 0.6; }
-    }
+        /* Efeito da fumaça se mexendo suave */
+        .fumaça-animada {
+            position: absolute;
+            width: 160%;
+            height: 160%;
+            background: radial-gradient(circle, rgba(255, 55, 0, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+            filter: blur(35px);
+            z-index: 2;
+            animation: moverFumaca 7s infinite ease-in-out alternate;
+            pointer-events: none;
+        }
 
-    /* Container dos Botões iOS e Android */
-    .botoes-plataforma {
-        display: flex;
-        justify-content: center;
-        gap: 15px; /* Espaço certinho entre os dois botões */
-        margin-bottom: 25px;
-    }
+        @keyframes moverFumaca {
+            0% { transform: translate(-8%, -8%) scale(1); }
+            50% { transform: translate(4%, 4%) scale(1.15); }
+            100% { transform: translate(-4%, 2%) scale(0.95); }
+        }
 
-    /* Estilo igual para os Dois Quadradinhos (Mesma Cor Neon) */
-    .btn-plataforma {
-        width: 130px;
-        padding: 12px 0;
-        font-family: sans-serif;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: #ffffff;
-        background-color: transparent;
-        border: 2px solid #ff3700; /* Mesma cor laranja neon */
-        border-radius: 8px;
-        text-align: center;
-        text-decoration: none;
-        box-shadow: 0 0 10px rgba(255, 55, 0, 0.3);
-        transition: 0.3s ease;
-    }
+        /* Botões iOS e Android na mesma linha */
+        .botoes-plataforma {
+            display: flex;
+            justify-content: center;
+            gap: 15px; 
+            margin: 20px 0;
+        }
 
-    /* Efeito ao passar o dedo ou mouse nos botões */
-    .btn-plataforma:hover {
-        background-color: #ff3700;
-        box-shadow: 0 0 20px #ff3700;
-    }
-</style>
+        /* Mesma cor e estilo para os dois botões */
+        .btn-plataforma {
+            width: 120px;
+            padding: 10px 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ffffff;
+            background-color: transparent;
+            border: 2px solid #ff3700; 
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(255, 55, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
 
-<!-- ESTRUTURA DO BANNER -->
-<div class="banner-container">
-    <div class="banner-fundo"></div>
-    <div class="fumaça-animada"></div>
-</div>
+    <!-- BANNER COM A SUA IMAGEM IMG_4570.jpeg E FUMAÇA -->
+    <div class="banner-container">
+        <div class="banner-fundo"></div>
+        <div class="fumaça-animada"></div>
+    </div>
 
-<!-- ESTRUTURA DOS BOTÕES (MESMA COR) -->
-<div class="botoes-plataforma">
-    <a href="#" class="btn-plataforma">iOS</a>
-    <a href="#" class="btn-plataforma">Android</a>
-</div>
+    <!-- BOTÕES NA MESMA COR -->
+    <div class="botoes-plataforma">
+        <a href="#" class="btn-plataforma">iOS</a>
+        <a href="#" class="btn-plataforma">Android</a>
+    </div>
 
+</body>
+</html>
