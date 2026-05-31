@@ -1,120 +1,78 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smit Sensi</title>
-    
-    <style>
-        /* Configura a tela do celular perfeita */
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background-color: #0c0c0e; 
-            font-family: sans-serif;
-            color: #ffffff;
-            min-height: 100vh;
-            position: relative;
-        }
+/* Configura o fundo do site com a 2ª imagem fixa */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-image: url('IMG_4570.jpeg'); /* 🌟 2ª Imagem fixa no fundo de tudo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+}
 
-        /* 📸 AGORA SIM: A SEGUNDA IMAGEM (IMG_4570.jpeg) NO FUNDO DE TUDO */
-        .fundo-gengar-completo {
-            position: fixed;
-            top: -5%;
-            left: -5%;
-            width: 110%; /* Só um pouco maior para mover sem deixar borda branca */
-            height: 110%;
-            background-image: url('IMG_4570.jpeg'); /* 🌟 Imagem correta aqui! */
-            background-size: cover;
-            background-position: center center;
-            z-index: 0;
-            animation: balançoFumaça 8s infinite ease-in-out alternate;
-            pointer-events: none;
-        }
+/* 📸 BANNER DO TOPO: 3ª Imagem bem nítida se mexendo igual fumaça */
+.banner-container {
+    position: relative;
+    width: 95%;
+    max-width: 450px;
+    height: 200px; /* Altura boa e nítida no início da página */
+    margin: 15px auto;
+    border-radius: 15px;
+    border: 2px solid #ff3700; 
+    box-shadow: 0 0 20px rgba(255, 55, 0, 0.6);
+    overflow: hidden;
+}
 
-        /* Animação que faz a imagem inteira dançar como fumaça pura */
-        @keyframes balançoFumaça {
-            0% {
-                transform: translate(-1%, -1%) scale(1.02);
-                filter: brightness(0.95) contrast(1.05);
-            }
-            50% {
-                transform: translate(1%, 2%) scale(1.05);
-                filter: brightness(1.1) contrast(1.15); 
-            }
-            100% {
-                transform: translate(-1.5%, 0.5%) scale(1.01);
-                filter: brightness(0.9) contrast(1);
-            }
-        }
+.banner-fundo {
+    position: absolute;
+    width: 115%; /* Um pouco maior para a fumaça se mexer dentro dele */
+    height: 115%;
+    background-image: url('IMG_4577.jpeg'); /* 🌟 3ª Imagem nítida aqui */
+    background-size: cover;
+    background-position: center;
+    animation: fumaçaBanner 6s infinite ease-in-out alternate;
+}
 
-        /* Conteúdo do site flutuando transparente por cima da imagem */
-        .conteudo-site {
-            position: relative;
-            z-index: 1; 
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+/* Animação de fumaça focada apenas dentro do banner do topo */
+@keyframes fumaçaBanner {
+    0% { transform: translate(-2%, -2%) scale(1.02); filter: brightness(0.9); }
+    50% { transform: translate(2%, 2%) scale(1.06); filter: brightness(1.15); }
+    100% { transform: translate(-1%, 0%) scale(1.01); filter: brightness(0.95); }
+}
 
-        /* Espaço invisível para empurrar os botões bem para baixo, deixando o logo limpo no meio */
-        .espaco-logo {
-            height: 55vh; /* Ocupa mais da metade da tela para os botões ficarem no rodapé */
-            width: 100%;
-        }
+/* Container dos Botões (Mais para cima, colados no banner) */
+.botoes-plataforma {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    margin: 15px 0 25px 0; /* Diminuímos o espaço para subir os botões */
+    width: 100%;
+}
 
-        /* Container dos Botões iOS e Android */
-        .botoes-plataforma {
-            display: flex;
-            justify-content: center;
-            gap: 15px; 
-            margin-bottom: 30px;
-            width: 100%;
-        }
+/* Estilo dos botões vazados */
+.btn-plataforma {
+    width: 125px;
+    padding: 11px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.6); 
+    border: 2px solid #ff3700; 
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(255, 55, 0, 0.4);
+    backdrop-filter: blur(3px);
+}<!-- BANNER DO TOPO -->
+<div class="banner-container">
+    <div class="banner-fundo"></div>
+</div>
 
-        /* Estilo idêntico aos botões da foto (Laranja Neon e vazados) */
-        .btn-plataforma {
-            width: 130px;
-            padding: 12px 0;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: #ffffff;
-            background-color: rgba(0, 0, 0, 0.4); /* Bem transparente para ver o fundo */
-            border: 2px solid #ff3700; 
-            border-radius: 10px;
-            text-align: center;
-            text-decoration: none;
-            box-shadow: 0 0 12px rgba(255, 55, 0, 0.5);
-            backdrop-filter: blur(2px);
-            transition: 0.3s;
-        }
+<!-- BOTÕES LOGO ABAIXO -->
+<div class="botoes-plataforma">
+    <a href="#" class="btn-plataforma">iOS</a>
+    <a href="#" class="btn-plataforma">Android</a>
+</div>
 
-        .btn-plataforma:hover {
-            background-color: #ff3700;
-            box-shadow: 0 0 20px #ff3700;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- A IMAGEM CERTA SE MOVIMENTANDO NO FUNDO -->
-    <div class="fundo-gengar-completo"></div>
-
-    <!-- CONTEÚDO DO SITE -->
-    <div class="conteudo-site">
-        
-        <!-- Deixa o centro da imagem com o nome "Smit Sensi" totalmente visível -->
-        <div class="espaco-logo"></div>
-
-        <!-- BOTÕES FLUTUANDO ABAIXO DO LOGO IGUAL A FOTO -->
-        <div class="botoes-plataforma">
-            <a href="#" class="btn-plataforma">iOS</a>
-            <a href="#" class="btn-plataforma">Android</a>
-        </div>
-
-    </div>
-
-</body>
-</html>
