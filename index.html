@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            background-color: #0c0c0e; /* Cor de segurança caso a foto demore a carregar */
+            background-color: #0c0c0e; 
             font-family: sans-serif;
             color: #ffffff;
             min-height: 100vh;
@@ -23,40 +23,41 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 120%; /* Um pouco maior para poder se mover sem mostrar bordas brancas */
-            height: 120%;
-            background-image: url('IMG_4570.jpeg'); /* Sua imagem vermelha */
+            width: 130%; /* Aumentamos levemente para dar margem de movimento */
+            height: 130%;
+            background-image: url('IMG_4570.jpeg'); 
             background-size: cover;
-            background-position: center;
-            z-index: 0; /* Fica atrás de tudo */
+            /* 🌟 O TRUQUE ESTÁ AQUI: top center faz o fundo focar na fumaça de cima e joga o texto do fundo para fora da tela */
+            background-position: top center; 
+            z-index: 0; 
             animation: fumaçaGengar 15s infinite ease-in-out alternate;
             pointer-events: none;
         }
 
-        /* Animação que faz a sua própria imagem se mexer como fumaça */
+        /* Animação corrigida para focar apenas no topo e laterais, escondendo a parte de baixo */
         @keyframes fumaçaGengar {
             0% {
-                transform: translate(-2%, -2%) scale(1.05) rotate(0deg);
-                filter: brightness(0.9) contrast(1.1);
+                transform: translate(-3%, -2%) scale(1.05) rotate(0deg);
+                filter: brightness(0.85) contrast(1.1);
             }
             50% {
-                transform: translate(2%, 3%) scale(1.12) rotate(2deg);
-                filter: brightness(1.1) contrast(1.2); /* Dá um efeito de luz acendendo */
+                transform: translate(3%, 0%) scale(1.1) rotate(1deg); /* Tiramos o movimento para baixo (Y) para o texto não subir */
+                filter: brightness(1.05) contrast(1.15); 
             }
             100% {
-                transform: translate(-3%, 1%) scale(1.02) rotate(-1deg);
+                transform: translate(-2%, -1%) scale(1.03) rotate(-0.5deg);
                 filter: brightness(0.8) contrast(1);
             }
         }
 
-        /* Camada escura opcional por cima do fundo para os botões não sumirem */
+        /* Camada escura por cima do fundo para destacar o conteúdo principal */
         .filtro-escuro {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3); /* Deixa o fundo levemente mais dark e nítido */
+            background: rgba(0, 0, 0, 0.4); /* Deixamos um pouquinho mais escuro para o texto dos produtos destacar mais */
             z-index: 1;
             pointer-events: none;
         }
@@ -64,7 +65,7 @@
         /* Garante que o conteúdo fique por cima do fundo animado */
         .conteudo-site {
             position: relative;
-            z-index: 2; /* Fica na frente das imagens de fundo */
+            z-index: 2; 
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -85,7 +86,7 @@
             overflow: hidden;
         }
 
-        /* Imagem estática dentro do banner se você quiser manter */
+        /* Imagem dentro do banner */
         .banner-fundo {
             position: absolute;
             width: 100%;
@@ -110,13 +111,13 @@
             font-weight: bold;
             text-transform: uppercase;
             color: #ffffff;
-            background-color: rgba(0, 0, 0, 0.6); /* Fundo escurinho para destacar o texto */
+            background-color: rgba(0, 0, 0, 0.6); 
             border: 2px solid #ff3700; 
             border-radius: 8px;
             text-align: center;
             text-decoration: none;
             box-shadow: 0 0 10px rgba(255, 55, 0, 0.4);
-            backdrop-filter: blur(3px); /* Efeito de vidro fosco no botão */
+            backdrop-filter: blur(3px); 
         }
 
         /* Container dos Quadrados de Produtos */
@@ -133,7 +134,7 @@
         .card-produto {
             flex: 1;
             height: 200px;
-            background: rgba(12, 12, 16, 0.75); /* Escuro transparente para ver o fundo se mexendo atrás */
+            background: rgba(12, 12, 16, 0.75); 
             border: 2px solid #ff3700; 
             border-radius: 12px;
             display: flex;
