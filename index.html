@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>SMIT SENSI - Official Store</title>
     
     <style>
@@ -22,18 +22,17 @@
             overflow-y: auto;
         }
 
-        /* 1. SEU FUNDO FIXO COM CORES MAIS VIVAS (IMG_4570.jpeg) */
+        /* 1. FUNDO COMPLETAMENTE CORRIGIDO ATÉ O TOPO ABSOLUTO DO CELULAR */
         .site-fundo-completo {
             position: fixed;
-            top: -40px;
+            top: -60px; /* Sobe ainda mais para garantir que cobre o topo do celular */
             left: -40px;
             width: calc(100% + 80px);
-            height: calc(100% + 80px);
+            height: calc(100% + 120px);
             background-image: url('IMG_4570.jpeg');
             background-size: cover;
-            background-position: center;
+            background-position: center top; /* Alinha por cima para preencher o topo */
             z-index: 1;
-            /* AJUSTADO: Filtros para acender o vermelho e dar mais contraste na fumaça */
             filter: brightness(0.45) contrast(1.4) saturate(1.5); 
             animation: movimentoFumaca 18s ease-in-out infinite alternate;
             pointer-events: none;
@@ -51,13 +50,14 @@
             width: 100%;
             max-width: 600px; 
             margin: 0 auto;
-            padding: 0 12px 30px 12px;
+            /* Adiciona espaço no topo considerando a área do relógio do celular */
+            padding: calc(15px + env(safe-area-inset-top)) 12px 30px 12px;
         }
 
         /* 2. BANNER DO TOPO MÉDIO (IMG_4577.jpeg) */
         .topo-banner-master {
             width: 100%;
-            padding: 20px 0 5px 0;
+            padding-bottom: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -136,12 +136,12 @@
 </head>
 <body>
 
-    <!-- Fundo de fumaça com cores mais vivas -->
+    <!-- Fundo estendido que resolve a faixa preta -->
     <div class="site-fundo-completo"></div>
 
     <div class="container-loja">
         
-        <!-- O banner do topo (FOTO 3) -->
+        <!-- Banner centralizado com recuo correto do topo -->
         <div class="topo-banner-master">
             <img src="IMG_4577.jpeg" alt="SMIT SENSI LOGO">
         </div>
