@@ -1,31 +1,273 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<title>SMIT SENSI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smit Sensi - Loja Oficial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #06070d;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+            background-size: 550px 550px, 350px 350px;
+            color: #ffffff;
+            padding: 0 0 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* BANNER LINDO E ANIMADO NO TOPO */
+        .hero-banner {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(-45deg, #7928ca, #00e1ff, #ff007a, #00ff66);
+            background-size: 400% 400%;
+            animation: gradienteBanner 12s ease infinite;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(121, 40, 202, 0.3);
+            border-bottom: 2px solid #242936;
+            overflow: hidden;
+        }
+
+        /* Partículas brilhantes dentro do banner */
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, #06070d 95%);
+            opacity: 0.6;
+        }
+
+        /* ANIMAÇÃO DO TEXTO DO BANNER SE MEXENDO */
+        .hero-banner h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #ffffff;
+            z-index: 2;
+            text-shadow: 2px 2px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 0px 0px 20px rgba(255,255,255,0.6);
+            animation: balanco 4s ease-in-out infinite;
+        }
+
+        .hero-banner p {
+            color: #ffffff;
+            z-index: 2;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 5px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 4px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Animação de movimento do fundo do banner */
+        @keyframes gradienteBanner {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animação do nome balançando de leve */
+        @keyframes balanco {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: rgba(22, 25, 32, 0.9);
+            border: 1px solid #242936;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .card h2 {
+            color: #00e1ff;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #242936;
+            padding-bottom: 8px;
+        }
+
+        .price-list {
+            list-style: none;
+        }
+
+        .price-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #242936;
+            font-size: 1.05rem;
+        }
+
+        .price-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tempo {
+            color: #ececec;
+        }
+
+        .valor {
+            color: #00ff66;
+            font-weight: bold;
+        }
+        
+        .card-gemada {
+            background: linear-gradient(135deg, rgba(27, 19, 46, 0.95) 0%, rgba(22, 25, 32, 0.95) 100%);
+            border: 1px solid #7928ca;
+            box-shadow: 0 0 20px rgba(121, 40, 202, 0.3);
+        }
+
+        .card-gemada h2 {
+            color: #ff007a;
+            border-bottom: 1px solid #3c1e61;
+        }
+
+        .card-gemada p {
+            font-size: 0.95rem;
+            color: #d1d1d1;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 15px;
+            border-radius: 12px;
+            width: 100%;
+            margin-top: 15px;
+            text-transform: uppercase;
+            transition: transform 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-whatsapp {
+            background-color: #00ff66;
+            color: #0d0e12;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+        }
+
+        .btn-gemada {
+            background-color: #7928ca;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(121, 40, 202, 0.5);
+            border: 1px solid #9b4de3;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #525866;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<h1>SMIT SENSI</h1>
+    <!-- BANNER TOPO ANIMADO -->
+    <div class="hero-banner">
+        <h1>Smit Sensi</h1>
+        <p>🚀 Os melhores painéis do mercado</p>
+    </div>
 
-<h2>Painel Fluorite iOS</h2>
-<p>1 dia - R$ 14,55</p>
-<p>7 dias - R$ 56,77</p>
-<p>30 dias - R$ 100,00</p>
+    <div class="container">
 
-<h2>Drip Cliente Android</h2>
-<p>1 dia - R$ 10,99</p>
-<p>7 dias - R$ 44,66</p>
-<p>30 dias - R$ 78,99</p>
+        <!-- Produto 1 -->
+        <div class="card">
+            <h2>Painel Fluorite iOS</h2>
+            <ul class="price-list">
+                <li><span class="tempo">1 dia</span> <span class="valor">R$ 14,55</span></li>
+                <li><span class="tempo">7 dias</span> <span class="valor">R$ 56,77</span></li>
+                <li><span class="tempo">30 dias</span> <span class="valor">R$ 100,00</span></li>
+            </ul>
+        </div>
 
-<h2>Proxy</h2>
-<p>7 dias - R$ 42,00</p>
-<p>30 dias - R$ 79,99</p>
+        <!-- Produto 2 -->
+        <div class="card">
+            <h2>Drip Cliente Android</h2>
+            <ul class="price-list">
+                <li><span class="tempo">1 dia</span> <span class="valor">R$ 10,99</span></li>
+                <li><span class="tempo">7 dias</span> <span class="valor">R$ 44,66</span></li>
+                <li><span class="tempo">30 dias</span> <span class="valor">R$ 78,99</span></li>
+            </ul>
+        </div>
 
-<h2>GBox</h2>
-<p>Anual - R$ 55,00</p>
+        <!-- Produto 3 -->
+        <div class="card">
+            <h2>Proxy</h2>
+            <ul class="price-list">
+                <li><span class="tempo">7 dias</span> <span class="valor">R$ 42,00</span></li>
+                <li><span class="tempo">30 dias</span> <span class="valor">R$ 79,99</span></li>
+            </ul>
+        </div>
 
-<h2>Contato</h2>
-<p>WhatsApp: (19) 93625-6446</p>
+        <!-- Produto 4 -->
+        <div class="card">
+            <h2>GBox</h2>
+            <ul class="price-list">
+                <li><span class="tempo">Anual</span> <span class="valor">R$ 55,00</span></li>
+            </ul>
+        </div>
+
+        <!-- Área de Conta Gemada -->
+        <div class="card card-gemada">
+            <h2>🔥 Pagamento via Conta Gemada</h2>
+            <p>Não tem dinheiro vivo agora? Eu aceito sua <strong>conta gemada do Free Fire</strong> como forma de pagamento pelos painéis!</p>
+            <p>⚠️ A conta passará por uma avaliação de valor antes da liberação do produto.</p>
+            
+            <a href="https://wa.me!" target="_blank" class="btn btn-gemada">
+                🔄 Negociar Conta Gemada
+            </a>
+        </div>
+
+        <!-- Botão de Compra -->
+        <a href="https://wa.me." target="_blank" class="btn btn-whatsapp">
+            📱 Comprar no Pix / Dinheiro
+        </a>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Smit Sensi. Todos os direitos reservados.
+    </footer>
 
 </body>
 </html>
