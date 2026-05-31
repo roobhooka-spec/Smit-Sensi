@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMIT SENSI - Official Store</title>
     
     <style>
@@ -20,31 +20,27 @@
             color: #ffffff;
             overflow-x: hidden;
             overflow-y: auto;
-            /* Remove espaçamentos padrões que geram barras no topo */
-            padding-top: 0 !important;
-            margin-top: 0 !important;
         }
 
-        /* 1. FUNDO FORÇADO ATÉ O LIMITE MÁXIMO DO TOPO */
+        /* 1. SEU FUNDO FIXO EM MOVIMENTO LENTO */
         .site-fundo-completo {
             position: fixed;
-            top: 0 !important; /* Fixa no limite zero do topo da tela física */
+            top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
             background-image: url('IMG_4570.jpeg');
             background-size: cover;
-            background-position: center center;
+            background-position: center top;
             z-index: 1;
             filter: brightness(0.45) contrast(1.4) saturate(1.5); 
-            /* Movimento sutil alterado para não puxar a imagem para baixo */
             animation: movimentoFumacaFixed 18s ease-in-out infinite alternate;
             pointer-events: none;
         }
 
         @keyframes movimentoFumacaFixed {
             0% { transform: scale(1); }
-            100% { transform: scale(1.05) translate(5px, 5px); }
+            100% { transform: scale(1.04) translate(3px, 3px); }
         }
 
         /* CONTAINER PRINCIPAL */
@@ -54,23 +50,21 @@
             width: 100%;
             max-width: 600px; 
             margin: 0 auto;
-            /* Cria o espaçamento interno perfeito deixando o banner respirar */
-            padding: 20px 12px 30px 12px;
+            padding: 35px 12px 30px 12px;
         }
 
-        /* 2. BANNER DO TOPO MÉDIO (IMG_4577.jpeg) */
+        /* 2. BANNER DO TOPO CENTRALIZADO E MAIOR (IMG_4577.jpeg) */
         .topo-banner-master {
             width: 100%;
             padding-bottom: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 10px; /* Empurra o banner para baixo levemente sem mexer no fundo */
         }
 
         .topo-banner-master img {
-            width: 65%; 
-            max-width: 280px; 
+            width: 85%; /* AUMENTADO: Mudou de 65% para 85% para o banner do topo ficar maior e imponente */
+            max-width: 400px; /* Limite máximo aumentado para telas um pouco maiores */
             height: auto;
             border-radius: 12px;
             border: 2px solid #ff1a1a;
@@ -88,7 +82,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin: 20px 0 20px 0;
+            margin: 25px 0 20px 0;
         }
 
         .aba-btn {
@@ -141,12 +135,12 @@
 </head>
 <body>
 
-    <!-- Fundo forçado em tela cheia travado no topo zero -->
+    <!-- Fundo de fumaça -->
     <div class="site-fundo-completo"></div>
 
     <div class="container-loja">
         
-        <!-- Banner principal -->
+        <!-- O seu banner do topo em tamanho maior (FOTO 3) -->
         <div class="topo-banner-master">
             <img src="IMG_4577.jpeg" alt="SMIT SENSI LOGO">
         </div>
