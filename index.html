@@ -53,7 +53,7 @@
             padding: 35px 12px 30px 12px;
         }
 
-        /* 2. BANNER DO TOPO CENTRALIZADO E MAIOR (IMG_4577.jpeg) */
+        /* 2. BANNER DO TOPO CENTRALIZADO E MAIOR */
         .topo-banner-master {
             width: 100%;
             padding-bottom: 5px;
@@ -63,8 +63,8 @@
         }
 
         .topo-banner-master img {
-            width: 85%; /* AUMENTADO: Mudou de 65% para 85% para o banner do topo ficar maior e imponente */
-            max-width: 400px; /* Limite máximo aumentado para telas um pouco maiores */
+            width: 85%; 
+            max-width: 400px; 
             height: auto;
             border-radius: 12px;
             border: 2px solid #ff1a1a;
@@ -77,12 +77,75 @@
             100% { transform: translateY(4px); filter: brightness(0.95); }
         }
 
+        /* =======================================================
+           NOVA SEÇÃO: VANTAGENS EXCLUSIVAS (IGUAL AO SEU PRINT)
+           ======================================================= */
+        .secao-vantagens {
+            margin: 35px 0;
+            text-align: center;
+        }
+
+        .titulo-vantagens {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ff1a1a; /* Adaptado para o vermelho do seu tema */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 26, 26, 0.4);
+        }
+
+        .grade-vantagens {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .card-vantagem {
+            background: rgba(15, 5, 5, 0.85);
+            border: 1px solid rgba(255, 26, 26, 0.15);
+            border-radius: 12px;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Ícones estilizados em SVG para carregar rápido */
+        .icone-vantagem {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 12px;
+            fill: #ff1a1a; /* Vermelho combinando com o site */
+            filter: drop-shadow(0 0 8px rgba(255, 26, 26, 0.6));
+        }
+
+        .card-vantagem h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-vantagem p {
+            font-size: 11px;
+            color: #b3b3b3;
+            line-height: 1.4;
+        }
+
         /* SELETOR DE CATEGORIAS */
         .abas-categorias {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin: 25px 0 20px 0;
+            margin: 35px 0 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
         }
 
         .aba-btn {
@@ -140,12 +203,47 @@
 
     <div class="container-loja">
         
-        <!-- O seu banner do topo em tamanho maior (FOTO 3) -->
+        <!-- O seu banner do topo (FOTO 3) -->
         <div class="topo-banner-master">
             <img src="IMG_4577.jpeg" alt="SMIT SENSI LOGO">
         </div>
 
-        <!-- Botões de categoria -->
+        <!-- SEÇÃO ADICIONADA: Vantagens Exclusivas -->
+        <div class="secao-vantagens">
+            <h2 class="titulo-vantagens">Vantagens exclusivas</h2>
+            
+            <div class="grade-vantagens">
+                <!-- Entrega Imediata -->
+                <div class="card-vantagem">
+                    <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M18 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm-12 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm15.56-7.11l-3.32-4.15c-.32-.4-.79-.64-1.3-.64H14V4c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h1c0 1.66 1.34 3 3 3s3-1.34 3-3h4c0 1.66 1.34 3 3 3s3-1.34 3-3h2c.55 0 1-.45 1-1v-4.34c0-.42-.17-.83-.44-1.11zM14 8h2.94l2.4 3H14V8z"/></svg>
+                    <h3>Entrega Imediata</h3>
+                    <p>Liberação automática após a compra. Você recebe instantaneamente o seu produto.</p>
+                </div>
+
+                <!-- Suporte 24h -->
+                <div class="card-vantagem">
+                    <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+                    <h3>Suporte 24h</h3>
+                    <p>Atendimento 24 Horas, diretamente pelo nosso site, via WhatsApp ou Telegram.</p>
+                </div>
+
+                <!-- Garantia -->
+                <div class="card-vantagem">
+                    <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    <h3>Garantia</h3>
+                    <p>7 dias de garantia incondicional. Você testa o produto, se não gostar pede reembolso.</p>
+                </div>
+
+                <!-- Atualizações Grátis -->
+                <div class="card-vantagem">
+                    <svg class="icone-vantagem" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
+                    <h3>Atualizações Grátis</h3>
+                    <p>Todas futuras atualizações sem custo, você não pagará nada pelas atualizações.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botões de categoria logo abaixo das vantagens -->
         <div class="abas-categorias">
             <button class="aba-btn">iOS</button>
             <button class="aba-btn">Android</button>
