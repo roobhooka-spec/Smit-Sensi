@@ -6,7 +6,7 @@
     <title>Smit Sensi</title>
     
     <style>
-        /* Configura a estrutura principal */
+        /* Configura a tela do celular perfeita */
         body {
             margin: 0;
             padding: 0;
@@ -18,162 +18,100 @@
             position: relative;
         }
 
-        /* 📸 FUNDO USANDO A PRIMEIRA IMAGEM DA LISTA (MAIS LARGA) */
-        .fundo-gengar-animado {
+        /* 📸 A IMAGEM INTEIRA SE MEXENDO IGUAL FUMAÇA NA TELA TODA */
+        .fundo-gengar-completo {
             position: fixed;
-            top: -10%;
-            left: -10%;
-            width: 120%; 
-            height: 120%;
-            background-image: url('IMG_4521.jpeg'); /* 🌟 Mudamos para a imagem mais larga de 1h atrás */
+            top: -5%;
+            left: -5%;
+            width: 110%; /* Só um pouco maior para mover sem deixar borda branca */
+            height: 110%;
+            background-image: url('IMG_4521.jpeg'); /* A imagem principal que você mandou */
             background-size: cover;
-            background-position: center center; 
-            z-index: 0; 
-            animation: fumaçaGengar 12s infinite ease-in-out alternate;
+            background-position: center center;
+            z-index: 0;
+            animation: balançoFumaça 8s infinite ease-in-out alternate;
             pointer-events: none;
         }
 
-        /* Animação suave para fazer a fumaça se mexer */
-        @keyframes fumaçaGengar {
+        /* Animação que faz a imagem inteira dançar como fumaça pura */
+        @keyframes balançoFumaça {
             0% {
-                transform: translate(-2px, -2px) scale(1.05) rotate(0deg);
-                filter: brightness(0.9) contrast(1.1);
+                transform: translate(-1%, -1%) scale(1.02);
+                filter: brightness(0.95) contrast(1.05);
             }
             50% {
-                transform: translate(3px, 3px) scale(1.1) rotate(1deg);
-                filter: brightness(1.1) contrast(1.2); 
+                transform: translate(1%, 2%) scale(1.05);
+                filter: brightness(1.1) contrast(1.15); /* Dá o efeito de fogo clareando */
             }
             100% {
-                transform: translate(-1px, 1px) scale(1.02) rotate(-1deg);
-                filter: brightness(0.8) contrast(1);
+                transform: translate(-1.5%, 0.5%) scale(1.01);
+                filter: brightness(0.9) contrast(1);
             }
         }
 
-        /* 🌟 O TRUQUE PARA APAGAR O NOME DO FUNDO:
-           Esse filtro escurece bastante o centro (onde fica o texto) e deixa as pontas com os Gengars e a fumaça aparecendo perfeitamente */
-        .filtro-escuro {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(12, 12, 14, 0.92) 20%, rgba(0, 0, 0, 0.4) 80%); 
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Garante que o conteúdo fique na frente */
+        /* Conteúdo do site flutuando transparente por cima da imagem */
         .conteudo-site {
             position: relative;
-            z-index: 2; 
+            z-index: 1; 
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 50px;
         }
 
-        /* Container do Banner Deitado */
-        .banner-container {
-            position: relative;
-            width: 90%;
-            max-width: 450px;
-            height: 180px; 
-            margin: 20px auto;
-            border-radius: 15px;
-            border: 2px solid #ff3700; 
-            box-shadow: 0 0 15px rgba(255, 55, 0, 0.5);
-            overflow: hidden;
-        }
-
-        /* Imagem estática dentro do banner (Mantemos a IMG_4570 que já estava perfeita ali) */
-        .banner-fundo {
-            position: absolute;
+        /* Espaço invisível para empurrar os botões bem para baixo, deixando o logo limpo no meio */
+        .espaco-logo {
+            height: 55vh; /* Ocupa mais da metade da tela para os botões ficarem no rodapé */
             width: 100%;
-            height: 100%;
-            background-image: url('IMG_4570.jpeg'); 
-            background-size: cover;
-            background-position: center;
         }
 
-        /* Botões iOS e Android */
+        /* Container dos Botões iOS e Android */
         .botoes-plataforma {
             display: flex;
             justify-content: center;
             gap: 15px; 
-            margin: 20px 0;
+            margin-bottom: 30px;
             width: 100%;
         }
 
+        /* Estilo idêntico aos botões da primeira foto (Laranja Neon e vazados) */
         .btn-plataforma {
-            width: 120px;
-            padding: 10px 0;
+            width: 130px;
+            padding: 12px 0;
             font-weight: bold;
             text-transform: uppercase;
             color: #ffffff;
-            background-color: rgba(0, 0, 0, 0.7); 
+            background-color: rgba(0, 0, 0, 0.4); /* Bem transparente para ver o fundo */
             border: 2px solid #ff3700; 
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 0 10px rgba(255, 55, 0, 0.4);
-            backdrop-filter: blur(3px); 
-        }
-
-        /* Container dos Quadrados de Produtos */
-        .produtos-container {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            width: 90%;
-            max-width: 450px;
-            margin-top: 10px;
-        }
-
-        /* Estilo dos Cards dos Produtos */
-        .card-produto {
-            flex: 1;
-            height: 200px;
-            background: rgba(12, 12, 16, 0.85); 
-            border: 2px solid #ff3700; 
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10px;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 0 0 10px rgba(255, 55, 0, 0.3);
+            box-shadow: 0 0 12px rgba(255, 55, 0, 0.5);
             backdrop-filter: blur(2px);
+            transition: 0.3s;
+        }
+
+        .btn-plataforma:hover {
+            background-color: #ff3700;
+            box-shadow: 0 0 20px #ff3700;
         }
     </style>
 </head>
 <body>
 
-    <!-- A IMAGEM MAIS LARGA (IMG_4521.jpeg) COM O MEIO CAMUFLADO -->
-    <div class="fundo-gengar-animado"></div>
-    <div class="filtro-escuro"></div>
+    <!-- A SUA IMAGEM PURA SE MOVIMENTANDO NO FUNDO -->
+    <div class="fundo-gengar-completo"></div>
 
     <!-- CONTEÚDO DO SITE -->
     <div class="conteudo-site">
         
-        <!-- BANNER DEITADO -->
-        <div class="banner-container">
-            <div class="banner-fundo"></div>
-        </div>
+        <!-- Deixa o centro da imagem com o nome "Smit Sensi" totalmente visível -->
+        <div class="espaco-logo"></div>
 
-        <!-- BOTÕES -->
+        <!-- BOTÕES FLUTUANDO ABAIXO DO LOGO IGUAL A FOTO -->
         <div class="botoes-plataforma">
             <a href="#" class="btn-plataforma">iOS</a>
             <a href="#" class="btn-plataforma">Android</a>
-        </div>
-
-        <!-- QUADRADINHOS DE PRODUTOS -->
-        <div class="produtos-container">
-            <div class="card-produto">PRODUTO 1<br>(AGUARDANDO FOTO)</div>
-            <div class="card-produto">PRODUTO 2<br>(AGUARDANDO FOTO)</div>
         </div>
 
     </div>
