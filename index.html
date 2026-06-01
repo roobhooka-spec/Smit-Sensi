@@ -14,13 +14,11 @@
 
         body {
             background-color: #050508;
-            /* 🔗 Aponta diretamente para o arquivo IMG_4631.jpeg do seu GitHub */
             background-image: url("IMG_4631.jpeg");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -81,10 +79,10 @@
             text-decoration: none;
         }
 
-        /* --- APRESENTAÇÃO --- */
+        /* --- HERO APRESENTAÇÃO --- */
         .hero {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .main-logo-box {
@@ -102,7 +100,6 @@
             height: 100%;
             object-fit: cover;
             border-radius: 23px;
-            background-color: #10051d;
         }
 
         .welcome-text {
@@ -113,9 +110,9 @@
 
         .highlight-text { color: #bc6eff; }
 
-        /* --- SEÇÃO DE CATÁLOGO --- */
+        /* --- SEÇÃO DO CATÁLOGO --- */
         .catalog-section {
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .section-tag {
@@ -135,7 +132,7 @@
 
         .section-title span { color: #bc6eff; }
 
-        /* --- BARRA DE BUSCA --- */
+        /* --- BUSCA --- */
         .search-container {
             display: flex;
             gap: 10px;
@@ -165,7 +162,47 @@
             white-space: nowrap;
         }
 
-        /* --- LINHA DE SELEÇÃO DE PRODUTOS --- */
+        /* --- CATEGORIAS GRANDES (BANNERS) --- */
+        .category-card {
+            position: relative;
+            width: 100%;
+            height: 140px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid rgba(155, 34, 250, 0.2);
+            background-color: #12081f;
+        }
+
+        .category-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .category-info {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            z-index: 2;
+        }
+
+        .category-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .category-count {
+            font-size: 0.75rem;
+            color: #a4b0be;
+            margin-top: 2px;
+        }
+
+        /* --- FILTROS SEPARADORES --- */
         .filter-row {
             display: flex;
             justify-content: space-between;
@@ -190,7 +227,7 @@
             text-decoration: none;
         }
 
-        /* --- NOVO DESIGN DO GRID DE PRODUTOS --- */
+        /* --- CARDS DE PRODUTOS PEQUENOS --- */
         .products-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -243,10 +280,9 @@
             font-weight: 700;
             line-height: 1.3;
             margin-bottom: 10px;
-            min-height: 34px; /* Mantém os títulos alinhados */
+            min-height: 34px;
         }
 
-        /* --- PREÇO E BOTÃO INTERNOS --- */
         .item-footer {
             display: flex;
             flex-direction: column;
@@ -269,11 +305,6 @@
             font-size: 0.8rem;
             font-weight: 700;
             text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .item-buy-btn:active {
-            background-color: #7916c7;
         }
     </style>
 </head>
@@ -281,7 +312,7 @@
 
     <div class="wrapper">
 
-        <!-- Header -->
+        <!-- Topo / Header -->
         <header class="header">
             <div class="header-left">
                 <span class="menu-icon">☰</span>
@@ -294,7 +325,7 @@
             </div>
         </header>
 
-        <!-- Seção Inicial -->
+        <!-- Apresentação da Loja -->
         <section class="hero">
             <div class="main-logo-box">
                 <img class="main-logo" src="IMG_4521.jpeg" alt="Logo Central">
@@ -302,42 +333,32 @@
             <h1 class="welcome-text">Bem-vindo à <span class="highlight-text">Smit Sensi</span></h1>
         </section>
 
-        <!-- Seção do Catálogo -->
+        <!-- Início do Catálogo -->
         <section class="catalog-section">
             <div class="section-tag">Navegue pelo catálogo</div>
             <h2 class="section-title">Escolha sua <span>categoria</span></h2>
 
+            <!-- Barra de pesquisa -->
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Buscar categoria...">
                 <a href="#" class="btn-filter">Ver todas ›</a>
             </div>
 
-            <!-- Listagem de Itens Individuais com preço e compra -->
-            <div class="products-grid">
-                
-                <!-- Card do Produto 1 -->
-                <div class="grid-item">
-                    <div class="item-thumb-box">
-                        <span class="badge-icon">⚡</span>
-                        <img class="item-thumb" src="IMG_4570.jpeg" alt="Produto 1">
-                    </div>
-                    <div class="item-title">PAINEL SAFE ANDROID - ACESSO SEMANAL</div>
-                    <div class="item-footer">
-                        <div class="item-price">R$ 29,90</div>
-                        <!-- Insira o link do seu meio de pagamento no href abaixo -->
-                        <a href="#" class="item-buy-btn">Comprar</a>
-                    </div>
+            <!-- 1. Banner Horizontal Grande - Painel Android -->
+            <div class="category-card">
+                <img class="category-img" src="IMG_4570.jpeg" alt="Painel Android">
+                <div class="category-info">
+                    <div class="category-name">Painel Android</div>
+                    <div class="category-count">3 produtos</div>
                 </div>
+            </div>
 
-                <!-- Card do Produto 2 -->
-                <div class="grid-item">
-                    <div class="item-thumb-box">
-                        <span class="badge-icon">⚡</span>
-                        <img class="item-thumb" src="IMG_4577.jpeg" alt="Produto 2">
-                    </div>
-                    <div class="item-title">PAINEL SAFE ANDROID - ACESSO MENSAL</div>
-                    <div class="item-footer">
-                        <div class="item-price">R$ 59,90</div>
-                        <!-- Insira o link do seu meio de pagamento no href abaixo -->
-                        <a href="#" class="item-buy-btn">Comprar</a>
-                    </div>
+            <!-- 2. Banner Horizontal Grande - Painel iOS -->
+            <div class="category-card">
+                <img class="category-img" src="IMG_4577.jpeg" alt="Painel iOS">
+                <div class="category-info">
+                    <div class="category-name">Painel iOS</div>
+                    <div class="category-count">3 produtos</div>
+                </div>
+            </div>
+
