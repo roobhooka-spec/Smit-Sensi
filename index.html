@@ -1,4 +1,4 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -12,14 +12,14 @@ DOCTYPE html>
         }
 
         body {
-            background: #040005;
-            font-family: sans-serif;
+            background: #06020b;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             color: #fff;
             overflow-x: hidden;
             overflow-y: auto;
         }
 
-        /* FUNDO DE FUMAÇA EM ROXO NEON */
+        /* VÍDEO OU FUMAÇA DE FUNDO FLUIDA */
         .site-fundo-completo {
             position: fixed;
             top: 0;
@@ -28,13 +28,8 @@ DOCTYPE html>
             height: 100vh;
             background: url('IMG_4570.jpeg') center top/cover;
             z-index: 1;
-            filter: brightness(0.4) contrast(1.4) hue-rotate(60deg) saturate(1.6);
-            animation: mov 18s ease-in-out infinite alternate;
+            filter: brightness(0.25) contrast(1.3) hue-rotate(60deg) saturate(1.4);
             pointer-events: none;
-        }
-
-        @keyframes mov {
-            100% { transform: scale(1.04) translate(3px, 3px); }
         }
 
         .container-loja {
@@ -42,314 +37,209 @@ DOCTYPE html>
             z-index: 2;
             max-width: 600px;
             margin: 0 auto;
-            padding: 25px 14px;
+            padding: 20px 16px 60px;
         }
 
-        /* 👑 PAINEL DE BOAS-VINDAS MELHORADO COM PULSO NEON */
-        .secao-boas-vindas {
-            background: rgba(12, 4, 22, 0.9);
-            border: 2px solid #a020f0;
-            border-radius: 16px;
-            padding: 35px 20px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 0 20px rgba(160, 32, 240, 0.3), inset 0 0 15px rgba(160, 32, 240, 0.15);
-            border-bottom: 5px solid #a020f0;
-            animation: neonPulse 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes neonPulse {
-            0% {
-                border-color: rgba(160, 32, 240, 0.6);
-                box-shadow: 0 0 15px rgba(160, 32, 240, 0.2);
-            }
-            100% {
-                border-color: rgba(192, 64, 255, 1);
-                box-shadow: 0 0 25px rgba(160, 32, 240, 0.5);
-            }
-        }
-
-        .secao-boas-vindas h1 {
-            font-size: 30px;
-            font-weight: 900;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 12px rgba(160, 32, 240, 0.8), 0 0 25px rgba(160, 32, 240, 0.4);
-            margin-bottom: 10px;
-        }
-
-        .secao-boas-vindas p {
-            font-size: 12px;
-            color: #d1b3ff;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        .titulo-secao {
-            font-size: 24px;
-            font-weight: 900;
-            color: #a020f0;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 25px;
-            letter-spacing: 1.5px;
-            text-shadow: 0 0 15px rgba(160, 32, 240, 0.6);
-        }
-
-        /* GRADE DE VANTAGENS EXCLUSIVAS */
-        .secao-vantagens {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-bottom: 35px;
-            text-align: center;
-        }
-
-        .card-vantagem {
-            background: rgba(5, 2, 10, 0.85);
-            border: 1px solid rgba(160, 32, 240, 0.25);
-            border-radius: 16px;
-            padding: 25px 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-            border-bottom: 3px solid rgba(160, 32, 240, 0.55);
+        /* NAVBAR PREMIUM SUPERIOR */
+        .header-nav {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-        }
-
-        .icone-vantagem {
-            font-size: 32px;
-            margin-bottom: 16px;
-            filter: drop-shadow(0 0 8px rgba(160, 32, 240, 0.8));
-        }
-
-        .card-vantagem h3 {
-            font-size: 14px;
-            color: #ffffff;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-        }
-
-        .card-vantagem p {
-            font-size: 11px;
-            color: #b3b3b3;
-            line-height: 1.5;
-        }
-
-        /* COMO FUNCIONA A COMPRA */
-        .secao-passos {
-            margin: 35px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .card-passo {
-            background: rgba(5, 2, 10, 0.85);
-            border: 1px solid rgba(160, 32, 240, 0.25);
-            border-radius: 14px;
-            padding: 18px 20px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            border-bottom: 3px solid rgba(160, 32, 240, 0.5);
-        }
-
-        .num-passo {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #a020f0, #400080);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-            flex-shrink: 0;
-            box-shadow: 0 0 10px rgba(160, 32, 240, 0.5);
-        }
-
-        .texto-passo h3 {
-            font-size: 15px;
-            color: #ffffff;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-        }
-
-        .texto-passo p {
-            font-size: 12px;
-            color: #b3b3b3;
-            line-height: 1.4;
-        }
-
-        .texto-passo strong {
-            color: #a020f0;
-        }
-
-        .divisor {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            margin: 35px 0;
+            padding: 10px 0 25px;
             width: 100%;
         }
 
-        /* SEÇÃO FILTRO */
-        .secao-filtro {
-            background: rgba(5, 2, 10, 0.85);
-            border: 1px solid rgba(160, 32, 240, 0.25);
-            border-radius: 16px;
-            padding: 20px 15px;
-            text-align: center;
-            margin-top: 35px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            border-bottom: 3px solid rgba(160, 32, 240, 0.5);
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            border: 1px solid rgba(160, 32, 240, 0.4);
         }
 
-        .titulo-filtro {
-            font-size: 24px;
-            color: #a020f0;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .label-grupo {
-            font-size: 15px;
-            color: #a020f0;
-            margin-bottom: 10px;
-            display: block;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .alinhamento-botoes {
+        .nav-direita {
             display: flex;
-            justify-content: center;
-            gap: 10px;
+            align-items: center;
+            gap: 15px;
         }
 
-        .btn-filtro {
-            padding: 8px 20px;
-            font-size: 12px;
-            font-weight: bold;
-            border-radius: 20px;
+        .icon-btn {
+            background: transparent;
+            border: none;
+            color: #8a8a93;
+            font-size: 18px;
             cursor: pointer;
-            background: #121212;
-            color: #666;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            margin: 0 4px;
-            text-transform: uppercase;
         }
 
-        .btn-filtro.ativo {
+        .btn-perfil {
             background: #a020f0;
             color: #fff;
-            border-color: #a020f0;
-            box-shadow: 0 0 12px #a020f0;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(160, 32, 240, 0.4);
         }
 
-        .btn-bloqueado {
-            cursor: not-allowed;
-            opacity: 0.9;
-        }
-
-        /* VITRINE EM 2 COLUNAS */
-        .grade-produtos {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .card-produto {
-            background: rgba(8, 3, 15, 0.9);
-            border: 1px solid rgba(160, 32, 240, 0.25);
-            border-radius: 12px;
-            overflow: hidden;
+        /* CRIAÇÃO DOS SELOS DE INFOS SUPERIORES */
+        .container-selos {
             display: flex;
-            flex-direction: column;
-            border-bottom: 3px solid #a020f0;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
         }
 
-        .escondido {
-            display: none !important;
+        .selo-info {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(15, 7, 25, 0.6);
+            backdrop-filter: blur(10px);
         }
 
-        .foto-box {
+        .selo-entrega { border: 1px solid rgba(160, 32, 240, 0.3); color: #c060ff; }
+        .selo-seguro { border: 1px solid rgba(0, 230, 118, 0.3); color: #00e676; }
+        .selo-verificado { border: 1px solid rgba(0, 145, 234, 0.3); color: #0091ea; width: 100%; max-width: 140px; justify-content: center; }
+
+        /* HEADER DE BOAS VINDAS COM SUA FOTO */
+        .bloco-apresentacao {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .foto-avatar-loja {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
-            aspect-ratio: 1/1;
         }
 
-        .foto-box img {
+        .foto-avatar-loja img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 22px;
+            border: 2px solid #a020f0;
+            box-shadow: 0 0 25px rgba(160, 32, 240, 0.6);
         }
 
-        .selo-sistema {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            padding: 3px 8px;
-            font-size: 9px;
-            font-weight: bold;
-            border-radius: 4px;
-            text-transform: uppercase;
+        .bloco-apresentacao h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
         }
 
-        .bg-ios {
-            background: #111;
-            color: #00d2ff;
-            border: 1px solid #00d2ff;
+        .bloco-apresentacao h1 span {
+            color: #a020f0;
+            text-shadow: 0 0 15px rgba(160, 32, 240, 0.5);
         }
 
-        .bg-android {
-            background: #111;
-            color: #00ff66;
-            border: 1px solid #00ff66;
+        .bloco-apresentacao p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 480px;
+            margin: 0 auto 25px;
         }
 
-        .info-prod {
-            padding: 10px;
+        /* BOTOES DE AÇÃO EM ROXO DA REFERÊNCIA */
+        .botoes-topo-loja {
             display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
-        .nome-prod {
-            font-size: 11px;
-            font-weight: bold;
-            margin-bottom: 6px;
-            min-height: 32px;
-            text-transform: uppercase;
-        }
-
-        .status {
-            font-size: 10px;
-            color: #2de29b;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .btn-buy {
+        .btn-principal {
             background: #a020f0;
             color: #fff;
-            text-align: center;
-            text-decoration: none;
-            padding: 9px;
-            font-size: 11px;
+            padding: 12px 28px;
+            border-radius: 25px;
             font-weight: bold;
-            border-radius: 6px;
-            border: 1px solid #c040ff;
-            margin-top: auto;
+            font-size: 14px;
+            border: none;
             cursor: pointer;
-            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(160, 32, 240, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+
+        .btn-secundario {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+
+        .btn-suporte-redondo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px auto 0;
+            cursor: pointer;
+        }
+
+        /* MINI SELOS DE INFRAESTRUTURA */
+        .mini-selos-footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            font-size: 11px;
+            color: #64748b;
+            font-weight: bold;
+        }
+
+        .mini-selos-footer span { display: flex; align-items: center; gap: 6px; }
+        .mini-selos-footer .purp { color: #a020f0; }
+        .mini-selos-footer .gren { color: #00e676; }
+        .mini-selos-footer .blu { color: #0091ea; }
+
+        .divisor { border-top: 1px solid rgba(255, 255, 255, 0.06); margin: 30px 0; width: 100%; }
+
+        /* SEÇÃO FILTRO */
+        .secao-filtro { background: rgba(10, 2, 22, 0.6); border: 1px solid rgba(160, 32, 240, 0.15); border-radius: 16px; padding: 20px 15px; text-align: center; margin-top: 35px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); border-bottom: 2px solid rgba(160, 32, 240, 0.4); backdrop-filter: blur(10px); }
+        .titulo-filtro { font-size: 22px; color: #a020f0; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; }
+        .label-grupo { font-size: 14px; color: #a020f0; margin-bottom: 10px; display: block; font-weight: bold; text-transform: uppercase; }
+        .alinhamento-botoes { display: flex; justify-content: center; gap: 10px; }
+        .btn-filtro { padding: 8px 20px; font-size: 12px; font-weight: bold; border-radius: 20px; cursor: pointer; background: #121212; color: #666; border: 1px solid rgba(255, 255, 255, 0.08); margin: 0 4px; text-transform: uppercase; }
+        .btn-filtro.ativo { background: #a020f0; color: #fff; border-color: #a020f0; box-shadow: 0 0 12px #a020f0; }
+        .btn-bloqueado { cursor: not-allowed; opacity: 0.9; }
+        
+        /* VITRINE EM 2 COLUNAS */
+        .grade-produtos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 25px; }
+        .card-produto { background: rgba(8, 3, 15, 0.9); border: 1px solid rgba(160, 32, 240, 0.25); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; border-bottom: 3px solid #a020f0; }
+        .escondido { display: none !important; }
+        .foto-box { position: relative; aspect-ratio: 1/1; }
+        .foto-box img { width: 100%; height: 100%; object-fit: cover; }
+        .selo-sistema { position: absolute; top: 8px; right: 8px; padding: 3px 8px; font-size: 9px; font-weight: bold; border-radius: 4px; text-transform: uppercase; }
+        .bg-ios { background: #111; color: #00d2ff; border: 1px solid #00d2ff; }
+        .bg-android { background: #111; color: #00ff66; border: 1px solid #00ff66; }
+        .info-prod { padding: 10px; display: flex; flex-direction: column; flex-grow: 1; }
+        .nome-prod { font-size: 11px; font-weight: bold; margin-bottom: 6px; min-height: 32px; text-transform: uppercase; }
+        .status { font-size: 10px; color: #2de29b; font-weight: bold; margin-bottom: 10px; }
+        .btn-buy { background: #a020f0; color: #fff; text-align: center; text-decoration: none; padding: 9px; font-size: 11px; font-weight: bold; border-radius: 6px; border: 1px solid #c040ff; margin-top: auto; cursor: pointer; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -358,92 +248,26 @@ DOCTYPE html>
 
     <div class="container-loja">
         
-        <!-- PAINEL DE BOAS-VINDAS NO TOPO ANIMADO -->
-        <div class="secao-boas-vindas">
-            <h1>Seja Bem-Vindo</h1>
-            <p>Aproveite os melhores painéis do mercado</p>
-        </div>
-
-        <!-- SEÇÃO VANTAGENS EXCLUSIVAS -->
-        <h2 class="titulo-secao">Vantagens Exclusivas</h2>
-        <div class="secao-vantagens">
-        <!-- SEÇÃO VANTAGENS EXCLUSIVAS -->
-        <h2 class="titulo-secao">Vantagens Exclusivas</h2>
-        <div class="secao-vantagens">
-            <div class="card-vantagem">
-                <div class="icone-vantagem">🚚</div>
-                <h3>Entrega Imediata</h3>
-                <p>Liberação automática após a compra. Você recebe instantaneamente o seu produto.</p>
-            </div>
-            <div class="card-vantagem">
-                <div class="icone-vantagem">🎧</div>
-                <h3>Suporte 24h</h3>
-                <p>Atendimento 24 Horas, diretamente pelo nosso site, via WhatsApp ou Telegram.</p>
-            </div>
-            <div class="card-vantagem">
-                <div class="icone-vantagem">🛡️</div>
-                <h3>Garantia</h3>
-                <p>7 dias de garantia incondicional. Você testa o produto, se não gostar pede reembolso.</p>
-            </div>
-            <div class="card-vantagem">
-                <div class="icone-vantagem">🔄</div>
-                <h3>Atualizações Grátis</h3>
-                <p>Todas futuras atualizações sem custo, você não pagará nada pelas atualizações.</p>
+        <!-- NAVBAR PREMIUM DA REFERÊNCIA -->
+        <div class="header-nav">
+            <div class="nav-logo"><img src="IMG_4577.jpeg" alt="Logo"></div>
+            <div class="nav-direita">
+                <button class="icon-btn">🔍</button>
+                <button class="icon-btn">🛒</button>
+                <button class="btn-perfil">👤 Perfil</button>
             </div>
         </div>
 
-        <!-- COMO FUNCIONA A COMPRA -->
-        <div class="secao-passos">
-            <h2 class="titulo-secao">Como funciona a compra?</h2>
-            <div class="card-passo"><div class="num-passo">1</div><div class="texto-passo"><h3>Escolha</h3><p>Selecione seu painel favorito e acesse o pagamento <strong>seguro</strong>.</p></div></div>
-            <div class="card-passo"><div class="num-passo">2</div><div class="texto-passo"><h3>Receba</h3><p>Link chega <strong>instantaneamente</strong> no e-mail e em "Meus Produtos".</p></div></div>
-            <div class="card-passo"><div class="num-passo">3</div><div class="texto-passo"><h3>Ative</h3><p>Suporte <strong>24h</strong> para te ajudar durante a ativação.</p></div></div>
+        <!-- SELOS ESTILIZADOS DO TOPO -->
+        <div class="container-selos">
+            <div class="selo-info selo-entrega">⚡ Entrega Automática</div>
+            <div class="selo-info selo-seguro">🛡️ Compra Segura</div>
+            <div class="selo-info selo-verificado">✓ Loja Verificada</div>
         </div>
 
-        <!-- FILTRAR PRODUTOS -->
-        <div class="secao-filtro">
-            <h2 class="titulo-filtro">Filtrar Produtos</h2>
-            <span class="label-grupo">Plataforma</span>
-            <div class="alinhamento-botoes">
-                <button class="btn-filtro ativo" id="btn-todos" onclick="filtro('todos')">Todos</button>
-                <button class="btn-filtro" id="btn-android" onclick="filtro('android')">Android</button>
-                <button class="btn-filtro" id="btn-ios" onclick="filtro('ios')">iOS</button>
+        <!-- APRESENTAÇÃO CENTRAL COM A SUA FOTO -->
+        <div class="bloco-apresentacao">
+            <div class="foto-avatar-loja">
+                <img src="IMG_4577.jpeg" alt="Smit Sensi Profile">
             </div>
-            <span class="label-grupo" style="margin-top:15px">Jogo</span>
-            <div class="alinhamento-botoes"><button class="btn-filtro ativo btn-bloqueado">Free Fire</button></div>
-        </div>
-
-        <!-- VITRINE COMPLETA COM OS 10 BLOCOS -->
-        <div class="grade-produtos">
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">FLUORITE</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('FLUORITE')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">MONITE</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('MONITE')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">PROXY iOS</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY iOS')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">BYPASS iOS</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS iOS')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">CERTIFICADO iOS</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('CERTIFICADO iOS')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">MOD MENU ANDROID</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('MOD MENU ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">EXTERNAL ANDROID</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('EXTERNAL ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">PROXY ANDROID</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('PROXY ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item android"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-android">Android</span></div><div class="info-prod"><div class="nome-prod">BYPASS ANDROID</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('BYPASS ANDROID')">Comprar</button></div></div>
-            <div class="card-produto item ios"><div class="foto-box"><img src="IMG_4521.jpeg"><span class="selo-sistema bg-ios">iOS</span></div><div class="info-prod"><div class="nome-prod">TROCAR CONTA</div><div class="status">?? Entrega imediata</div><button class="btn-buy" onclick="buy('TROCAR CONTA')">Comprar</button></div></div>
-        </div>
-    </div>
-
-    <script>
-        function buy(item) {
-            window.open(`https://wa.me{encodeURIComponent('Olá, vim pelo site e quero fazer a compra do produto: *' + item + '*')}`, '_blank');
-        }
-
-        function filtro(plat) {
-            document.querySelectorAll('.secao-filtro .btn-filtro:not(.btn-bloqueado)').forEach(b => b.classList.remove('ativo'));
-            if(document.getElementById('btn-' + plat)) document.getElementById('btn-' + plat).classList.add('ativo');
-            document.querySelectorAll('.item').forEach(p => {
-                if (plat === 'todos' || p.classList.contains(plat)) {
-                    p.classList.remove('escondido');
-                } else {
-                    p.classList.add('escondido');
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+            <h1>Bem-vindo à <span>Smit Sensi</span></h1>
