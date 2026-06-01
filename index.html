@@ -19,7 +19,7 @@
             overflow-y: auto;
         }
 
-        /* 🌌 SEU FUNDO OFICIAL ROXO RECUPERADO */
+        /* 🌌 SEU NOVO FUNDO OFICIAL COM A IMAGEM ROXA CERTINHA */
         .site-fundo-completo {
             position: fixed;
             top: 0;
@@ -28,7 +28,7 @@
             height: 100vh;
             background: url('IMG_4631.jpeg') center center/cover no-repeat;
             z-index: 1;
-            filter: brightness(0.35) contrast(1.3) saturate(1.2);
+            filter: brightness(0.3) contrast(1.3) saturate(1.2);
             animation: movFundo 20s ease-in-out infinite alternate;
             pointer-events: none;
         }
@@ -157,135 +157,22 @@
         .btn-secundario { background: rgba(255, 255, 255, 0.05); color: #fff; padding: 12px 24px; border-radius: 25px; font-weight: bold; font-size: 14px; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; }
         .btn-suporte-redondo { width: 42px; height: 42px; border-radius: 50%; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: #fff; display: flex; align-items: center; justify-content: center; margin: 10px auto 0; cursor: pointer; }
         
-        .mini-selos-footer { display: flex; justify-content: center; gap: 20px; margin: 25px 0 35px; font-size: 11px; color: #64748b; font-weight: bold; }
+        .mini-selos-footer { display: flex; justify-content: center; gap: 20px; margin: 25px 0; font-size: 11px; color: #64748b; font-weight: bold; }
         .mini-selos-footer b.purp { color: #a020f0; }
         .mini-selos-footer b.gren { color: #00e676; }
         .mini-selos-footer b.blu { color: #0091ea; }
 
-        /* 📁 SEÇÃO DE CATEGORIAS DA REFERÊNCIA */
-        .secao-categorias {
-            margin: 30px 0 15px;
-            text-align: left;
-        }
-        .sub-catalogo {
-            font-size: 11px;
-            font-weight: 800;
-            color: #a020f0;
-            letter-spacing: 1.5px;
-            display: block;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-        .titulo-catalogo {
-            font-size: 24px;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-        .titulo-catalogo span {
-            color: #a020f0;
-        }
-        .barra-pesquisa-categoria {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            align-items: center;
-        }
-        .input-busca {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            padding: 10px 14px;
-            gap: 10px;
-            flex-grow: 1;
-        }
-        .input-busca input {
-            background: transparent;
-            border: none;
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            width: 100%;
-        }
-        .input-busca input::placeholder {
-            color: #4b4b53;
-        }
-        .btn-ver-todas {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #fff;
-            padding: 11px 18px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: bold;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-        .grade-banners-categorias {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        .banner-cat {
-            height: 140px;
-            border-radius: 16px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-            padding: 15px;
-            cursor: pointer;
-            border: 1px solid rgba(160, 32, 240, 0.15);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            transition: transform 0.2s ease;
-        }
-        .info-banner-cat {
-            text-align: left;
-        }
-        .info-banner-cat h3 {
-            font-size: 16px;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 4px;
-            letter-spacing: 0.5px;
-        }
-        .info-banner-cat p {
-            font-size: 11px;
-            color: #94a3b8;
-            line-height: 1.4;
-            max-width: 90%;
-        }
-        .filtros-rapidos-catalogo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-            margin-bottom: 25px;
-        }
-        .btn-filtro-aba {
-            background: rgba(160, 32, 240, 0.15);
-            color: #fff;
-            border: 1px solid #a020f0;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .btn-ver-todos-seta {
-            background: transparent;
-            border: none;
-            color: #64748b;
-            font-size: 13px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        /* SEÇÃO FILTRO */
+        .secao-filtro { background: rgba(10, 2, 22, 0.6); border: 1px solid rgba(160, 32, 240, 0.15); border-radius: 16px; padding: 20px 15px; text-align: center; margin-top: 35px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); border-bottom: 2px solid rgba(160, 32, 240, 0.4); backdrop-filter: blur(10px); }
+        .titulo-filtro { font-size: 22px; color: #a020f0; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; }
+        .label-grupo { font-size: 14px; color: #a020f0; margin-bottom: 10px; display: block; font-weight: bold; text-transform: uppercase; }
+        .alinhamento-botoes { display: flex; justify-content: center; gap: 10px; }
+        .btn-filtro { padding: 8px 20px; font-size: 12px; font-weight: bold; border-radius: 20px; cursor: pointer; background: #121212; color: #666; border: 1px solid rgba(255, 255, 255, 0.08); margin: 0 4px; text-transform: uppercase; }
+        .btn-filtro.ativo { background: #a020f0; color: #fff; border-color: #a020f0; box-shadow: 0 0 12px #a020f0; }
+        .btn-bloqueado { cursor: not-allowed; opacity: 0.9; }
 
         /* VITRINE EM 2 COLUNAS */
-        .grade-produtos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
+        .grade-produtos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 25px; }
         .card-produto { background: rgba(8, 3, 15, 0.85); border: 1px solid rgba(160, 32, 240, 0.2); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; border-bottom: 3px solid #a020f0; backdrop-filter: blur(5px); }
         .escondido { display: none !important; }
         .foto-box { position: relative; aspect-ratio: 1/1; }
@@ -293,3 +180,52 @@
         .selo-sistema { position: absolute; top: 8px; right: 8px; padding: 3px 8px; font-size: 9px; font-weight: bold; border-radius: 4px; text-transform: uppercase; }
         .bg-ios { background: #111; color: #00d2ff; border: 1px solid #00d2ff; }
         .bg-android { background: #111; color: #00ff66; border: 1px solid #00ff66; }
+        .info-prod { padding: 10px; display: flex; flex-direction: column; flex-grow: 1; }
+        .nome-prod { font-size: 11px; font-weight: bold; margin-bottom: 6px; min-height: 32px; text-transform: uppercase; }
+        .status { font-size: 10px; color: #2de29b; font-weight: bold; margin-bottom: 10px; }
+        .btn-buy { background: #a020f0; color: #fff; text-align: center; text-decoration: none; padding: 9px; font-size: 11px; font-weight: bold; border-radius: 6px; border: 1px solid #c040ff; margin-top: auto; cursor: pointer; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <div class="site-fundo-completo"></div>
+
+    <div class="container-loja">
+        
+        <!-- NAVBAR SUPERIOR COM IMAGEM CORRETA -->
+        <div class="header-nav">
+            <div class="nav-logo"><img src="IMG_4631.jpeg" alt="Logo"></div>
+            <div class="nav-direita">
+                <button class="icon-btn">🔍</button>
+                <button class="icon-btn">🛒</button>
+                <button class="btn-perfil">👤 Perfil</button>
+            </div>
+        </div>
+
+        <!-- SELOS ESTILIZADOS DO TOPO -->
+        <div class="container-selos">
+            <div class="selo-info selo-entrega">⚡ Entrega Automática</div>
+            <div class="selo-info selo-seguro">🛡️ Compra Segura</div>
+            <div class="selo-info selo-verificado">✓ Loja Verificada</div>
+        </div>
+
+        <!-- BOLINHA CENTRAL COM A SUA IMAGEM ROXA DE GENGAR -->
+        <div class="bloco-apresentacao">
+            <div class="foto-avatar-loja">
+                <img src="IMG_4631.jpeg" alt="Smit Sensi Profile">
+            </div>
+            <h1>Bem-vindo à <span>Smit Sensi</span></h1>
+        </div>
+
+        <p class="desc-loja">A nossa loja se destaca como a referência no mercado, oferecendo uma ampla variedade de produtos digitais com preços competitivos e qualidade incomparável.</p>
+        
+        <div class="botoes-topo-loja">
+            <button class="btn-principal" onclick="document.querySelector('.secao-filtro').scrollIntoView({behavior:'smooth'})">Ver Produtos ❯</button>
+            <button class="btn-secundario">Ver Categorias</button>
+        </div>
+        <button class="btn-suporte-redondo">🎧</button>
+        
+        <div class="mini-selos-footer">
+            <span><b class="purp">⚡</b> Rápido</span>
+            <span><b class="gren">🛡️</b> Seguro</span>
+            <span><b class="blu">❖</b> PIX</span>
